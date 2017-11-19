@@ -22,11 +22,6 @@ allprojects {
     }
 }
 
-YuanZhengHu (){
-
-    System.out.print(3212131);
-}
-
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
