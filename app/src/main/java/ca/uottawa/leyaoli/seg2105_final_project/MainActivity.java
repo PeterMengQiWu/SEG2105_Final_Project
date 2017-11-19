@@ -98,4 +98,8 @@ public class MainActivity extends AppCompatActivity
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
+    public void Test(){
+        System.out.println("This is a test method from LEYAO LI to test version control on github.");
+    }
 }
