@@ -105,11 +105,11 @@ public class MainActivity extends AppCompatActivity
         System.out.println("This is a test method from Haoyuan Li to test version control on github.");
         System.out.println("This is a test method from LEYAO LI to test version control on github.--merge");
         System.out.println("This is a test method from Yibo Wang to test version control on github.");
-        System.out.println("This is a test method from Yibo Wang to test version control on github.");
+        System.out.println("This is a test method from yiiiii111111 Wang to test version control on github.");
         System.out.println("This is a test method from Li HAoyuan to test version control on github123.");
         System.out.println("This is merge test!!!");
         System.out.println("This is Hongwei Shi");
         System.out.println("This is Hongwei Shi..");
-        System.out.println("MERGE TEST 22222")
+        System.out.println("MERGE TEST 22222");
     }
 }
