@@ -3,8 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/SEG2105_Final_Project.iml" filepath="$PROJECT_DIR$/SEG2105_Final_Project.iml" />
-      <module fileurl="file://C:\Users\whtit\Desktop\SEG2105_Final_Project\SEG2105_Final_Project.iml" filepath="C:\Users\whtit\Desktop\SEG2105_Final_Project\SEG2105_Final_Project.iml" />
-      <module fileurl="file://C:\Users\whtit\Desktop\SEG2105_Final_Project\app\app.iml" filepath="C:\Users\whtit\Desktop\SEG2105_Final_Project\app\app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>
 </project>
