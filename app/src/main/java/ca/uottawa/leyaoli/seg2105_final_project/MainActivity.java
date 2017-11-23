@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.support.constraint.ConstraintLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.design.widget.TabLayout;
+import android.support.v4.view.ViewPager;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -18,21 +20,31 @@ import android.widget.ImageView;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
-
+    private SectionPageAdapter a ;
+    private ViewPager b;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
+                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        drawer.setDrawerListener(toggle);
+        toggle.syncState();
 
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        a= new SectionPageAdapter(getSupportFragmentManager());
+        b = (ViewPager) findViewById(R.id.container);
+        setupWithViewPager(b);
+        TabLayout tablayout = (TabLayout) findViewById(R.id.tablay);
+        tablayout.setupWithViewPager(b);
     }
 
     @Override
@@ -145,5 +157,14 @@ public class MainActivity extends AppCompatActivity
         int resID = getResources().getIdentifier(drawableName, "drawable",
                 getPackageName());
         avatarImage.setImageResource(resID);
+    }
+
+    private void setupWithViewPager (ViewPager viewPager){
+
+        SectionPageAdapter adapter = new SectionPageAdapter(getSupportFragmentManager());
+        adapter.addFragment(new Tab1(),"tab1");
+        adapter.addFragment(new Tab2(),"tab2");
+        adapter.addFragment(new Tab3(),"tab3");
+        viewPager.setAdapter(adapter);
     }
 }
