@@ -95,4 +95,13 @@
         "For example, position the FAB to one side of stream of a cards so the FAB won’t interfere "
         "when a user tries to pick up one of cards.\n\n"
     </string>
+    <string name="user1">user1</string>
+    <string name="user0">user0</string>
+    <string name="user2">user2</string>
+    <string name="user3">user3</string>
+    <string name="user4">user4</string>
+    <string name="user5">user5</string>
+    <string name="user6">user6</string>
+    <string name="user7">user7</string>
+    <string name="user8">user8</string>
 </resources>

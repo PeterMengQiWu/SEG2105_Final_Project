@@ -1,6 +1,8 @@
 package ca.uottawa.leyaoli.seg2105_final_project;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.constraint.ConstraintLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.view.View;
@@ -12,6 +14,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ImageView;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -80,22 +83,77 @@ public class MainActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_camera) {
+        if (id == R.id.open_tasks) {
             // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
+        } else if (id == R.id.nav_list) {
 
-        } else if (id == R.id.nav_slideshow) {
+        } else if (id == R.id.nav_schedule) {
 
-        } else if (id == R.id.nav_manage) {
+        } else if (id == R.id.task_backlog) {
 
-        } else if (id == R.id.nav_share) {
+        } else if (id == R.id.nav_people) {
 
-        } else if (id == R.id.nav_send) {
+        } else if (id == R.id.Cupboard_Fridge) {
+
+        } else if (id == R.id.nav_tools) {
+
+        } else if (id == R.id.nav_maps) {
+
+        } else if (id == R.id.nav_setting) {
 
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    public void OnSetUserButton(View view) {
+    //Application Context and Activity
+        Intent intent = new Intent(getApplicationContext(), SwitchAccountActivity.class);
+        startActivityForResult (intent,0);
+    }
+
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (resultCode == RESULT_CANCELED) return;
+        //Getting the Avatar Image we show to our users
+        ImageView avatarImage = (ImageView) findViewById(R.id.imageView);
+        //Figuring out the correct image
+        String drawableName = "ic_logo_00";
+        switch (data.getIntExtra("imageID",R.id.imageView)) {
+            case R.id.user0_img:
+                drawableName = "ic_logo_01";
+                break;
+            case R.id.user1_img:
+                drawableName = "ic_logo_02";
+                break;
+            case R.id.user2_img:
+                drawableName = "ic_logo_03";
+                break;
+            case R.id.user3_img:
+                drawableName = "ic_logo_04";
+                break;
+            case R.id.user4_img:
+                drawableName = "ic_logo_05";
+                break;
+            case R.id.user5_img:
+                drawableName = "ic_logo_00";
+                break;
+            case R.id.user6_img:
+                drawableName = "ic_logo_00";
+                break;
+            case R.id.user7_img:
+                drawableName = "ic_logo_00";
+                break;
+            case R.id.user8_img:
+                drawableName = "ic_logo_00";
+                break;
+            default:
+                drawableName = "ic_logo_00";
+                break;
+        }
+        int resID = getResources().getIdentifier(drawableName, "drawable",
+                getPackageName());
+        avatarImage.setImageResource(resID);
     }
 }
