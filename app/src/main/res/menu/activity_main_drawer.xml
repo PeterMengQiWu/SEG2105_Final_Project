@@ -5,34 +5,41 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_camera"
-            android:icon="@drawable/ic_menu_camera"
-            android:title="Import" />
+            android:id="@+id/open_tasks"
+            android:icon="@drawable/tasks"
+            android:title="Open Tasks" />
         <item
-            android:id="@+id/nav_gallery"
-            android:icon="@drawable/ic_menu_gallery"
-            android:title="Gallery" />
+            android:id="@+id/nav_list"
+            android:icon="@drawable/cart2"
+            android:title="Shopping List" />
         <item
-            android:id="@+id/nav_slideshow"
-            android:icon="@drawable/ic_menu_slideshow"
-            android:title="Slideshow" />
+            android:id="@+id/nav_schedule"
+            android:icon="@android:drawable/ic_lock_idle_alarm"
+            android:title="Schedule" />
         <item
-            android:id="@+id/nav_manage"
-            android:icon="@drawable/ic_menu_manage"
-            android:title="Tools" />
+            android:id="@+id/task_backlog"
+            android:icon="@drawable/tasks2"
+            android:title="Task Backlog" />
+        <item
+            android:id="@+id/nav_people"
+            android:icon="@drawable/people"
+            android:title="People" />
+        <item
+            android:id="@+id/Cupboard_Fridge"
+            android:icon="@drawable/fridge"
+            android:title="Cupboard and Fridge" />
+        <item
+            android:id="@+id/nav_tools"
+            android:icon="@drawable/tools"
+            android:title="Broom Clost (Tools)" />
+        <item
+            android:id="@+id/nav_maps"
+            android:icon="@drawable/location2"
+            android:title="Location" />
+        <item
+            android:id="@+id/nav_setting"
+            android:icon="@drawable/setting"
+            android:title="Setting" />
     </group>
-
-    <item android:title="Communicate">
-        <menu>
-            <item
-                android:id="@+id/nav_share"
-                android:icon="@drawable/ic_menu_share"
-                android:title="Share" />
-            <item
-                android:id="@+id/nav_send"
-                android:icon="@drawable/ic_menu_send"
-                android:title="Send" />
-        </menu>
-    </item>
 
 </menu>
