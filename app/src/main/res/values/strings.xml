@@ -108,4 +108,11 @@
 
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="button">Button</string>
+    <string name="choreName">TextView</string>
+    <string name="addButton">Button</string>
+    <string name="addButton2">Button</string>
+    <string name="calender">TODO</string>
+    <string name="time">TODO</string>
+    <string name="date">TextView</string>
+    <string name="showTime">TextView</string>
 </resources>
