@@ -27,7 +27,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".AddChore" />
-        <activity android:name=".ChoreDetail"></activity>
+        <activity android:name=".ChoreDetail" />
+        <activity android:name=".PersonalFile"></activity>
     </application>
 
 </manifest>

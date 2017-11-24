@@ -18,14 +18,25 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ImageView;
 
+import java.util.ArrayList;
+
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
     private SectionPageAdapter a ;
     private ViewPager b;
+    private final  String[] userName = {"Dad","Mom","Son","Daughter","Baby"};
+    private static ArrayList<String> list =new ArrayList<String>();
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        for (int i= 0 ; i< userName.length ; i++){
+            list.add(userName[i]);
+        }
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -166,5 +177,9 @@ public class MainActivity extends AppCompatActivity
         adapter.addFragment(new Tab2(),"tab2");
         adapter.addFragment(new Tab3(),"tab3");
         viewPager.setAdapter(adapter);
+    }
+
+    public static ArrayList<String> getList() {
+        return list;
     }
 }
