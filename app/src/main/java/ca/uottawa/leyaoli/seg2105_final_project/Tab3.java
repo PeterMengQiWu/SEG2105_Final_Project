@@ -30,6 +30,10 @@ public class Tab3 extends Fragment {
         //ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(),R.layout.people_layout,userName);
        // listview.setAdapter(adapter);
 
+        UserList somelist = UserList.getInstance();
+        PeopleAdapter adapter = new PeopleAdapter(this, somelist.getUserlist());
+
+        listview.setAdapter(adapter);
 
 
 
