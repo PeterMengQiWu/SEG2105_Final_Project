@@ -23,7 +23,7 @@ public class PeopleAdapter extends ArrayAdapter<User> {
         private final ArrayList<User> nameList;
         
 
-        public PeopleAdapter (Tab3 context1 , ArrayList<User> list){
+        public PeopleAdapter (Context context1 , ArrayList<User> list){
             super(context1,R.layout.people_layout,list);
 
             this.context = context1;
