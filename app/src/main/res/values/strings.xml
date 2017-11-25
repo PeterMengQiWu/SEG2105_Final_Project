@@ -125,4 +125,9 @@
     <string name="other">Other</string>
     <string name="name_of_market">name of market</string>
     <string name="navigate">navigate</string>
+    <string name="note_chinese_meal_please">Note: Chinese meal please!</string>
+    <string name="make_a_breakfast">Make a breakfast</string>
+    <string name="current_tasks">Current Tasks</string>
+    <string name="send_message">Send Message</string>
+    <string name="kobe_bryant">Kobe Bryant</string>
 </resources>

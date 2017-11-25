@@ -43,7 +43,8 @@
         android:id="@+id/textView2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/showTime" />
+        android:text="@string/showTime"
+        tools:text="DueDate" />
 
     <ImageView
         android:id="@+id/imageView3"
@@ -57,6 +58,7 @@
         android:id="@+id/textView3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/date" />
+        android:text="@string/date"
+        tools:text="Calender" />
 
 </LinearLayout>
