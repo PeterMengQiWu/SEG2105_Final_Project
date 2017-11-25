@@ -24,23 +24,14 @@ public class Tab3 extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_tab3,container,false);
-        String[] userName = {"Dad","Mom","Son","Daughter","Baby"};
-         ArrayList<User> userlist;
-        userlist =new ArrayList<>();
 
-        for (int i = 0;     i< userName.length ; i++){
-
-            User newUser = new User(userName[i], "Yo");
-
-            userlist.add(newUser);
-        }
         //ArrayList<String> userName = MainActivity.getList();
         ListView listview = view.findViewById(R.id.listv1);
         //ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(),R.layout.people_layout,userName);
        // listview.setAdapter(adapter);
 
-        UserList somelist = UserList.getInstance();
-        PeopleAdapter adapter = new PeopleAdapter(getContext(), userlist);
+        UserList somelist = new UserList();
+        PeopleAdapter adapter = new PeopleAdapter(getActivity(), somelist.getUserlist());
 
         listview.setAdapter(adapter);
 
