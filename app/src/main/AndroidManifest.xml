@@ -29,6 +29,7 @@
         <activity android:name=".AddChore" />
         <activity android:name=".ChoreDetail" />
         <activity android:name=".PersonalFile" />
+        <activity android:name=".LocationActivity"></activity>
     </application>
 
 </manifest>

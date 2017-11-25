@@ -108,7 +108,8 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_tools) {
 
         } else if (id == R.id.nav_maps) {
-
+            Intent location = new Intent(MainActivity.this, LocationActivity.class);
+            startActivity(location);
         } else if (id == R.id.nav_setting) {
 
         }

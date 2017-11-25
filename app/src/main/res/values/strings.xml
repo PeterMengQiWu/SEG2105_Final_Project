@@ -115,14 +115,14 @@
     <string name="time">TODO</string>
     <string name="date">TextView</string>
     <string name="showTime">TextView</string>
-    <string name="navigate" />
-    <string name="name_of_market" />
-    <string name="other" />
-    <string name="shoppers_drug_mart" />
-    <string name="t_and_t" />
-    <string name="bestbuy" />
-    <string name="canadian_tire" />
-    <string name="metro" />
-    <string name="loblaws" />
-    <string name="walmart" />
+    <string name="walmart">Walmart</string>
+    <string name="lablaws">Loblaws</string>
+    <string name="metro">Metro</string>
+    <string name="canadian_tire">Canadian Tire</string>
+    <string name="bestbuy">Bestbuy</string>
+    <string name="t_t">T and T</string>
+    <string name="shoppers_drug_mart">Shoppers Drug Mar</string>
+    <string name="other">Other</string>
+    <string name="name_of_market">name of market</string>
+    <string name="navigate">navigate</string>
 </resources>
