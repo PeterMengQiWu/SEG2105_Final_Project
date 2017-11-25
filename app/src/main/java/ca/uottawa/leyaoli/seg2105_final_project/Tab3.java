@@ -15,28 +15,35 @@ import android.widget.ListView;
 
 import java.util.ArrayList;
 
+/**
+ * Created by yuanzheng on 2017/11/21.
+ */
 
 public class Tab3 extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_tab3,container,false);
+        String[] userName = {"Dad","Mom","Son","Daughter","Baby"};
+         ArrayList<User> userlist;
+        userlist =new ArrayList<>();
 
-        ArrayList<String> userName = MainActivity.getList();
+        for (int i = 0;     i< userName.length ; i++){
+
+            User newUser = new User(userName[i], "Yo");
+
+            userlist.add(newUser);
+        }
+        //ArrayList<String> userName = MainActivity.getList();
         ListView listview = view.findViewById(R.id.listv1);
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(),android.R.layout.simple_list_item_1,userName);
+        //ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(),R.layout.people_layout,userName);
+       // listview.setAdapter(adapter);
+
+        UserList somelist = UserList.getInstance();
+        PeopleAdapter adapter = new PeopleAdapter(getContext(), userlist);
+
         listview.setAdapter(adapter);
 
-
-        listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                if (position == 0 ){
-                    Intent intent = new Intent(getActivity(),PersonalFile.class);
-                    startActivity(intent);
-                }
-            }
-        });
 
 
         return view;

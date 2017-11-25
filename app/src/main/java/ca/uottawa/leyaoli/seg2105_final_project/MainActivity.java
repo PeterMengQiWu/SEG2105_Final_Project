@@ -24,8 +24,7 @@ public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
     private SectionPageAdapter a ;
     private ViewPager b;
-    private final  String[] userName = {"Dad","Mom","Son","Daughter","Baby"};
-    private static ArrayList<String> list =new ArrayList<String>();
+
 
 
 
@@ -34,9 +33,7 @@ public class MainActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        for (int i= 0 ; i< userName.length ; i++){
-            list.add(userName[i]);
-        }
+
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -180,7 +177,5 @@ public class MainActivity extends AppCompatActivity
         viewPager.setAdapter(adapter);
     }
 
-    public static ArrayList<String> getList() {
-        return list;
-    }
+
 }
