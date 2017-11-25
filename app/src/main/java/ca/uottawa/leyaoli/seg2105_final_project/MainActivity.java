@@ -18,6 +18,9 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ImageView;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity
@@ -25,7 +28,7 @@ public class MainActivity extends AppCompatActivity
     private SectionPageAdapter a ;
     private ViewPager b;
 
-
+    private FirebaseAuth mAuth;
 
 
     @Override
@@ -53,6 +56,21 @@ public class MainActivity extends AppCompatActivity
         setupWithViewPager(b);
         TabLayout tablayout = (TabLayout) findViewById(R.id.tablay);
         tablayout.setupWithViewPager(b);
+
+        // =============== Data Base Test
+        mAuth = FirebaseAuth.getInstance();
+    }
+    // Check
+    @Override
+    public void onStart() {
+        super.onStart();
+        // Check if user is signed in (non-null) and update UI accordingly.
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+        if (currentUser == null ){
+            Intent startPage = new Intent(MainActivity.this,StartPage.class);
+            startActivity(startPage);
+            finish();
+        }
     }
 
     @Override

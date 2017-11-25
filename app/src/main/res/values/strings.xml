@@ -130,4 +130,9 @@
     <string name="current_tasks">Current Tasks</string>
     <string name="send_message">Send Message</string>
     <string name="kobe_bryant">Kobe Bryant</string>
+    <string name="register_bt">Go FUCKIN REGISTER</string>
+    <string name="hint">hint</string>
+    <string name="email">hint</string>
+    <string name="password">hint</string>
+    <string name="name">Register</string>
 </resources>
