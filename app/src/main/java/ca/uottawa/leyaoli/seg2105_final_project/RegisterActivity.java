@@ -71,8 +71,8 @@ public class RegisterActivity extends AppCompatActivity {
                             // If sign in fails, display a message to the user.
                             String TAG = "EXCEPTION";
                             FirebaseException e = (FirebaseException) task.getException();
-                            Log.w(TAG, "signInWithEmail:failure", task.getException());
-                            Toast.makeText(RegisterActivity.this,e.getMessage(),
+
+                            Toast.makeText(RegisterActivity.this, " 你是傻逼吗？",
                                     Toast.LENGTH_SHORT).show();
 
                         }

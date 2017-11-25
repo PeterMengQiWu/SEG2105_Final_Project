@@ -39,8 +39,8 @@ public class Tab2 extends Fragment {
         bt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent addIntent = new Intent(getActivity(),AddChore.class);
-                startActivity(addIntent);
+                Intent addIntent = new Intent(getActivity(), AddChore.class);
+               startActivity(addIntent);
 
             }
         });
