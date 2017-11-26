@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "705170477825",
+    "firebase_url": "https://seg2105finalproject.firebaseio.com",
+    "project_id": "seg2105finalproject",
+    "storage_bucket": "seg2105finalproject.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:705170477825:android:4a595eaf5c290ba1",
+        "android_client_info": {
+          "package_name": "ca.uottawa.leyaoli.seg2105_final_project"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "705170477825-hj589co7pbvneng18b1vu2cqj78n7vjg.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "ca.uottawa.leyaoli.seg2105_final_project",
+            "certificate_hash": "67d8f4d019ac97dc45d571e52b39e30288f4dca8"
+          }
+        },
+        {
+          "client_id": "705170477825-vdcvpshh0t460iaig6438e8olcq6bbib.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBBJ2EiEBg0hSkfYv9SPmfnSkJgJpaqql0"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "705170477825-vdcvpshh0t460iaig6438e8olcq6bbib.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
