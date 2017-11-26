@@ -68,10 +68,14 @@ public class MainActivity extends AppCompatActivity
         // Check if user is signed in (non-null) and update UI accordingly.
         FirebaseUser currentUser = mAuth.getCurrentUser();
         if (currentUser == null ){
-            Intent startPage = new Intent(MainActivity.this,StartPage.class);
-            startActivity(startPage);
-            finish();
+            start();
         }
+    }
+
+    private void start() {
+        Intent startPage = new Intent(MainActivity.this,StartPage.class);
+        startActivity(startPage);
+        finish();
     }
 
     @Override
@@ -99,11 +103,12 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+        if (id == R.id.log_out) {
+            FirebaseAuth.getInstance().signOut();
+            start();
         }
 
-        return super.onOptionsItemSelected(item);
+        return true;
     }
 
     @SuppressWarnings("StatementWithEmptyBody")
