@@ -39,7 +39,7 @@
         <activity android:name=".RegisterActivity" />
         <activity android:name=".LogInActivity" />
         <activity android:name=".UserActivity">
-            andriod:parentActivityName= ".MainActivity"
+
         </activity>
     </application>
 

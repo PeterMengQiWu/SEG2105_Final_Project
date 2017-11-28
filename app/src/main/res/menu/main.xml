@@ -8,5 +8,5 @@
         app:showAsAction="never" />
     <item
         android:id="@+id/lang_cn"
-        android:title="TBD" />
+        android:title="All User" />
 </menu>

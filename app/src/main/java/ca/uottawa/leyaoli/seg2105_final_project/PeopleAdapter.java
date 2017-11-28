@@ -45,7 +45,7 @@ public class PeopleAdapter extends ArrayAdapter<User> {
 
 
         userName.setText(currentUser.getName());
-        otherthings.setText(currentUser.getOtherthings());
+        otherthings.setText(currentUser.getEmail());
 
         avatar.setImageResource(R.drawable.avatar);
 
