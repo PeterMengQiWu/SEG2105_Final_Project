@@ -54,11 +54,13 @@ public class LogInActivity extends AppCompatActivity {
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()){
                     Intent mainintent = new Intent(LogInActivity.this, MainActivity.class);
+                    //ADD TO REGISTER PAGE
+                    mainintent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                     startActivity(mainintent);
                     finish();
                 }else {
 
-                    Toast.makeText(LogInActivity.this , "Why cant  u just type properly?",Toast.LENGTH_LONG).show();
+                    Toast.makeText(LogInActivity.this ,task.getException().getMessage(),Toast.LENGTH_LONG).show();
                 }
             }
         });

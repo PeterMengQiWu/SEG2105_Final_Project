@@ -72,7 +72,7 @@ public class RegisterActivity extends AppCompatActivity {
                             String TAG = "EXCEPTION";
                             FirebaseException e = (FirebaseException) task.getException();
 
-                            Toast.makeText(RegisterActivity.this, " 你是傻逼吗？",
+                            Toast.makeText(RegisterActivity.this, task.getException().getMessage(),
                                     Toast.LENGTH_SHORT).show();
 
                         }
