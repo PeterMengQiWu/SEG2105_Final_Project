@@ -4,17 +4,30 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/start_wallpaper"
     tools:context="ca.uottawa.leyaoli.seg2105_final_project.LogInActivity">
 
     <android.support.design.widget.TextInputLayout
         android:id="@+id/loginEmail"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_width="221dp"
+        android:layout_height="134dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0">
 
         <android.support.design.widget.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="email" />
+            android:background="@color/common_google_signin_btn_text_dark_disabled"
+            android:gravity="center"
+            android:hint="Email" />
 
         <android.support.design.widget.TextInputLayout
             android:id="@+id/logInPassword"
@@ -24,14 +37,28 @@
             <android.support.design.widget.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="pass" />
+                android:background="@color/common_google_signin_btn_text_dark_disabled"
+                android:gravity="center"
+                android:hint="Password" />
+
+            <Space
+                android:layout_width="16dp"
+                android:layout_height="14dp"
+                android:layout_weight="1" />
 
             <Button
                 android:id="@+id/sign_in_button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="29dp"
+                android:layout_height="29dp"
+                android:layout_gravity="center"
                 android:layout_weight="1"
-                android:text="SIGNIN" />
+                android:background="@drawable/register_check1" />
+
+            <Space
+                android:layout_width="15dp"
+                android:layout_height="13dp"
+                android:layout_weight="1" />
+
         </android.support.design.widget.TextInputLayout>
     </android.support.design.widget.TextInputLayout>
 </android.support.constraint.ConstraintLayout>

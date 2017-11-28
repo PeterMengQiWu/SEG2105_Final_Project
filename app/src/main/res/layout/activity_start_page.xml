@@ -4,33 +4,37 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/start_wallpaper"
     tools:context="ca.uottawa.leyaoli.seg2105_final_project.StartPage">
 
     <TextView
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
+        android:layout_above="@+id/registerButton1"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="213dp"
-        android:text="Hi Idiot"
+        android:layout_marginBottom="29dp"
         android:textSize="26sp" />
 
     <Button
         android:id="@+id/registerButton1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textView4"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="56dp"
-        android:text="@string/register_bt" />
+        android:layout_above="@+id/Sign_In"
+        android:layout_alignStart="@+id/Sign_In"
+        android:layout_marginBottom="8dp"
+        android:background="@color/common_google_signin_btn_text_dark_disabled"
+        android:text="@string/register_bt"
+        android:textColor="@android:color/background_light" />
 
     <Button
         android:id="@+id/Sign_In"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_alignStart="@+id/textView4"
-        android:layout_marginBottom="33dp"
-        android:text="Sign In" />
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="34dp"
+        android:background="@color/common_google_signin_btn_text_dark_disabled"
+        android:text="Sign In"
+        android:textColor="@color/common_google_signin_btn_text_dark_default" />
 </RelativeLayout>
