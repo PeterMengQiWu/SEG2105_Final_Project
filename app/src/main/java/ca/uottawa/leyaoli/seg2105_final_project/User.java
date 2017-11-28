@@ -6,13 +6,17 @@ package ca.uottawa.leyaoli.seg2105_final_project;
 
 public class User {
 
-    private String name = "No name";
-    private String otherthings = "nmb";
+    private String name;
+    private String email;
+
+    public User(){
+
+    }
 
     public User(String userName, String someOtherThings) {
 
         this.name = userName;
-        this.otherthings = someOtherThings;
+        this.email = someOtherThings;
     }
 
     public String getName() {
@@ -23,11 +27,12 @@ public class User {
         this.name = name;
     }
 
-    public String getOtherthings() {
-        return otherthings;
+    public String getEmail() {
+        return email;
     }
 
-    public void setOtherthings(String otherthings) {
-        this.otherthings = otherthings;
+    public void setEmail(String email) {
+        this.email = email;
     }
 }
+

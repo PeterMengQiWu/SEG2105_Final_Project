@@ -8,6 +8,7 @@ import android.widget.Button;
 
 public class StartPage extends AppCompatActivity {
     private Button bt;
+    private  Button bt2;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -15,7 +16,7 @@ public class StartPage extends AppCompatActivity {
 
 
         bt = (Button) findViewById(R.id.registerButton1);
-
+        bt2 = (Button) findViewById(R.id.Sign_In );
         bt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -25,6 +26,15 @@ public class StartPage extends AppCompatActivity {
             }
 
 
+        });
+
+
+        bt2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent log  = new Intent(StartPage.this, LogInActivity.class);
+                startActivity(log);
+            }
         });
 
 

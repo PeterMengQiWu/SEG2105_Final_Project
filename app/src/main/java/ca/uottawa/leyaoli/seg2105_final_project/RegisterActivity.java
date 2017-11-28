@@ -17,8 +17,12 @@ import com.google.firebase.FirebaseException;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import org.w3c.dom.Text;
+
+import java.util.HashMap;
 
 public class RegisterActivity extends AppCompatActivity {
 
@@ -27,6 +31,8 @@ public class RegisterActivity extends AppCompatActivity {
     private TextInputLayout pass;
     private  Button bt;
     private FirebaseAuth mAuth;
+
+    private DatabaseReference database ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,26 +60,42 @@ public class RegisterActivity extends AppCompatActivity {
 
     }
 
-    private void register(String disName, String disEmail, String disPass) {
+    private void register(final String disName, final String disEmail, String disPass) {
         mAuth.createUserWithEmailAndPassword(disEmail, disPass)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
                             // Sign in success, update UI with the signed-in user's information
+                             FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
 
-                            FirebaseUser user = mAuth.getCurrentUser();
+                             String uid = currentUser.getUid();
+                             database = FirebaseDatabase.getInstance().getReference().child("Users").child(uid);
+                            HashMap<String,String> userMap = new HashMap<>();
+                            userMap.put("name",disName);
+                            userMap.put("email",disEmail);
+                            database.setValue(userMap).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                @Override
+                                public void onComplete(@NonNull Task<Void> task) {
+                                    if (task.isSuccessful()){
+                                        Intent startApp = new Intent(RegisterActivity.this,MainActivity.class);
+                                        startActivity(startApp);
+                                        finish();
 
-                            Intent startApp = new Intent(RegisterActivity.this,MainActivity.class);
-                            startActivity(startApp);
-                            finish();
+                                    }
+                                }
+                            });
+
+                            //FirebaseUser user = mAuth.getCurrentUser();
+
+
 
                         } else {
                             // If sign in fails, display a message to the user.
                             String TAG = "EXCEPTION";
                             FirebaseException e = (FirebaseException) task.getException();
 
-                            Toast.makeText(RegisterActivity.this, " 你是傻逼吗？",
+                            Toast.makeText(RegisterActivity.this, task.getException().getMessage(),
                                     Toast.LENGTH_SHORT).show();
 
                         }

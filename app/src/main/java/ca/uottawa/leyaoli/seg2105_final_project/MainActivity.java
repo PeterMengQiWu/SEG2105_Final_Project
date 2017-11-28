@@ -1,12 +1,16 @@
 package ca.uottawa.leyaoli.seg2105_final_project;
+import java.util.Locale;
 
-import android.content.Intent;
+import android.content.Context;
+import android.content.res.Configuration;
+import android.content.res.Resources;
 import android.os.Bundle;
-import android.support.constraint.ConstraintLayout;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
+import android.app.Activity;
+import android.content.Intent;
+
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
+import android.util.DisplayMetrics;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -22,6 +26,10 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
 import java.util.ArrayList;
+import java.util.Locale;
+
+
+
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -31,10 +39,17 @@ public class MainActivity extends AppCompatActivity
     private FirebaseAuth mAuth;
 
 
+    private static final String FILE_NAME = "file_lang"; // preference file name
+    private static final String KEY_LANG = "key_lang"; // preference key
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_main);
+
 
 
 
@@ -106,6 +121,9 @@ public class MainActivity extends AppCompatActivity
         if (id == R.id.log_out) {
             FirebaseAuth.getInstance().signOut();
             start();
+        }else if (id == R.id.lang_cn){
+            Intent intent = new Intent(MainActivity.this,UserActivity.class);
+            startActivity(intent);
         }
 
         return true;
@@ -202,4 +220,9 @@ public class MainActivity extends AppCompatActivity
     }
 
 
+
+
+
+
 }
+
