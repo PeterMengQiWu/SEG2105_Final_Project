@@ -11,61 +11,75 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <RadioButton
-            android:id="@+id/radioButton"
+        <RadioGroup
+            android:id="@+id/market"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/walmart"
-            android:textSize="18sp" />
+            android:layout_height="wrap_content">
 
-        <RadioButton
-            android:id="@+id/radioButton2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/lablaws"
-            android:textSize="18sp" />
+            <RadioButton
+                android:id="@+id/walmart"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/walmart"
+                android:textSize="18sp" />
 
-        <RadioButton
-            android:id="@+id/radioButton3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/metro"
-            android:textSize="18sp" />
+            <RadioButton
+                android:id="@+id/loblaw"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/lablaws"
+                android:textSize="18sp" />
 
-        <RadioButton
-            android:id="@+id/radioButton4"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/canadian_tire"
-            android:textSize="18sp" />
+            <RadioButton
+                android:id="@+id/metro"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/metro"
+                android:textSize="18sp" />
 
-        <RadioButton
-            android:id="@+id/radioButton5"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/bestbuy"
-            android:textSize="18sp" />
+            <RadioButton
+                android:id="@+id/canadian_tire"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/canadian_tire"
+                android:textSize="18sp" />
 
-        <RadioButton
-            android:id="@+id/radioButton6"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/t_t"
-            android:textSize="18sp" />
+            <RadioButton
+                android:id="@+id/bestbuy"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/bestbuy"
+                android:textSize="18sp" />
 
-        <RadioButton
-            android:id="@+id/radioButton7"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/shoppers_drug_mart"
-            android:textSize="18sp" />
+            <RadioButton
+                android:id="@+id/T_n_T"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/t_t"
+                android:textSize="18sp" />
 
-        <RadioButton
-            android:id="@+id/radioButton8"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/other"
-            android:textSize="18sp" />
+            <RadioButton
+                android:id="@+id/shoppers_drug_mart"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/shoppers_drug_mart"
+                android:textSize="18sp" />
+
+            <RadioButton
+                android:id="@+id/other"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/other"
+                android:textSize="18sp" />
+        </RadioGroup>
 
         <EditText
             android:id="@+id/editText"
@@ -75,14 +89,14 @@
             android:hint="@string/name_of_market"
             android:imeActionLabel="l"
             android:inputType="textPersonName"
-            android:labelFor="@+id/radioButton6"
+            android:labelFor="@+id/T_n_T"
             android:textSize="18sp" />
 
         <Button
             android:id="@+id/button2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:onClick="OnOpenInGoogleMaps"
+            android:onClick="NavigateButton"
             android:text="@string/navigate" />
 
     </LinearLayout>
