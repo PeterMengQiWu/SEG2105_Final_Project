@@ -38,9 +38,8 @@
         <activity android:name=".StartPage" />
         <activity android:name=".RegisterActivity" />
         <activity android:name=".LogInActivity" />
-        <activity android:name=".UserActivity">
-
-        </activity>
+        <activity android:name=".UserActivity"></activity>
+        <activity android:name=".ChatActivity"></activity>
     </application>
 
 </manifest>
