@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FFFFFF"
     tools:context="ca.uottawa.leyaoli.seg2105_final_project.SwitchAccountActivity">
 
     <LinearLayout
@@ -31,6 +32,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:text="@string/user0"
+                android:textColor="@color/common_google_signin_btn_text_dark_focused"
                 android:textSize="30sp" />
         </LinearLayout>
 
@@ -54,6 +56,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:text="@string/user1"
+                android:textColor="@color/common_google_signin_btn_text_dark_focused"
                 android:textSize="30sp" />
         </LinearLayout>
 
@@ -77,6 +80,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:text="@string/user2"
+                android:textColor="@color/common_google_signin_btn_text_dark_focused"
                 android:textSize="30sp" />
         </LinearLayout>
 
@@ -100,6 +104,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:text="@string/user3"
+                android:textColor="@color/common_google_signin_btn_text_dark_focused"
                 android:textSize="30sp" />
         </LinearLayout>
 
@@ -123,6 +128,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:text="@string/user4"
+                android:textColor="@color/common_google_signin_btn_text_dark_focused"
                 android:textSize="30sp" />
         </LinearLayout>
 
