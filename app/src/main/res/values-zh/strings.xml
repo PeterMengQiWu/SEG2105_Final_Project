@@ -21,4 +21,13 @@
     <string name="due_time">截止时间：22:55</string>
     <string name="name_of_task">任务名称</string>
     <string name="points">分数（例：5）</string>
+    <string name="open_tasks">打开任务界面</string>
+    <string name="shopping_list">购物清单</string>
+    <string name="sechedule">时间表</string>
+    <string name="task_backlog">任务列表</string>
+    <string name="people">家庭成员</string>
+    <string name="cupboard_and_fridge">橱柜及冰箱</string>
+    <string name="broom_clost_tools">壁橱（工具）</string>
+    <string name="location">超市位置</string>
+    <string name="setting">设置</string>
 </resources>

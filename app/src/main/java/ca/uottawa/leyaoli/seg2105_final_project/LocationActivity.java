@@ -43,25 +43,25 @@ public class LocationActivity extends AppCompatActivity {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 if (checkedId == walmart.getId()){
-                    address = walmart.getText().toString();
+                    address = "walmart";
                 }
                 else if (checkedId == loblaws.getId()){
-                    address = loblaws.getText().toString();
+                    address = "loblaws";
                 }
                 else if (checkedId == metro.getId()){
-                    address = metro.getText().toString();
+                    address = "metro";
                 }
                 else if (checkedId == CT.getId()){
-                    address = CT.getText().toString();
+                    address = "Canadian Tire";
                 }
                 else if (checkedId == bestbuy.getId()){
-                    address = bestbuy.getText().toString();
+                    address = "bestbuy";
                 }
                 else if (checkedId == TnT.getId()){
-                    address = TnT.getText().toString();
+                    address = "T & T";
                 }
                 else if (checkedId == shoppers.getId()){
-                    address = shoppers.getText().toString();
+                    address = "shoppers drug mart";
                 }
                 else if (checkedId == other.getId()){
                     marketAddress = (EditText)findViewById(R.id.editText);

@@ -156,4 +156,13 @@
     <string name="due_time">Due time: 22:55</string>
     <string name="confirm">Confirm</string>
     <string name="add_new_task">Add new task</string>
+    <string name="open_tasks">Open tasks</string>
+    <string name="shopping_list">Shopping list</string>
+    <string name="sechedule">Sechedule</string>
+    <string name="task_backlog">Task Backlog</string>
+    <string name="people">People</string>
+    <string name="cupboard_and_fridge">Cupboard and Fridge</string>
+    <string name="broom_clost_tools">Broom Clost (Tools)</string>
+    <string name="location">Location</string>
+    <string name="setting">Setting</string>
 </resources>
