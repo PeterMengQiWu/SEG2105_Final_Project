@@ -22,18 +22,19 @@ import java.util.ArrayList;
 
 
 public class  Tab1 extends Fragment {
-
+    private CheckBox ch1;
     private CheckBox ch;
     private EditText text;
     private int[]id1;//Metarial
     private int []id2;//Groceries
+    private View view;
 
 
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_tab1,container,false);
+        this.view = inflater.inflate(R.layout.fragment_tab1,container,false);
 
 
 
@@ -47,24 +48,38 @@ public class  Tab1 extends Fragment {
            ch= view.findViewById(id1[i]);
 
                ch.setVisibility(View.GONE);
-
-
        }
+        for(int pos=0;pos<id1.length;pos++) {
+            ch1 = view.findViewById(id1[pos]);
+            if(ch1.getText().toString().equals("")){
+
+                break;
+            }
+        }
+
 
         bt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //jia cailiao
 
-                ch.setText(text.getText());
-                ch.setVisibility(View.VISIBLE);
-
-
-
+                for(int pos=0;pos<id1.length;pos++) {
+                    ch1 = view.findViewById(id1[pos]);
+                    add(view,ch1);
+                    break;
+                    }
             }
         });
 
         return view;
+
+}
+public void add(View view,CheckBox ch1){
+
+        if(ch1.getText().toString().equals("")){
+            ch1.setText(text.getText());
+            ch1.setVisibility(View.VISIBLE);
+        }
 
 }
 
