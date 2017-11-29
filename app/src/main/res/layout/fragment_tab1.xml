@@ -1,188 +1,91 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="ca.uottawa.leyaoli.seg2105_final_project.Tab1">
 
     <!-- TODO: Update blank fragment layout -->
 
-    <ScrollView
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
         <LinearLayout
+            android:layout_width="398dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/add"
+                android:layout_width="84dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/addButton"
+                tools:text="add" />
+
+            <CheckBox
+                android:id="@+id/checkBoxtype1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="CheckBox" />
+
+            <CheckBox
+                android:id="@+id/checkBoxtype2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="CheckBox" />
+
+            <EditText
+                android:id="@+id/textadd"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:text="Name" />
+
+        </LinearLayout>
+
+        <EditText
+            android:id="@+id/Type1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical" >
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="Edit1" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
+        <ListView
+            android:id="@+id/list1"
+            android:layout_width="395dp"
+            android:layout_height="129dp"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="8dp">
 
-                <LinearLayout
-                    android:id="@+id/addContent"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+        </ListView>
 
-                    <Button
-                        android:id="@+id/Add"
-                        android:layout_width="50dp"
-                        android:layout_height="36dp"
-                        android:layout_weight="1"
-                        android:text="+"
-                        tools:text="+" />
+        <EditText
+            android:id="@+id/Type2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="Edit2" />
 
-                    <Button
-                        android:id="@+id/selectType"
-                        android:layout_width="wrap_content"
-                        android:layout_height="38dp"
-                        android:layout_weight="1"
-                        android:text="type"
-                        tools:text="type" />
+        <ListView
+            android:id="@+id/list2"
+            android:layout_width="match_parent"
+            android:layout_height="379dp"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="8dp">
 
-                    <EditText
-                        android:id="@+id/addName"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:ems="10"
-                        android:inputType="textPersonName"
-                        android:text="Name"
-                        tools:text="new Content" />
+        </ListView>
 
-                </LinearLayout>
+    </LinearLayout>
 
-                <LinearLayout
-                    android:id="@+id/MetirialT"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-
-                    <EditText
-                        android:id="@+id/Metarial"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:ems="10"
-                        android:inputType="textPersonName"
-                        android:text="Metarial"
-                        tools:text="Metarial" />
-
-                    <GridLayout
-                        android:id="@+id/Metariallist"
-                        android:layout_width="match_parent"
-                        android:layout_height="135dp"
-                        android:columnCount="2">
-
-                        <CheckBox
-                            android:id="@+id/checkBoxM1"
-                            android:layout_width="190dp"
-                            android:layout_height="wrap_content" />
-
-                        <CheckBox
-                            android:id="@+id/checkBoxM2"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content" />
-
-                        <CheckBox
-                            android:id="@+id/checkBoxM3"
-                            android:layout_width="189dp"
-                            android:layout_height="wrap_content" />
-
-                        <CheckBox
-                            android:id="@+id/checkBoxM4"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content" />
-
-                        <CheckBox
-                            android:id="@+id/checkBoxM5"
-                            android:layout_width="190dp"
-                            android:layout_height="wrap_content" />
-
-                        <CheckBox
-                            android:id="@+id/checkBoxM6"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content" />
-
-                        <CheckBox
-                            android:id="@+id/checkBoxM7"
-                            android:layout_width="189dp"
-                            android:layout_height="wrap_content" />
-
-                        <CheckBox
-                            android:id="@+id/checkBoxM8"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content" />
-
-                    </GridLayout>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/grocericesT"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical">
-
-                    <EditText
-                        android:id="@+id/groceroies"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:ems="10"
-                        android:inputType="textPersonName"
-                        android:text="Groceroies" />
-
-                    <GridLayout
-                        android:id="@+id/groceriesList"
-                        android:layout_width="match_parent"
-                        android:layout_height="204dp"
-                        android:columnCount="2">
-
-                        <CheckBox
-                            android:id="@+id/checkBoxG1"
-                            android:layout_width="190dp"
-                            android:layout_height="wrap_content" />
-
-                        <CheckBox
-                            android:id="@+id/checkBoxG2"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content" />
-
-                        <CheckBox
-                            android:id="@+id/checkBoxG3"
-                            android:layout_width="190dp"
-                            android:layout_height="wrap_content" />
-
-                        <CheckBox
-                            android:id="@+id/checkBoxG4"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content" />
-
-                        <CheckBox
-                            android:id="@+id/checkBoxG5"
-                            android:layout_width="190dp"
-                            android:layout_height="wrap_content" />
-
-                        <CheckBox
-                            android:id="@+id/checkBoxG6"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content" />
-
-                        <CheckBox
-                            android:id="@+id/checkBoxG7"
-                            android:layout_width="191dp"
-                            android:layout_height="wrap_content" />
-
-                        <CheckBox
-                            android:id="@+id/checkBoxG8"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content" />
-
-                    </GridLayout>
-
-                </LinearLayout>
-            </LinearLayout>
-        </LinearLayout>
-    </ScrollView>
-
-</FrameLayout>
+</android.support.constraint.ConstraintLayout>
