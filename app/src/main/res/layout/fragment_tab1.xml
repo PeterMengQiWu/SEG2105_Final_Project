@@ -60,14 +60,13 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
 
-                    <EditText
-                        android:id="@+id/Metarial"
+                    <TextView
+                        android:id="@+id/textView3"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:ems="10"
-                        android:inputType="textPersonName"
                         android:text="Metarial"
-                        tools:text="Metarial" />
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
 
                     <GridLayout
                         android:id="@+id/Metariallist"
@@ -124,13 +123,13 @@
                     android:layout_height="match_parent"
                     android:orientation="vertical">
 
-                    <EditText
-                        android:id="@+id/groceroies"
+                    <TextView
+                        android:id="@+id/textView5"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:ems="10"
-                        android:inputType="textPersonName"
-                        android:text="Groceroies" />
+                        android:text="Groceroies"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
 
                     <GridLayout
                         android:id="@+id/groceriesList"
