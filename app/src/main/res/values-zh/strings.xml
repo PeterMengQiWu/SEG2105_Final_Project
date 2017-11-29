@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">家务分配管理系统</string>
+    <string name="app_name">家务管理系统</string>
     <string name="action_settings">设置</string>
     <string name="walmart">沃尔玛</string>
     <string name="bestbuy">百思买</string>
@@ -17,8 +17,25 @@
     <string name="add_new_task">新增任务</string>
     <string name="refresh">刷新</string>
     <string name="confirm">确认</string>
-    <string name="due_date">截止日期</string>
-    <string name="due_time">截止时间</string>
+    <string name="due_date">截止日期：17-12-30</string>
+    <string name="due_time">截止时间：22:55</string>
     <string name="points">分数</string>
     <string name="name_of_task">任务名称</string>
+    <string name="refresh">刷新</string>
+    <string name="name_of_task">新建任务</string>
+    <string name="points">分数（例：5）</string>
+    <string name="due_date">截止日期（例：17-12-30）</string>
+    <string name="due_time">截止时间（例：23：55）</string>
+    <string name="confirm">取人</string>
+    <string name="add_new_task">新建任务</string>
+    <string name="walmart">沃尔玛</string>
+    <string name="lablaws">罗布劳</string>
+    <string name="metro">Metro</string>
+    <string name="canadian_tire">Canadian Tire</string>
+    <string name="bestbuy">百思买</string>
+    <string name="t_t">大统华</string>
+    <string name="shoppers_drug_mart">启康药业连锁</string>
+    <string name="other">qi\'ta</string>
+    <string name="name_of_market">超市名称</string>
+    <string name="navigate">导航</string>
 </resources>
