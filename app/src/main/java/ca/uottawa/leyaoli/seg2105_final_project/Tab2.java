@@ -12,8 +12,11 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by yuanzheng on 2017/11/21.
  */
@@ -21,20 +24,16 @@ import java.util.ArrayList;
 
 public class Tab2 extends Fragment {
 
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_tab2,container,false);
         ArrayList<String> chorelist  = new ArrayList<>();
 
-        ListView listview = view.findViewById(R.id.listv);
-        Button bt = view.findViewById(R.id.butttonToAdd);
+        ListView listview = view.findViewById(R.id.nameListView);
+        Button bt = view.findViewById(R.id.new_task);
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(),android.R.layout.simple_list_item_1,chorelist);
         listview.setAdapter(adapter);
-
-
-
 
         bt.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -55,11 +54,6 @@ public class Tab2 extends Fragment {
             }
         });
 
-
-
         return view;
     }
-
-
-
 }

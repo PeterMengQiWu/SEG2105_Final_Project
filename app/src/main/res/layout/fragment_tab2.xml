@@ -4,13 +4,29 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <Button
-        android:id="@+id/butttonToAdd"
-        style="@style/Widget.AppCompat.Button"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/button"
-        tools:text="Add a task" />
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/new_task"
+            style="@style/Widget.AppCompat.Button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="createNewTasks"
+            android:text="@string/button"
+            tools:text="Add a task" />
+
+        <Button
+            android:id="@+id/refresh"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="search"
+            android:text="@string/refresh" />
+    </LinearLayout>
 
     <Switch
         android:id="@+id/showTask"
@@ -19,7 +35,7 @@
         android:text="switchToShow" />
 
     <ListView
-        android:id="@+id/listv"
+        android:id="@+id/nameListView"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 </LinearLayout>
