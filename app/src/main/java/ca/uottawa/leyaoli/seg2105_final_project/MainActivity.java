@@ -169,55 +169,6 @@ public class MainActivity extends AppCompatActivity
         return true;
     }
 
-    public void OnSetUserButton(View view) {
-    //Application Context and Activity
-        Intent intent = new Intent(getApplicationContext(), SwitchAccountActivity.class);
-        startActivityForResult (intent,0);
-    }
-
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (resultCode == RESULT_CANCELED) return;
-        //Getting the Avatar Image we show to our users
-        ImageView avatarImage = (ImageView) findViewById(R.id.imageView);
-        //Figuring out the correct image
-        String drawableName = "ic_logo_00";
-        switch (data.getIntExtra("imageID",R.id.imageView)) {
-            case R.id.user0_img:
-                drawableName = "ic_logo_01";
-                break;
-            case R.id.user1_img:
-                drawableName = "ic_logo_02";
-                break;
-            case R.id.user2_img:
-                drawableName = "ic_logo_03";
-                break;
-            case R.id.user3_img:
-                drawableName = "ic_logo_04";
-                break;
-            case R.id.user4_img:
-                drawableName = "ic_logo_05";
-                break;
-            case R.id.user5_img:
-                drawableName = "ic_logo_00";
-                break;
-            case R.id.user6_img:
-                drawableName = "ic_logo_00";
-                break;
-            case R.id.user7_img:
-                drawableName = "ic_logo_00";
-                break;
-            case R.id.user8_img:
-                drawableName = "ic_logo_00";
-                break;
-            default:
-                drawableName = "ic_logo_00";
-                break;
-        }
-        int resID = getResources().getIdentifier(drawableName, "drawable",
-                getPackageName());
-        avatarImage.setImageResource(resID);
-    }
-
     private void setupWithViewPager (ViewPager viewPager){
         SectionPageAdapter adapter = new SectionPageAdapter(getSupportFragmentManager());
         adapter.addFragment(new Tab1(),"Shopping");
