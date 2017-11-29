@@ -22,6 +22,7 @@ android {
 
 
 dependencies {
+
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'com.android.support:appcompat-v7:26.1.0'
     implementation 'com.android.support:design:26.1.0'
@@ -35,13 +36,12 @@ dependencies {
     compile 'com.google.firebase:firebase-auth:11.0.1'
     compile 'com.firebaseui:firebase-ui-database:2.0.1'
 
-
+    compile  'de.hdodenhof:circleimageview:2.1.0'
 }
 
 
 
-
-
+android.defaultConfig.vectorDrawables.useSupportLibrary = true
 
 
 

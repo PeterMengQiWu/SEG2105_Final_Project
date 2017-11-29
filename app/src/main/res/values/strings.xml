@@ -132,8 +132,8 @@
     <string name="kobe_bryant">Kobe Bryant</string>
     <string name="register_bt">REGISTER</string>
     <string name="hint">hint</string>
-    <string name="email">hint</string>
-    <string name="password">hint</string>
+    <string name="email">Email</string>
+    <string name="password">password</string>
     <string name="name">Register</string>
     <string name="title_activity_login">Sign in</string>
 
@@ -149,4 +149,21 @@
     <string name="permission_rationale">"Contacts permissions are needed for providing email
         completions."
     </string>
+    <string name="refresh">Refresh</string>
+    <string name="name_of_task">name of task</string>
+    <string name="points">points (Ex: 5)</string>
+    <string name="due_date">Due date: 17-12-30</string>
+    <string name="due_time">Due time: 22:55</string>
+    <string name="confirm">Confirm</string>
+    <string name="add_new_task">Add new task</string>
+    <string name="open_tasks">Open tasks</string>
+    <string name="shopping_list">Shopping list</string>
+    <string name="sechedule">Sechedule</string>
+    <string name="task_backlog">Task Backlog</string>
+    <string name="people">People</string>
+    <string name="cupboard_and_fridge">Cupboard and Fridge</string>
+    <string name="broom_clost_tools">Broom Clost (Tools)</string>
+    <string name="location">Location</string>
+    <string name="setting">Setting</string>
+    <string name="project_name">Newbies\' Final Project</string>
 </resources>

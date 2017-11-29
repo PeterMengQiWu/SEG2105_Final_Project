@@ -15,6 +15,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -39,6 +40,7 @@ public class Tab3 extends Fragment {
     private FirebaseAuth auth;
     private String userid;
     private View view;
+
     public Tab3(){
 
     }
@@ -61,6 +63,8 @@ public class Tab3 extends Fragment {
 
 
 
+
+
         return view;
     }
 
@@ -76,7 +80,7 @@ public class Tab3 extends Fragment {
                 viewHolder.setName (model.getName());
                 viewHolder.setOther(model.getEmail());
 
-
+                final String list_user_id = getRef(position).getKey();
 
                 usersDatabse.addValueEventListener(new ValueEventListener() {
                     @Override
@@ -90,11 +94,23 @@ public class Tab3 extends Fragment {
                                 builder.setItems(options, new DialogInterface.OnClickListener() {
                                     @Override
                                     public void onClick(DialogInterface dialog, int which) {
+                                        if (which == 0 ){
 
+                                            Intent inten = new Intent(getContext(),PersonalFile.class);
+                                            inten.putExtra("user_id",list_user_id);
+                                            startActivity(inten);
+                                        }else if (which == 1){
+                                            Intent chatintent = new Intent(getContext(),ChatActivity.class);
+                                            chatintent.putExtra("user_id",list_user_id);
+                                            startActivity(chatintent);
+
+                                        }
                                     }
                                 });
 
                                 builder.show();
+
+
                             }
                         });
                     }

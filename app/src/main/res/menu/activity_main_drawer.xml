@@ -7,39 +7,39 @@
         <item
             android:id="@+id/open_tasks"
             android:icon="@drawable/tasks"
-            android:title="Open Tasks" />
+            android:title="@string/open_tasks" />
         <item
             android:id="@+id/nav_list"
             android:icon="@drawable/cart2"
-            android:title="Shopping List" />
+            android:title="@string/shopping_list" />
         <item
             android:id="@+id/nav_schedule"
             android:icon="@android:drawable/ic_lock_idle_alarm"
-            android:title="Schedule" />
+            android:title="@string/sechedule" />
         <item
             android:id="@+id/task_backlog"
             android:icon="@drawable/tasks2"
-            android:title="Task Backlog" />
+            android:title="@string/task_backlog" />
         <item
             android:id="@+id/nav_people"
             android:icon="@drawable/people"
-            android:title="People" />
+            android:title="@string/people" />
         <item
             android:id="@+id/Cupboard_Fridge"
             android:icon="@drawable/fridge"
-            android:title="Cupboard and Fridge" />
+            android:title="@string/cupboard_and_fridge" />
         <item
             android:id="@+id/nav_tools"
             android:icon="@drawable/tools"
-            android:title="Broom Clost (Tools)" />
+            android:title="@string/broom_clost_tools" />
         <item
             android:id="@+id/nav_maps"
             android:icon="@drawable/location2"
-            android:title="Location" />
+            android:title="@string/location" />
         <item
             android:id="@+id/nav_setting"
             android:icon="@drawable/setting"
-            android:title="Setting" />
+            android:title="@string/setting" />
     </group>
 
 </menu>
