@@ -60,7 +60,6 @@
         android:id="@+id/confirm"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:onClick="confirm"
         android:text="@string/confirm" />
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>

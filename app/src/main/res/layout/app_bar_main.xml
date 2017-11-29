@@ -3,8 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="com.example.yuanzheng.myapplication.MainActivity">
+    android:layout_height="match_parent">
+    tools:context="ca.uottawa.leyaoli.seg2105_final_project.MainActivity">
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
@@ -33,7 +33,7 @@
         android:id="@+id/container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
+        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
 
 
 </android.support.design.widget.CoordinatorLayout>
