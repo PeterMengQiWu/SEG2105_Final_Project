@@ -132,8 +132,8 @@
     <string name="kobe_bryant">Kobe Bryant</string>
     <string name="register_bt">REGISTER</string>
     <string name="hint">hint</string>
-    <string name="email">hint</string>
-    <string name="password">hint</string>
+    <string name="email">Email</string>
+    <string name="password">password</string>
     <string name="name">Register</string>
     <string name="title_activity_login">Sign in</string>
 
@@ -165,4 +165,5 @@
     <string name="broom_clost_tools">Broom Clost (Tools)</string>
     <string name="location">Location</string>
     <string name="setting">Setting</string>
+    <string name="project_name">Newbies\' Final Project</string>
 </resources>

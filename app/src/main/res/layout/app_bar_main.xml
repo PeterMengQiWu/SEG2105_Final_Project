@@ -18,7 +18,8 @@
             android:layout_weight="1"
             android:background="?attr/colorPrimary"
             android:minHeight="?attr/actionBarSize"
-            android:theme="?attr/actionBarTheme" />
+            android:theme="?attr/actionBarTheme"
+            app:title="@string/project_name" />
 
         <android.support.design.widget.TabLayout
             android:id="@+id/tablay"

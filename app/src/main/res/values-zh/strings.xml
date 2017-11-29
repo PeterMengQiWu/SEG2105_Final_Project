@@ -30,4 +30,8 @@
     <string name="broom_clost_tools">壁橱（工具）</string>
     <string name="location">超市位置</string>
     <string name="setting">设置</string>
+    <string name="project_name">牛逼的项目</string>
+    <string name="password">密码</string>
+    <string name="email">邮箱</string>
+    <string name="hint">提示</string>
 </resources>
