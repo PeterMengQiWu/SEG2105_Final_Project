@@ -27,16 +27,31 @@
             android:layout_marginTop="6dp"
             android:contentDescription="Avatar" />
 
+        <ImageView
+            android:id="@+id/configImage"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center|right"
+            android:layout_margin="6dp"
+            android:layout_marginBottom="6dp"
+            android:layout_marginLeft="6dp"
+            android:layout_marginRight="6dp"
+            android:layout_marginTop="6dp"
+            android:background="@android:drawable/sym_action_chat"
+            android:contentDescription="checkMark"
+            tools:background="@android:drawable/sym_action_chat"
+            tools:ignore="HardcodedText" />
+
         <LinearLayout
-            android:orientation="vertical"
-            android:layout_width="270dp"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="center"
             android:gravity="center_vertical|center_horizontal"
-            android:paddingLeft="5dp"
+            android:orientation="vertical"
             android:padding="5dp"
-            android:paddingTop="5dp"
-            android:paddingRight="5dp">
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:paddingTop="5dp">
 
             <TextView
                 android:id="@+id/itemName"
@@ -52,27 +67,12 @@
                 android:id="@+id/itemDescription"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:gravity="center_vertical"
                 android:text="Example Recipe Description"
                 android:textSize="14sp"
-                android:layout_gravity="center"
                 android:textStyle="italic" />
         </LinearLayout>
-
-        <ImageView
-            android:id="@+id/configImage"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_gravity="center|right"
-            android:layout_margin="6dp"
-            android:layout_marginBottom="6dp"
-            android:layout_marginLeft="6dp"
-            android:layout_marginRight="6dp"
-            android:layout_marginTop="6dp"
-            android:background="@android:drawable/sym_action_chat"
-            android:contentDescription="checkMark"
-            tools:background="@android:drawable/sym_action_chat"
-            tools:ignore="HardcodedText" />
 
     </LinearLayout>
 
