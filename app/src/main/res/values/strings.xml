@@ -149,4 +149,10 @@
     <string name="permission_rationale">"Contacts permissions are needed for providing email
         completions."
     </string>
+    <string name="refresh">Refresh</string>
+    <string name="name_of_task">name of task</string>
+    <string name="points">points (Ex: 5.5)</string>
+    <string name="due_date">Due date: 17-12-30</string>
+    <string name="due_time">Due time: 22:55</string>
+    <string name="confirm">Confirm</string>
 </resources>

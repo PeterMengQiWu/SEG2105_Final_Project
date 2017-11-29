@@ -1,4 +1,5 @@
 package ca.uottawa.leyaoli.seg2105_final_project;
+import java.util.List;
 import java.util.Locale;
 
 import android.content.Context;
@@ -20,7 +21,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ArrayAdapter;
 import android.widget.ImageView;
+import android.widget.ListView;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -42,7 +46,10 @@ public class MainActivity extends AppCompatActivity
     private static final String FILE_NAME = "file_lang"; // preference file name
     private static final String KEY_LANG = "key_lang"; // preference key
 
-
+    private ListView listView;
+    private ArrayAdapter<String> arrayAdapter;
+    private List<String> nameList;
+    private List<Task> taskList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -218,10 +225,26 @@ public class MainActivity extends AppCompatActivity
         viewPager.setAdapter(adapter);
     }
 
+    public void createNewTasks (View view){
+        Intent newTasks = new Intent(MainActivity.this, AddChore.class);
+        startActivityForResult(newTasks, 0);
+    }
 
-
-
-
-
+    public void  search (View view){
+        listView = (ListView)findViewById(R.id.nameListView);
+        nameList = new ArrayList<String>();
+        taskList = new ArrayList<Task>();
+        TasksDBHandler dbHandler = new TasksDBHandler(this);
+        taskList = dbHandler.getTaskList();
+        if (taskList != null) {
+            for (int i = 0; i < taskList.size(); i++) {
+                nameList.add(taskList.get(i).getName());
+            }
+        } else {
+            Toast.makeText(MainActivity.this, "No Match Find", Toast.LENGTH_LONG).show();
+        }
+        arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_expandable_list_item_1, nameList);
+        listView.setAdapter(arrayAdapter);
+    }
 }
 
