@@ -4,8 +4,10 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.w3c.dom.Text;
 
@@ -22,6 +24,7 @@ public class ChoreDetail extends AppCompatActivity {
     private TextView points;
     private TextView dueDate;
     private TextView dueTime;
+    private TasksDBHandler db = new TasksDBHandler(this);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,7 +41,7 @@ public class ChoreDetail extends AppCompatActivity {
 
         task_name = getIntent().getStringExtra("task name");
 
-        TasksDBHandler db = new TasksDBHandler(this);
+
         task = db.findTaskByName(task_name);
         if(task!=null) {
             taskName.setText(task_name);
@@ -46,5 +49,13 @@ public class ChoreDetail extends AppCompatActivity {
             dueDate.setText(task.getDueDate().toString());
             dueTime.setText(task.getDueTime().toString());
         }
+    }
+
+    public void deleteChore(View view){
+        if(db.deleteTask(task_name,task.getCreator()))
+            Toast.makeText(ChoreDetail.this,"Successful delete",Toast.LENGTH_LONG).show();
+        else
+            Toast.makeText(ChoreDetail.this,"Fail to delete",Toast.LENGTH_LONG).show();
+        finish();
     }
 }

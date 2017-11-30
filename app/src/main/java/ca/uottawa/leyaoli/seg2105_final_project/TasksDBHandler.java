@@ -140,8 +140,8 @@ public class TasksDBHandler extends SQLiteOpenHelper{
         Cursor cursor = db.rawQuery(query, null);
         if (cursor.moveToFirst()){
             if (creator.compareTo(cursor.getString(5))==0){
-                String name = cursor.getString(0);
-                db.delete(TABLE_TASKS, COLUMN_NAME + " = " + name, null);
+                String id = cursor.getString(0);
+                db.delete(TABLE_TASKS, COLUMN_ID + " = " + id, null);
                 cursor.close();
                 result = true;
             }
