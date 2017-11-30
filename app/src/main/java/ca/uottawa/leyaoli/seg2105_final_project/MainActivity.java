@@ -154,7 +154,7 @@ public class MainActivity extends AppCompatActivity
 
     private void setupWithViewPager (ViewPager viewPager){
         SectionPageAdapter adapter = new SectionPageAdapter(getSupportFragmentManager());
-        adapter.addFragment(new Tab1(), getString(R.string.shopping_list));
+        adapter.addFragment(new Tab1(),getString(R.string.shopping_list));
         adapter.addFragment(new Tab2(),getString(R.string.tasks));
         adapter.addFragment(new Tab3(),getString(R.string.people));
         viewPager.setAdapter(adapter);
