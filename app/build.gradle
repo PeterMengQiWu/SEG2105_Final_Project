@@ -36,12 +36,13 @@ dependencies {
     compile 'com.google.firebase:firebase-auth:11.0.1'
     compile 'com.firebaseui:firebase-ui-database:2.0.1'
     'com.android.support:appcompat-v7:27.0.2'
-    compile  'de.hdodenhof:circleimageview:2.1.0'
+    compile 'de.hdodenhof:circleimageview:2.1.0'
 }
 
 
 
 android.defaultConfig.vectorDrawables.useSupportLibrary = true
+
 
 
 

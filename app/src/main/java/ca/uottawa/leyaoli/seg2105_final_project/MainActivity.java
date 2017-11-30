@@ -131,6 +131,9 @@ public class MainActivity extends AppCompatActivity
         }else if (id == R.id.lang_cn){
             Intent intent = new Intent(MainActivity.this,UserActivity.class);
             startActivity(intent);
+        }else if (id == R.id.menuSetting){
+            Intent intent = new Intent(MainActivity.this,AccountSetting.class);
+            startActivity(intent);
         }
 
         return true;

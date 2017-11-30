@@ -51,13 +51,14 @@
             android:orientation="horizontal">
 
             <ImageView
-                android:id="@+id/imageView7"
+                android:id="@+id/personalProfileAvatar"
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 app:srcCompat="@drawable/avatar" />
 
             <TextView
+                android:id="@+id/personalProfileText"
                 android:layout_width="247dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"

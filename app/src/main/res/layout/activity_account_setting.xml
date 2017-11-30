@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="ca.uottawa.leyaoli.seg2105_final_project.UserActivity">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/settingAvatar"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="72dp"
+        android:src="@drawable/avatar"></de.hdodenhof.circleimageview.CircleImageView>
+
+    <TextView
+        android:id="@+id/SettingName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/changeImage"
+        android:layout_alignEnd="@+id/changeName"
+        android:layout_marginBottom="29dp"
+        android:text="DisplayName" />
+
+    <TextView
+        android:id="@+id/somethingElse"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/settingAvatar"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="22dp"
+        android:text="Num of Tasks" />
+
+    <Button
+        android:id="@+id/changeImage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/changeName"
+        android:layout_alignStart="@+id/settingAvatar"
+        android:text="Change Image" />
+
+    <Button
+        android:id="@+id/changeName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="110dp"
+        android:layout_marginStart="129dp"
+        android:text="Change Name" />
+
+</RelativeLayout>
+

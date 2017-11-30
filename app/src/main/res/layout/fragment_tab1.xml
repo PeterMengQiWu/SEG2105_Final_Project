@@ -21,7 +21,7 @@
             android:layout_height="50dp"
             android:layout_gravity="center"
             android:layout_weight="1"
-            android:background="@drawable/add4" />
+            android:background="@drawable/ic_add_shopping_cart_black_48dp" />
 
         <EditText
             android:id="@+id/textadd"
