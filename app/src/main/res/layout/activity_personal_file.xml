@@ -1,12 +1,13 @@
-<LinearLayout android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/main_wallpaper"
     android:orientation="vertical"
+    android:theme="@style/Theme.AppCompat.Light.DarkActionBar"
     tools:layout_editor_absoluteX="0dp"
-    tools:layout_editor_absoluteY="0dp"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:theme="@style/Theme.AppCompat.Light.DarkActionBar">
+    tools:layout_editor_absoluteY="0dp">
 
 
     <LinearLayout
@@ -23,10 +24,20 @@
             android:theme="?attr/actionBarTheme" />
     </LinearLayout>
 
-    <Space
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="18dp"
-        android:background="@android:color/background_light" />
+        android:layout_height="29dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="My Information"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+            android:textColor="@color/common_google_signin_btn_text_light_default"
+            android:textStyle="bold" />
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -41,13 +52,13 @@
 
             <ImageView
                 android:id="@+id/imageView7"
-                android:layout_width="0dp"
+                android:layout_width="60dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 app:srcCompat="@drawable/avatar" />
 
             <TextView
-                android:layout_width="94dp"
+                android:layout_width="247dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_weight="1"
@@ -55,30 +66,29 @@
 
             <Button
                 android:id="@+id/btnSendMessage"
-                android:layout_width="6dp"
-                android:layout_height="wrap_content"
+                android:layout_width="15dp"
+                android:layout_height="28dp"
                 android:layout_gravity="center_vertical"
                 android:layout_weight="1"
-                android:background="@android:color/transparent"
-                android:text="@string/send_message"
-                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-                android:textColor="@color/colorPrimary" />
+                android:background="@drawable/button_chat"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
         </LinearLayout>
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="47dp"
+        android:layout_height="45dp"
         android:orientation="vertical">
 
         <TextView
             android:id="@+id/textView8"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="33dp"
             android:gravity="center_vertical"
             android:text="@string/current_tasks"
             android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-            android:textColor="@android:color/holo_blue_dark" />
+            android:textColor="@color/common_google_signin_btn_text_light_focused"
+            android:textStyle="bold" />
 
     </LinearLayout>
 
