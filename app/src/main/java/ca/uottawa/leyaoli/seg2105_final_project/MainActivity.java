@@ -127,15 +127,15 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.open_tasks) {
-
+            viewPager.setCurrentItem(1);
         } else if (id == R.id.nav_list) {
-
+            viewPager.setCurrentItem(0);
         } else if (id == R.id.nav_schedule) {
 
         } else if (id == R.id.task_backlog) {
 
         } else if (id == R.id.nav_people) {
-
+            viewPager.setCurrentItem(3);
         } else if (id == R.id.Cupboard_Fridge) {
 
         } else if (id == R.id.nav_tools) {
