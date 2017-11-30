@@ -43,10 +43,6 @@ public class  Tab1 extends Fragment  implements android.widget.CompoundButton.On
     CheckBox ch2;
     ToolDBHandle dbHandle;
 
-
-
-
-    @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
