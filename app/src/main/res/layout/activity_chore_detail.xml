@@ -12,14 +12,13 @@
         android:background="@drawable/main_wallpaper"
         android:orientation="vertical">
 
-        <TextView
+        <EditText
             android:id="@+id/taskName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:text="@string/name_of_task"
-            android:textColor="@android:color/black"
-            android:textSize="18sp" />
+            android:inputType="textPersonName"
+            android:text="@string/task_name" />
 
         <LinearLayout
             android:layout_width="match_parent"
