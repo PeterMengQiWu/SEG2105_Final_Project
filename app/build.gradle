@@ -37,6 +37,7 @@ dependencies {
     compile 'com.firebaseui:firebase-ui-database:2.0.1'
     'com.android.support:appcompat-v7:27.0.2'
     compile 'de.hdodenhof:circleimageview:2.1.0'
+    compile 'com.theartofdev.edmodo:android-image-cropper:2.5.+'
 }
 
 
