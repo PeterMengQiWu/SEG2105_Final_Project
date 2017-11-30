@@ -54,7 +54,7 @@ public class UserActivity extends AppCompatActivity {
             }
         };
 
-           userlist.setAdapter(adapter);
+           // userlist.setAdapter(adapter);
 
     }
 

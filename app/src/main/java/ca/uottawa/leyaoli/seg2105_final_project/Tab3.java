@@ -90,7 +90,7 @@ public class Tab3 extends Fragment {
                             public void onClick(View v) {
                                 CharSequence options [] = new CharSequence[]{"Open Profile","Chat"};
                                 AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
-                                builder.setTitle("ca.uottawa.leyaoli.seg2105_final_project.UserList.Select an Opiton");
+                                builder.setTitle("Select an Opiton");
                                 builder.setItems(options, new DialogInterface.OnClickListener() {
                                     @Override
                                     public void onClick(DialogInterface dialog, int which) {

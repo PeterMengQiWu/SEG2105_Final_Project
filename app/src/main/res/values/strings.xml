@@ -95,25 +95,12 @@
         "For example, position the FAB to one side of stream of a cards so the FAB won’t interfere "
         "when a user tries to pick up one of cards.\n\n"
     </string>
-    <string name="user1">user1</string>
-    <string name="user0">user0</string>
-    <string name="user2">user2</string>
-    <string name="user3">user3</string>
-    <string name="user4">user4</string>
-    <string name="user5">user5</string>
-    <string name="user6">user6</string>
-    <string name="user7">user7</string>
-    <string name="user8">user8</string>
 
 
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="button">Button</string>
-    <string name="choreName">TextView</string>
-    <string name="addButton">Button</string>
-    <string name="addButton2">Button</string>
     <string name="calender">TODO</string>
-    <string name="time">TODO</string>
-    <string name="date">TextView</string>
+    <string name="time">Time:</string>
+    <string name="date">Date:</string>
     <string name="showTime">TextView</string>
     <string name="walmart">Walmart</string>
     <string name="lablaws">Loblaws</string>
@@ -123,8 +110,7 @@
     <string name="t_t">T and T</string>
     <string name="shoppers_drug_mart">Shoppers Drug Mart</string>
     <string name="other">Other</string>
-    <string name="name_of_market">name of market</string>
-    <string name="navigate">navigate</string>
+    <string name="name_of_market">Search Name of the Market</string>
     <string name="note_chinese_meal_please">Note: Chinese meal please!</string>
     <string name="make_a_breakfast">Make a breakfast</string>
     <string name="current_tasks">Current Tasks</string>
@@ -169,4 +155,11 @@
     <string name="showTask">Show my tasks</string>
     <string name="log_out">Log out</string>
     <string name="all_user">All user</string>
+    <string name="navigate">NAVIGATE</string>
+    <string name="delete">Delete</string>
+    <string name="shopping">Shopping</string>
+    <string name="tasks">Tasks</string>
+    <string name="states">states</string>
+    <string name="task_name">Task Name:</string>
+    <string name="point">Points:</string>
 </resources>

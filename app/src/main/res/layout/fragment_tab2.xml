@@ -1,39 +1,55 @@
-<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/main_wallpaper"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context="ca.uottawa.leyaoli.seg2105_final_project.Tab2">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="46dp"
+        android:background="@color/common_google_signin_btn_text_dark_disabled"
         android:orientation="horizontal">
 
         <Button
             android:id="@+id/new_task"
             style="@style/Widget.AppCompat.Button"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_gravity="center"
             android:layout_weight="1"
-            android:onClick="createNewTasks"
-            android:text="@string/add_new_task" />
+            android:background="@drawable/add3" />
+
+        <TextView
+            android:id="@+id/new_task_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:text="@string/add_new_task"
+            android:textColor="@color/common_google_signin_btn_text_dark_default"
+            android:textSize="14sp" />
 
         <Button
             android:id="@+id/refresh"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_gravity="center"
             android:layout_weight="1"
-            android:onClick="search"
-            android:text="@string/refresh" />
-    </LinearLayout>
+            android:background="@drawable/refresh" />
 
-    <Switch
-        android:id="@+id/showTask"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/showTask" />
+        <Switch
+
+            android:id="@+id/showTask"
+            android:layout_width="wrap_content"
+            android:layout_height="12dp"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:gravity="center|end"
+            android:text="@string/showTask"
+            android:textColor="@color/common_google_signin_btn_text_light_default" />
+    </LinearLayout>
 
     <ListView
         android:id="@+id/nameListView"
