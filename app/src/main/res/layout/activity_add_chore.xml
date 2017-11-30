@@ -11,30 +11,55 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:background="@drawable/main_wallpaper"
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="283dp"
+        tools:layout_editor_absoluteY="0dp">
 
-        <EditText
-            android:id="@+id/name"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="@string/name_of_task"
-            android:inputType="textPersonName"
-            android:textColor="@android:color/black"
-            android:textColorHint="@android:color/black"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            tools:layout_editor_absoluteY="40dp" />
+            android:orientation="horizontal">
 
-        <EditText
-            android:id="@+id/points"
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="115dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="fill"
+                android:layout_weight="1"
+                android:text="Task Name:" />
+
+            <EditText
+                android:id="@+id/name"
+                android:layout_width="318dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:hint="@string/name_of_task"
+                android:inputType="textPersonName"
+                android:textColor="@android:color/black"
+                android:textColorHint="@android:color/black"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                tools:layout_editor_absoluteY="40dp" />
+        </LinearLayout>
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="@string/points"
-            android:inputType="number"
-            android:textColor="@android:color/black"
-            android:textColorHint="@android:color/black" />
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/points"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:hint="@string/points"
+                android:inputType="number"
+                android:textColor="@android:color/black"
+                android:textColorHint="@android:color/black" />
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -66,11 +91,13 @@
         </LinearLayout>
 
         <Button
-        android:id="@+id/confirm"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+            android:id="@+id/confirm"
+            android:layout_width="25dp"
+            android:layout_height="27dp"
+            android:layout_gravity="center"
+            android:background="@drawable/register_check1"
             android:onClick="confirm"
-        android:text="@string/confirm" android:textColor="@android:color/black" />
+            android:textColor="@android:color/black" />
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>
 
