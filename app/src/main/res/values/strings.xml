@@ -166,4 +166,5 @@
     <string name="location">Location</string>
     <string name="setting">Setting</string>
     <string name="project_name">Newbies\' Final Project</string>
+    <string name="showTask">Show my tasks</string>
 </resources>
