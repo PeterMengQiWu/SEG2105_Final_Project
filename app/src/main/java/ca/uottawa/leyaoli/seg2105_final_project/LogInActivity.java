@@ -22,7 +22,7 @@ public class LogInActivity extends AppCompatActivity {
 
     private Button bt;
     private TextInputLayout email ;
-    private TextInputLayout pass ;
+    private  TextInputLayout pass ;
     private FirebaseAuth mAuth;
 
     @Override
@@ -48,6 +48,7 @@ public class LogInActivity extends AppCompatActivity {
     }
 // log in progress to do
     private void logInUser(String qemail, String qpass) {
+
         mAuth.signInWithEmailAndPassword(qemail,qpass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
@@ -58,6 +59,7 @@ public class LogInActivity extends AppCompatActivity {
                     startActivity(mainintent);
                     finish();
                 }else {
+
                     Toast.makeText(LogInActivity.this ,task.getException().getMessage(),Toast.LENGTH_LONG).show();
                 }
             }
