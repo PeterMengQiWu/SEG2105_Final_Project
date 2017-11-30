@@ -24,6 +24,7 @@ public class ChoreDetail extends AppCompatActivity {
     private TextView points;
     private TextView dueDate;
     private TextView dueTime;
+    private TextView states;
     private TasksDBHandler db = new TasksDBHandler(this);
 
     @Override
@@ -38,6 +39,7 @@ public class ChoreDetail extends AppCompatActivity {
         points = (TextView)findViewById(R.id.points);
         dueDate = (TextView)findViewById(R.id.dueDate);
         dueTime = (TextView)findViewById(R.id.dueTime);
+        states = (TextView)findViewById(R.id.states);
 
         task_name = getIntent().getStringExtra("task name");
 
@@ -48,6 +50,7 @@ public class ChoreDetail extends AppCompatActivity {
             points.setText((task.getPoints() + "").toString());
             dueDate.setText(task.getDueDate().toString());
             dueTime.setText(task.getDueTime().toString());
+            states.setText(task.getStates().toString());
         }
     }
 

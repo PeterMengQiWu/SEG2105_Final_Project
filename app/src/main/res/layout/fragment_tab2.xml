@@ -15,41 +15,39 @@
         <Button
             android:id="@+id/new_task"
             style="@style/Widget.AppCompat.Button"
-            android:layout_width="38dp"
+            android:layout_width="32dp"
             android:layout_height="32dp"
             android:layout_gravity="center"
             android:layout_weight="1"
-            android:background="@drawable/add3"
-            android:onClick="createNewTasks" />
+            android:background="@drawable/add3" />
 
         <TextView
-            android:id="@+id/text_view"
-            android:layout_width="87dp"
+            android:id="@+id/new_task_text_view"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_weight="1"
-            android:text="   New Task"
+            android:text="@string/add_new_task"
             android:textColor="@color/common_google_signin_btn_text_dark_default"
             android:textSize="14sp" />
 
         <Button
             android:id="@+id/refresh"
-            android:layout_width="35dp"
+            android:layout_width="32dp"
             android:layout_height="32dp"
             android:layout_gravity="center"
             android:layout_weight="1"
-            android:background="@drawable/refresh"
-            android:onClick="search" />
+            android:background="@drawable/refresh" />
 
-    <Switch
+        <Switch
 
             android:id="@+id/showTask"
-            android:layout_width="219dp"
+            android:layout_width="wrap_content"
             android:layout_height="12dp"
             android:layout_gravity="center"
             android:layout_weight="1"
             android:gravity="center|end"
-            android:text="Show My Tasks   "
+            android:text="@string/showTask"
             android:textColor="@color/common_google_signin_btn_text_light_default" />
     </LinearLayout>
 

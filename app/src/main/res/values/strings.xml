@@ -99,8 +99,8 @@
 
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="calender">TODO</string>
-    <string name="time">TODO</string>
-    <string name="date">TextView</string>
+    <string name="time">Time:</string>
+    <string name="date">Date:</string>
     <string name="showTime">TextView</string>
     <string name="walmart">Walmart</string>
     <string name="lablaws">Loblaws</string>
@@ -159,4 +159,7 @@
     <string name="delete">Delete</string>
     <string name="shopping">Shopping</string>
     <string name="tasks">Tasks</string>
+    <string name="states">states</string>
+    <string name="task_name">Task Name:</string>
+    <string name="point">Points:</string>
 </resources>

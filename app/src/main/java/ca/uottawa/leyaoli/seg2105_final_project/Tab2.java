@@ -11,6 +11,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Switch;
+import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.AdapterView.OnItemClickListener;
 import java.util.ArrayList;
@@ -30,6 +31,7 @@ public class Tab2 extends Fragment{
     private List<Task> taskList;
     private Button new_task;
     private Button refresh;
+    private TextView new_task_text_view;
 
     @Override
     public View onCreateView(final LayoutInflater inflater, ViewGroup container,
@@ -41,8 +43,14 @@ public class Tab2 extends Fragment{
         new_task.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent newTasks = new Intent(getContext(), AddChore.class);
-                startActivity(newTasks);
+                newTask();
+            }
+        });
+        new_task_text_view = (TextView) view.findViewById(R.id.new_task_text_view);
+        new_task_text_view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                newTask();
             }
         });
 
@@ -103,5 +111,10 @@ public class Tab2 extends Fragment{
                 startActivity(intent);
             }
         });
+    }
+
+    public void newTask(){
+        Intent newTasks = new Intent(getContext(), AddChore.class);
+        startActivity(newTasks);
     }
 }
