@@ -18,6 +18,15 @@ class Shopping{
     String name;
     boolean selected=false;
 
+    public String getType() {
+        return Type;
+    }
+
+    public void setType(String type) {
+        Type = type;
+    }
+
+    String Type;
 
     public boolean isSelected() {
         return selected;
@@ -27,10 +36,7 @@ class Shopping{
         this.selected = selected;
     }
 
-    public Shopping(String name) {
-        this.name = name;
 
-    }
 
     public String getName() {
         return name;
@@ -39,6 +45,7 @@ class Shopping{
     public void setName(String name) {
         this.name = name;
     }
+
 }
 
 

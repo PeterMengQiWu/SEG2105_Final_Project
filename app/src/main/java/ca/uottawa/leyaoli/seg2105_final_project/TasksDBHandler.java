@@ -80,7 +80,7 @@ public class TasksDBHandler extends SQLiteOpenHelper{
            task.setCreator(cursor.getString(5));
            if (cursor.getString(6)!=null)
                task.setWorker(cursor.getString(6));
-           task.setStates(cursor.getString(7));
+               task.setStates(cursor.getString(7));
        } else {
            task = null;
        }

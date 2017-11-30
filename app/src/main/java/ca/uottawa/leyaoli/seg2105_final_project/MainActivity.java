@@ -23,6 +23,9 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -51,6 +54,8 @@ public class MainActivity extends AppCompatActivity
     private ArrayAdapter<String> arrayAdapter;
     private List<String> nameList;
     private List<Task> taskList;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -198,5 +203,6 @@ public class MainActivity extends AppCompatActivity
         arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_expandable_list_item_1, nameList);
         listView.setAdapter(arrayAdapter);
     }
+
 }
 
