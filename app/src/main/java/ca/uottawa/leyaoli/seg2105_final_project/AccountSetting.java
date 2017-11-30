@@ -35,14 +35,14 @@ public class AccountSetting extends AppCompatActivity {
         numChore = (TextView) findViewById(R.id.somethingElse);
         // ===========================================================
 
-
+/*
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 String name = dataSnapshot.child("name").getValue().toString();
                 String image = dataSnapshot.child("image").getValue().toString();
                 String thumb_image = dataSnapshot.child("thumb_image").getValue().toString();
-                disname.setText(name);
+               // disname.setText(name);
 
 
             }
@@ -52,6 +52,6 @@ public class AccountSetting extends AppCompatActivity {
 
             }
         });
-
+*/
     }
 }
