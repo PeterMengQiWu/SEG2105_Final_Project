@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
+import com.google.firebase.auth.FirebaseAuth;
+
 /**
  * Created by yuanzheng on 2017/11/21.
  */
@@ -42,7 +44,9 @@ public class AddChore extends AppCompatActivity {
 
     public void confirm (View view){
         double points = Double.parseDouble(pointsBox.getText().toString());
-        Task task = new Task(nameBox.getText().toString(),points,dueDateBox.getText().toString(),dueTimeBox.getText().toString(),"creator","PENDING");
+        FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
+        String userID = firebaseAuth.getCurrentUser().getUid();
+        Task task = new Task(nameBox.getText().toString(),points,dueDateBox.getText().toString(),dueTimeBox.getText().toString(),userID,"PENDING");
         TasksDBHandler dbHandler = new TasksDBHandler(this);
         dbHandler.addTask(task);
         nameBox.setText("");
