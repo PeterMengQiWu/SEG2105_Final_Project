@@ -1,6 +1,8 @@
 package ca.uottawa.leyaoli.seg2105_final_project;
 
-import android.support.annotation.ArrayRes;
+import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.view.MenuItem;
 
 import java.util.ArrayList;
 
@@ -43,4 +45,11 @@ public class UserList {
     public void setUserlist(ArrayList<User> userlist) {
         this.userlist = userlist;
     }
-}
+
+    /**
+     * Created by tyson on 2017-11-29.
+     */
+
+
+    }
+

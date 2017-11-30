@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <item name="checkbox10" type="id">1</item>
+    <item name="list1" type="id" />
+    <item name="list2" type="id" />
 </resources>
