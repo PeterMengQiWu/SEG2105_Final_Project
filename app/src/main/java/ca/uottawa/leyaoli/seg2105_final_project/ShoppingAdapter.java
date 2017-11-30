@@ -1,13 +1,12 @@
 package ca.uottawa.leyaoli.seg2105_final_project;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
+import android.widget.BaseAdapter;
 import android.widget.CheckBox;
-import android.widget.CompoundButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -17,73 +16,80 @@ import java.util.List;
  * Created by tyson on 2017-11-28.
  */
 class Shopping{
-    String name;
+    private String name;
+    private String type;
     boolean selected=false;
-
-    public String getType() {
-        return Type;
-    }
-
-    public void setType(String type) {
-        Type = type;
-    }
-
-    String Type;
-
-    public boolean isSelected() {
-        return selected;
-    }
-
-    public void setSelected(boolean selected) {
-        this.selected = selected;
-    }
-
-
 
     public String getName() {
         return name;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public boolean isSelected() {
+        return selected;
     }
 
     public void setName(String name) {
         this.name = name;
     }
 
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public void setSelected(boolean selected) {
+        this.selected = selected;
+    }
 }
 
 
 
-public class ShoppingAdapter extends ArrayAdapter {
+public class ShoppingAdapter extends BaseAdapter {
     private  Context context;
-    private  List<Shopping> chores;
-    public ShoppingAdapter( Context context, List<Shopping> chores) {
-        super(context, R.layout.activity_add, chores);
+    private  List<Shopping> tools;
+    public ShoppingAdapter( Context context, List<Shopping> tools) {
         this.context = context;
-        this.chores = chores;
+        this.tools = tools;
     }
-    private static class Shoppingholder{
-        public TextView chname1;
-        public CheckBox ch1;
+
+    private final static class ViewHolder{
+        public CheckBox checkBox;
+        public TextView textView;
     }
+
+    @Override
+    public int getCount() {
+        return tools.size();
+    }
+
+    @Override
+    public Object getItem(int position) {
+        return tools.get(position);
+    }
+
+    @Override
+    public long getItemId(int position) {
+        return 0;
+    }
+
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-
-        View v = convertView;
-        Shoppingholder holder = new Shoppingholder();
-        if (convertView == null) {
-            LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            v = inflater.inflate(R.layout.activity_add, null);
-
-            holder.ch1 = (CheckBox) v.findViewById(R.id.checkBox1);
-            holder.chname1 = (TextView) v.findViewById(R.id.textViewB1);
-
+        final ViewHolder viewHolder;
+        if (convertView == null){
+            viewHolder = new ViewHolder();
+            convertView = LayoutInflater.from(context).inflate(R.layout.activity_add, null);
+            viewHolder.checkBox = (CheckBox)convertView.findViewById(R.id.Tools_checkBox);
+            viewHolder.textView = (TextView)convertView.findViewById(R.id.tool_name);
+            convertView.setTag(viewHolder);
         }else{
-            holder = (Shoppingholder)v.getTag();
+            viewHolder = (ViewHolder)convertView.getTag();
         }
-        Shopping s = chores.get(position);
-        holder.chname1.setText(s.getName());
-        holder.ch1.setChecked(s.isSelected());
-        holder.ch1.setText("");
-        holder.ch1.setTag(s);
-        return v;
+        viewHolder.checkBox.setTag(position);
+        viewHolder.textView.setTag(position);
+        viewHolder.textView.setText(tools.get(position).getName());
+        return convertView;
     }
 }

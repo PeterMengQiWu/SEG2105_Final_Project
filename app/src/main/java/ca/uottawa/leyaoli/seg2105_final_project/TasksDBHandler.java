@@ -155,7 +155,7 @@ public class TasksDBHandler extends SQLiteOpenHelper{
         String query = "Select * FROM " + TABLE_TASKS;
         Cursor cursor = db.rawQuery(query, null);
         List<Task> taskList = new ArrayList<Task>();
-        Task task = new Task();
+        Task task;
         if (cursor.moveToFirst()){
             do{
                 task = new Task();
