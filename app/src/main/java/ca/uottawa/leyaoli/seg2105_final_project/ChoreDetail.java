@@ -46,8 +46,6 @@ public class ChoreDetail extends AppCompatActivity {
         worker = (TextView)findViewById(R.id.worker);
 
         task_name = getIntent().getStringExtra("task name");
-
-
         task = db.findTaskByName(task_name);
         if(task!=null) {
             taskName.setText(task_name);
@@ -59,8 +57,6 @@ public class ChoreDetail extends AppCompatActivity {
             if (task.getWorker()!=null)
                 worker.setText(task.getWorker());
         }
-
-
     }
 
     public void deleteChore(View view){

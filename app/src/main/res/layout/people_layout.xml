@@ -46,7 +46,7 @@
                 android:layout_height="26sp"
                 android:ellipsize="marquee"
                 android:singleLine="true"
-                android:text="UserName"
+                android:text="@string/user_name"
                 android:textSize="22sp"
                 android:textStyle="bold" />
 

@@ -1,5 +1,6 @@
 package ca.uottawa.leyaoli.seg2105_final_project;
 
+import ca.uottawa.leyaoli.seg2105_final_project.TaskListAdapter.InnerItemOnclickListener;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -7,7 +8,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Switch;
@@ -22,7 +22,7 @@ import java.util.List;
  */
 
 
-public class Tab2 extends Fragment implements OnItemClickListener {
+public class Tab2 extends Fragment implements InnerItemOnclickListener, OnItemClickListener {
     private Switch myTasks = null;
 
     private TaskListAdapter myAdapter;
@@ -89,8 +89,25 @@ public class Tab2 extends Fragment implements OnItemClickListener {
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent = new Intent(getContext(), ChoreDetail.class);
-                intent.putExtra("task name", taskList.get(position).getName());
-                startActivity(intent);
+        if(db.findTaskByName(taskList.get(position).getName())!=null) {
+            Intent intent = new Intent(getContext(), ChoreDetail.class);
+            intent.putExtra("task name", taskList.get(position).getName());
+            startActivity(intent);
+        }else{
+            Toast.makeText(getContext(),"This chore has already been deleted.",Toast.LENGTH_LONG).show();
+            search();
+        }
+    }
+
+    @Override
+    public void itemClick(View v) {
+        int position;
+        position = (Integer)v.getTag();
+        switch (v.getId()){
+            case R.id.finish:
+                break;
+            default:
+                break;
+        }
     }
 }

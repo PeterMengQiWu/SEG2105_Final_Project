@@ -35,7 +35,6 @@ public class AccountSetting extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_account_setting);
 
-
         currentUser = FirebaseAuth.getInstance().getCurrentUser();
         String curren_uid = currentUser.getUid();
         databaseReference = FirebaseDatabase.getInstance().getReference().child("Users").child(curren_uid);

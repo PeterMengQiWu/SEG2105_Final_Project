@@ -1,26 +1,25 @@
 package ca.uottawa.leyaoli.seg2105_final_project;
 
+import java.util.List;
+
 import android.content.Context;
-import android.media.Image;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.google.android.gms.tasks.Tasks;
-
-import java.util.List;
-
 /**
  * Created by Kevin-Lee on 2017/11/30.
  */
 
-public class TaskListAdapter extends BaseAdapter{
+public class TaskListAdapter extends BaseAdapter implements OnClickListener{
     private List<Task> tasks;
     private Context context;
+    private InnerItemOnclickListener mListener;
 
     public TaskListAdapter(List<Task> tasks, Context context) {
         this.tasks = tasks;
@@ -66,5 +65,18 @@ public class TaskListAdapter extends BaseAdapter{
         TextView task_states;
         ImageView worker_ico;
         CheckBox finish;
+    }
+
+    interface InnerItemOnclickListener {
+        void itemClick(View v);
+    }
+
+    public void setOnInnerItemOnClickListener(InnerItemOnclickListener listener){
+        this.mListener = listener;
+    }
+
+    @Override
+    public void onClick(View v) {
+        mListener.itemClick(v);
     }
 }

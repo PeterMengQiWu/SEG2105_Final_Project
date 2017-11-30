@@ -112,7 +112,6 @@
     <string name="other">Other</string>
     <string name="name_of_market">Search Name of the Market</string>
     <string name="note_chinese_meal_please">Note: Chinese meal please!</string>
-    <string name="make_a_breakfast">Make a breakfast</string>
     <string name="current_tasks">Current Tasks</string>
     <string name="send_message">Send Message</string>
     <string name="kobe_bryant">Kobe Bryant</string>
@@ -153,7 +152,6 @@
     <string name="project_name">Newbies\' Final Project</string>
     <string name="showTask">Show my tasks</string>
     <string name="log_out">Log out</string>
-    <string name="all_user">All user</string>
     <string name="navigate">NAVIGATE</string>
     <string name="delete">Delete</string>
     <string name="shopping">Shopping</string>
@@ -163,7 +161,10 @@
     <string name="point">Points:</string>
     <string name="item_name">Item name</string>
     <string name="groceries">Groceries</string>
-    <string name="metarial">Metarial</string>
+    <string name="material">Material</string>
     <string name="creator">Creator</string>
     <string name="worker">Worker</string>
+    <string name="user_name">UserName</string>
+    <string name="about_us">About us</string>
+    <string name="all_user">All user</string>
 </resources>

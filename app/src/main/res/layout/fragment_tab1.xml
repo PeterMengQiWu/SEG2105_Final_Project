@@ -6,9 +6,6 @@
     android:orientation="vertical"
     tools:context="ca.uottawa.leyaoli.seg2105_final_project.Tab1">
 
-    <!-- TODO: Update blank fragment layout -->
-
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="67dp"
@@ -51,7 +48,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/metarial" />
+            android:text="@string/material" />
 
     </LinearLayout>
 
@@ -72,7 +69,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/metarial"
+        android:text="@string/material"
         android:textSize="24sp" />
 
     <ListView

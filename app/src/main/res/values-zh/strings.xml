@@ -12,7 +12,6 @@
     <string name="shoppers_drug_mart">启康药业连锁</string>
     <string name="name_of_market">超市名称</string>
     <string name="navigate">导航</string>
-    <string name="make_a_breakfast">做早餐</string>
     <string name="prompt_email">邮箱</string>
     <string name="add_new_task">新增任务</string>
     <string name="refresh">刷新</string>
@@ -35,7 +34,6 @@
     <string name="hint">提示</string>
     <string name="showTask">显示我的任务</string>
     <string name="log_out">登出</string>
-    <string name="all_user">所有用户</string>
     <string name="delete">删除</string>
     <string name="send_message">发信息</string>
     <string name="shopping">购物清单</string>
@@ -47,7 +45,10 @@
     <string name="time">时间：</string>
     <string name="item_name">物品名称</string>
     <string name="groceries">杂货</string>
-    <string name="metarial">材料</string>
+    <string name="material">材料</string>
     <string name="creator">创建人</string>
     <string name="worker">工作人</string>
+    <string name="user_name">用户名</string>
+    <string name="about_us">关于我们</string>
+    <string name="all_user">所有用户</string>
 </resources>

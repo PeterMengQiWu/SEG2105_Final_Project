@@ -113,11 +113,10 @@ public class MainActivity extends AppCompatActivity
             FirebaseAuth.getInstance().signOut();
             start();
         }else if (id == R.id.lang_cn){
-            Intent intent = new Intent(MainActivity.this,UserActivity.class);
+            Intent intent = new Intent(MainActivity.this, UserActivity.class);
             startActivity(intent);
         }else if (id == R.id.menuSetting){
-
-            Intent intent1 = new Intent(  MainActivity.this,AccountSetting.class );
+            Intent intent1 = new Intent(  MainActivity.this, AccountSetting.class );
             startActivity(intent1);
         }
 

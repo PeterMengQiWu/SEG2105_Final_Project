@@ -30,13 +30,8 @@ public class UserActivity extends AppCompatActivity {
         usersDatabse = FirebaseDatabase.getInstance().getReference("Users");
 
         userlist = findViewById(R.id.user_list);
-
         //userlist.setHasFixedSize(true);
-
         userlist.setLayoutManager(new LinearLayoutManager(this));
-
-
-
     }
 
     public void onStart(){
