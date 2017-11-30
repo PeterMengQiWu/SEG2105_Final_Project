@@ -16,32 +16,32 @@ import java.util.List;
 public class ToolDBHandle extends SQLiteOpenHelper {
     private static final int DATABASE_VERSION = 1;
     private static final String DATABASE_NAME = "tool.db";
-    private static final String TABLE_TOOL = "tool";
+    private static final String TABLE_TOOL = "tools";
     public static final String COLUMN_ID = "_id";
-    public static final String COLUMN_ToolType="tool_type";
+    public static final String COLUMN_ToolType = "tool_type";
     public static final String COLUMN_ToolName = "tool_name";
     public static final String COLUMN_States = "states";
     public ToolDBHandle(Context context){
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
+
     @Override
     public void onCreate(SQLiteDatabase db) {
         String CREATE_PRODUCTS_TABLE = "CREATE TABLE " +
                 TABLE_TOOL + "("
                 + COLUMN_ID + " INTEGER PRIMARY KEY,"
                 + COLUMN_ToolType + " TEXT,"
-                + COLUMN_ToolName + " TEXT"
+                + COLUMN_ToolName + " TEXT,"
                 + COLUMN_States + " TAXT"+ ")";
         db.execSQL(CREATE_PRODUCTS_TABLE);
-
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_TOOL);
         onCreate(db);
-
     }
+
     public void addTool(Shopping shopping){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
@@ -50,11 +50,10 @@ public class ToolDBHandle extends SQLiteOpenHelper {
         values.put(COLUMN_States,shopping.isSelected() );
         db.insert(TABLE_TOOL,null,values);
         db.close();
-
     }
+
     public Shopping FindShoppingByName(String name){
         SQLiteDatabase db = this.getWritableDatabase();
-
         String query = "Select * FROM " + TABLE_TOOL + " WHERE " +
                 COLUMN_ToolName + " = \""+ name + "\"";
         Cursor cursor = db.rawQuery(query,null);
@@ -107,10 +106,10 @@ public class ToolDBHandle extends SQLiteOpenHelper {
         String query = "Select * FROM " + TABLE_TOOL;
         Cursor cursor = db.rawQuery(query, null);
         List<Shopping> shopList = new ArrayList<Shopping>();
-        Shopping sh = new Shopping();
+        Shopping sh;
         if (cursor.moveToFirst()){
             do{
-                 sh= new Shopping();
+                sh= new Shopping();
                 sh.setName(cursor.getString(2));
                 sh.setType(cursor.getString(1));
                 sh.setSelected(Boolean.parseBoolean(cursor.getString(3)));
