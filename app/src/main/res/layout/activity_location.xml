@@ -4,18 +4,69 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+<<<<<<< Updated upstream
     android:background="#FFFFFF"
+=======
+    android:background="@drawable/main_wallpaper"
+>>>>>>> Stashed changes
     tools:context="ca.uottawa.leyaoli.seg2105_final_project.LocationActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp">
 
         <RadioGroup
             android:id="@+id/market"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/editText"
+                    android:layout_width="320dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:hint="@string/name_of_market"
+                    android:imeActionLabel="l"
+                    android:inputType="textPersonName"
+                    android:labelFor="@+id/T_n_T"
+                    android:singleLine="true"
+                    android:textSize="18sp" />
+
+                <Button
+                    android:id="@+id/button2"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:background="@drawable/search3"
+                    android:onClick="NavigateButton" />
+
+            </LinearLayout>
+
+            <Space
+                android:layout_width="10dp"
+                android:layout_height="13dp"
+                android:layout_weight="1" />
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Quick Search"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                android:textSize="18sp"
+                android:textStyle="bold" />
 
             <RadioButton
                 android:id="@+id/walmart"
@@ -23,8 +74,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:background="@color/common_google_signin_btn_text_dark_disabled"
+                android:buttonTint="@android:color/holo_green_light"
                 android:text="@string/walmart"
+<<<<<<< Updated upstream
                 android:textColor="@android:color/black"
+=======
+                android:textAlignment="viewStart"
+>>>>>>> Stashed changes
                 android:textSize="18sp" />
 
             <RadioButton
@@ -33,6 +90,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:background="@color/common_google_signin_btn_text_dark_disabled"
+                android:buttonTint="@android:color/holo_green_light"
                 android:text="@string/lablaws"
                 android:textColor="@android:color/black"
                 android:textSize="18sp" />
@@ -43,6 +102,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:background="@color/common_google_signin_btn_text_dark_disabled"
+                android:buttonTint="@android:color/holo_green_light"
                 android:text="@string/metro"
                 android:textColor="@android:color/black"
                 android:textSize="18sp" />
@@ -53,6 +114,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:background="@color/common_google_signin_btn_text_dark_disabled"
+                android:buttonTint="@android:color/holo_green_light"
                 android:text="@string/canadian_tire"
                 android:textColor="@android:color/black"
                 android:textSize="18sp" />
@@ -63,6 +126,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:background="@color/common_google_signin_btn_text_dark_disabled"
+                android:buttonTint="@android:color/holo_green_light"
                 android:text="@string/bestbuy"
                 android:textColor="@android:color/black"
                 android:textSize="18sp" />
@@ -73,6 +138,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:background="@color/common_google_signin_btn_text_dark_disabled"
+                android:buttonTint="@android:color/holo_green_light"
                 android:text="@string/t_t"
                 android:textColor="@android:color/black"
                 android:textSize="18sp" />
@@ -83,6 +150,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:background="@color/common_google_signin_btn_text_dark_disabled"
+                android:buttonTint="@android:color/holo_green_light"
                 android:text="@string/shoppers_drug_mart"
                 android:textColor="@android:color/black"
                 android:textSize="18sp" />
@@ -93,11 +162,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:background="@color/common_google_signin_btn_text_dark_disabled"
+                android:buttonTint="@android:color/holo_green_light"
                 android:text="@string/other"
                 android:textColor="@android:color/black"
                 android:textSize="18sp" />
-        </RadioGroup>
 
+<<<<<<< Updated upstream
         <EditText
             android:id="@+id/editText"
             android:layout_width="match_parent"
@@ -116,6 +187,9 @@
             android:layout_height="wrap_content"
             android:onClick="NavigateButton"
             android:text="@string/navigate" />
+=======
+        </RadioGroup>
+>>>>>>> Stashed changes
 
     </LinearLayout>
 

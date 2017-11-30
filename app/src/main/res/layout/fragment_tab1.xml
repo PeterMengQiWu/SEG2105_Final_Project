@@ -2,6 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/main_wallpaper"
     android:orientation="vertical"
     tools:context="ca.uottawa.leyaoli.seg2105_final_project.Tab1">
 
@@ -10,24 +11,26 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="64dp"
+        android:layout_height="67dp"
         android:orientation="horizontal">
 
         <Button
             android:id="@+id/add"
-            android:layout_width="wrap_content"
+            android:layout_width="126dp"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:layout_weight="1"
-            android:text="Add" />
+            android:background="@drawable/add2" />
 
         <EditText
             android:id="@+id/textadd"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="392dp"
+            android:layout_height="55dp"
             android:layout_weight="1"
             android:ems="10"
+            android:hint="Name"
             android:inputType="textPersonName"
-            android:text="Name" />
+            android:textColor="@color/common_google_signin_btn_text_dark_default" />
     </LinearLayout>
 
     <LinearLayout
