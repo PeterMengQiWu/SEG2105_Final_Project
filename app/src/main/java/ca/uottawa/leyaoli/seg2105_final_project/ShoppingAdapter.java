@@ -7,7 +7,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.List;
 
@@ -60,9 +62,7 @@ public class ShoppingAdapter extends ArrayAdapter {
     }
     private static class Shoppingholder{
         public TextView chname1;
-
         public CheckBox ch1;
-
     }
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
@@ -84,9 +84,6 @@ public class ShoppingAdapter extends ArrayAdapter {
         holder.ch1.setChecked(s.isSelected());
         holder.ch1.setText("");
         holder.ch1.setTag(s);
-
-
-
         return v;
     }
 }
