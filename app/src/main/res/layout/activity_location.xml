@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FFFFFF"
     tools:context="ca.uottawa.leyaoli.seg2105_final_project.LocationActivity">
 
     <LinearLayout
@@ -18,66 +19,82 @@
 
             <RadioButton
                 android:id="@+id/walmart"
+                android:buttonTint="@android:color/black"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="@string/walmart"
+                android:textColor="@android:color/black"
                 android:textSize="18sp" />
 
             <RadioButton
                 android:id="@+id/loblaw"
+                android:buttonTint="@android:color/black"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="@string/lablaws"
+                android:textColor="@android:color/black"
                 android:textSize="18sp" />
 
             <RadioButton
                 android:id="@+id/metro"
+                android:buttonTint="@android:color/black"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="@string/metro"
+                android:textColor="@android:color/black"
                 android:textSize="18sp" />
 
             <RadioButton
                 android:id="@+id/canadian_tire"
+                android:buttonTint="@android:color/black"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="@string/canadian_tire"
+                android:textColor="@android:color/black"
                 android:textSize="18sp" />
 
             <RadioButton
                 android:id="@+id/bestbuy"
+                android:buttonTint="@android:color/black"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="@string/bestbuy"
+                android:textColor="@android:color/black"
                 android:textSize="18sp" />
 
             <RadioButton
                 android:id="@+id/T_n_T"
+                android:buttonTint="@android:color/black"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="@string/t_t"
+                android:textColor="@android:color/black"
                 android:textSize="18sp" />
 
             <RadioButton
                 android:id="@+id/shoppers_drug_mart"
+                android:buttonTint="@android:color/black"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="@string/shoppers_drug_mart"
+                android:textColor="@android:color/black"
                 android:textSize="18sp" />
 
             <RadioButton
                 android:id="@+id/other"
+                android:buttonTint="@android:color/black"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="@string/other"
+                android:textColor="@android:color/black"
                 android:textSize="18sp" />
         </RadioGroup>
 
@@ -87,7 +104,8 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="@string/name_of_market"
-            android:imeActionLabel="l"
+            android:textColorHint="@android:color/black"
+        android:imeActionLabel="l"
             android:inputType="textPersonName"
             android:labelFor="@+id/T_n_T"
             android:textSize="18sp" />
