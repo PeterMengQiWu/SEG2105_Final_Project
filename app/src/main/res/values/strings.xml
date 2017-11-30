@@ -164,4 +164,6 @@
     <string name="item_name">Item name</string>
     <string name="groceries">Groceries</string>
     <string name="metarial">Metarial</string>
+    <string name="creator">Creator</string>
+    <string name="worker">Worker</string>
 </resources>

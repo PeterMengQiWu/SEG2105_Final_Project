@@ -29,6 +29,7 @@ public class AddChore extends AppCompatActivity {
     private TextView pointsBox;
     private TextView dueDateBox;
     private TextView dueTimeBox;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,8 +46,8 @@ public class AddChore extends AppCompatActivity {
     public void confirm (View view){
         double points = Double.parseDouble(pointsBox.getText().toString());
         FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
-        String userID = firebaseAuth.getCurrentUser().getUid();
-        Task task = new Task(nameBox.getText().toString(),points,dueDateBox.getText().toString(),dueTimeBox.getText().toString(),userID,"PENDING");
+        String userEmail = firebaseAuth.getCurrentUser().getEmail();
+        Task task = new Task(nameBox.getText().toString(),points,dueDateBox.getText().toString(),dueTimeBox.getText().toString(),userEmail,"PENDING");
         TasksDBHandler dbHandler = new TasksDBHandler(this);
         dbHandler.addTask(task);
         nameBox.setText("");
