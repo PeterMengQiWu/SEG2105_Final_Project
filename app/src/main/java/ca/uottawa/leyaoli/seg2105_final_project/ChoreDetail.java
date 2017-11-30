@@ -47,10 +47,10 @@ public class ChoreDetail extends AppCompatActivity {
         task = db.findTaskByName(task_name);
         if(task!=null) {
             taskName.setText(task_name);
-            points.setText((task.getPoints() + "").toString());
-            dueDate.setText(task.getDueDate().toString());
-            dueTime.setText(task.getDueTime().toString());
-            states.setText(task.getStates().toString());
+            points.setText((task.getPoints() + ""));
+            dueDate.setText(task.getDueDate());
+            dueTime.setText(task.getDueTime());
+            states.setText(task.getStates());
         }
     }
 
