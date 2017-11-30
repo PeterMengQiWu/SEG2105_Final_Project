@@ -135,7 +135,7 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.open_tasks) {
-            // Handle the camera action
+
         } else if (id == R.id.nav_list) {
 
         } else if (id == R.id.nav_schedule) {
@@ -161,7 +161,6 @@ public class MainActivity extends AppCompatActivity
     }
 
     private void setupWithViewPager (ViewPager viewPager){
-
         SectionPageAdapter adapter = new SectionPageAdapter(getSupportFragmentManager());
         adapter.addFragment(new Tab1(),"tab1");
         adapter.addFragment(new Tab2(),"tab2");
