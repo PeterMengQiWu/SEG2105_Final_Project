@@ -6,9 +6,17 @@ package ca.uottawa.leyaoli.seg2105_final_project;
 
 public class Messgae {
     private String message,type;
-
     private long time ;
     private boolean seen ;
+    private String from ;
+
+    public Messgae(String message, String type, long time, boolean seen, String from) {
+        this.message = message;
+        this.type = type;
+        this.time = time;
+        this.seen = seen;
+        this.from = from;
+    }
 
     public String getMessage() {
         return message;
@@ -42,12 +50,12 @@ public class Messgae {
         this.seen = seen;
     }
 
-    public Messgae(String message, String type, long time, boolean seen) {
-        this.message = message;
-        this.type = type;
-        this.time = time;
+    public String getFrom() {
+        return from;
+    }
 
-        this.seen = seen;
+    public void setFrom(String from) {
+        this.from = from;
     }
 
     public Messgae (){

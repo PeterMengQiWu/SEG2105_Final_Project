@@ -10,7 +10,7 @@ public class User {
     private String email;
 
     public User(){
-
+        
     }
 
     public User(String userName, String someOtherThings) {

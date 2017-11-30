@@ -31,18 +31,19 @@ import java.util.Map;
 
 
 public class ChatActivity extends AppCompatActivity {
-    private ImageButton chatSendBt;
-    private EditText chatMessage;
-    private String chatUser;
-    private Toolbar chatToolbar;
-    private DatabaseReference userdatabase;
-    private FirebaseAuth firebaseAuth;
-    private String userID;
+    private ImageButton chatSendBt;   // Send Button
+    private EditText chatMessage;  //  Chat TextView
+    private String chatUser;    // Person Talk to
+    private Toolbar chatToolbar; //  Chat Tool Bar
+    private DatabaseReference userdatabase;  // Database reference
+    private FirebaseAuth firebaseAuth; // auth
+    private String userID; // Current User ID
+    //private DatabaseReference userdatabasetest;
     //==============================================================
-    private final List<Messgae> messgaeList = new ArrayList<>();
-    private LinearLayoutManager linearLayoutManager ;
-    private MessageAdapter messageAdapter;
-    private RecyclerView messageView ;
+    private final List<Messgae> messgaeList = new ArrayList<>();   // List of Message Class
+    private LinearLayoutManager linearLayoutManager ;  // LayOut
+    private MessageAdapter messageAdapter; //Adapter
+    private RecyclerView messageView ; // Message View
 
 // =============================================================================
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
@@ -54,7 +55,7 @@ public class ChatActivity extends AppCompatActivity {
         userdatabase = FirebaseDatabase.getInstance().getReference();
         firebaseAuth = FirebaseAuth.getInstance();
         userID = firebaseAuth.getCurrentUser().getUid();
-
+        //userdatabasetest = FirebaseDatabase.getInstance().getReference("KKKK");
 
 
 // ====================================================== Get component in UI
@@ -69,17 +70,28 @@ public class ChatActivity extends AppCompatActivity {
         messageAdapter = new MessageAdapter(messgaeList);
 
         linearLayoutManager = new LinearLayoutManager(this);
+//=============================================================================Test
+       /* userdatabasetest.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                userdatabasetest.child("hey").setValue("1");
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });  */
 
 
-// ======================================================================================Recycle View setup
 
 //=====================================================================================Set up Chat Title
-       chatUser = getIntent().getStringExtra("user_id");
+       chatUser = getIntent().getStringExtra("user_id"); // get the Other user's ID
         userdatabase.child("Users").child(chatUser).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                     String chat_user_name = dataSnapshot.child("name").getValue().toString();
-                getSupportActionBar().setTitle(chat_user_name);
+                     getSupportActionBar().setTitle(chat_user_name);
             }
 
             @Override
@@ -149,7 +161,7 @@ public class ChatActivity extends AppCompatActivity {
                 Messgae e = dataSnapshot.getValue(Messgae.class);
 
                 messgaeList.add(e);
-              messageAdapter.notifyDataSetChanged();
+             messageAdapter.notifyDataSetChanged();
 
             }
 
@@ -184,7 +196,7 @@ public class ChatActivity extends AppCompatActivity {
             String curren_user = "message/" + userID + "/" +chatUser;
             String other_user = "message/" + chatUser+ "/" + userID;
 
-            DatabaseReference user_message_push = userdatabase.child("Message").child(userID).child(chatUser).push();
+            DatabaseReference user_message_push = userdatabase.child("message").child(userID).child(chatUser).push();
             String push_id = user_message_push.getKey();
 
             Map messageMap = new HashMap();
@@ -192,7 +204,9 @@ public class ChatActivity extends AppCompatActivity {
             messageMap.put( "send" ,false);
             messageMap.put( "type", "text");
             messageMap.put("time", ServerValue.TIMESTAMP);
+            messageMap.put ("from", userID);
 
+            ;
 
 
             Map messageUserMap = new HashMap();
@@ -201,6 +215,8 @@ public class ChatActivity extends AppCompatActivity {
             messageUserMap.put(other_user + "/" + push_id , messageMap);
 
 
+            chatMessage.setText("");
+//  Update Method
             userdatabase.updateChildren(messageUserMap, new DatabaseReference.CompletionListener() {
                 @Override
                 public void onComplete(DatabaseError databaseError, DatabaseReference databaseReference) {
