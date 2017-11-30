@@ -36,9 +36,7 @@ class Shopping{
         this.selected = selected;
     }
 
-    public Shopping (String name){
-        this.name = name;
-    }
+
 
     public String getName() {
         return name;
