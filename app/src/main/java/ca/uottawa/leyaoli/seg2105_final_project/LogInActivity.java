@@ -22,7 +22,7 @@ public class LogInActivity extends AppCompatActivity {
 
     private Button bt;
     private TextInputLayout email ;
-    private  TextInputLayout pass ;
+    private TextInputLayout pass ;
     private FirebaseAuth mAuth;
 
     @Override
