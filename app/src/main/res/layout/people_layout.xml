@@ -23,24 +23,11 @@
             android:layout_marginBottom="6dp"
             android:layout_marginLeft="6dp"
             android:layout_marginRight="6dp"
-            app:srcCompat="@drawable/avatar" />
+            app:srcCompat="@drawable/avatar" /><![CDATA[
             android:layout_marginTop="6dp"
             android:contentDescription="Avatar" />
 
-        <ImageView
-            android:id="@+id/configImage"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_gravity="center|right"
-            android:layout_margin="6dp"
-            android:layout_marginBottom="6dp"
-            android:layout_marginLeft="6dp"
-            android:layout_marginRight="6dp"
-            android:layout_marginTop="6dp"
-            android:background="@android:drawable/sym_action_chat"
-            android:contentDescription="checkMark"
-            tools:background="@android:drawable/sym_action_chat"
-            tools:ignore="HardcodedText" />
+        ]]>
 
         <LinearLayout
             android:layout_width="match_parent"
