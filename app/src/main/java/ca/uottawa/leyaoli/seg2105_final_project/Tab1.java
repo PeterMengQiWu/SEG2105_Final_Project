@@ -104,8 +104,3 @@ public class  Tab1 extends Fragment  implements android.widget.CompoundButton.On
         }
     }
 }
-
-
-
-
-
