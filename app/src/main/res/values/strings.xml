@@ -123,8 +123,7 @@
     <string name="t_t">T and T</string>
     <string name="shoppers_drug_mart">Shoppers Drug Mart</string>
     <string name="other">Other</string>
-    <string name="name_of_market">name of market</string>
-    <string name="navigate">navigate</string>
+    <string name="name_of_market">Search Name of the Market</string>
     <string name="note_chinese_meal_please">Note: Chinese meal please!</string>
     <string name="make_a_breakfast">Make a breakfast</string>
     <string name="current_tasks">Current Tasks</string>
@@ -169,4 +168,5 @@
     <string name="showTask">Show my tasks</string>
     <string name="log_out">Log out</string>
     <string name="all_user">All user</string>
+    <string name="navigate">NAVIGATE</string>
 </resources>

@@ -44,7 +44,7 @@
                     android:layout_height="35dp"
                     android:layout_gravity="center"
                     android:layout_weight="1"
-                    android:background="@drawable/search3"
+                    android:background="@drawable/earth"
                     android:onClick="NavigateButton" />
 
             </LinearLayout>
@@ -70,9 +70,10 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:background="@color/common_google_signin_btn_text_dark_disabled"
-                android:buttonTint="@android:color/holo_green_light"
+                android:buttonTint="@color/common_google_signin_btn_text_light_default"
                 android:text="@string/walmart"
                 android:textAlignment="viewStart"
+                android:textColor="@color/common_google_signin_btn_text_light_default"
                 android:textSize="18sp" />
 
             <RadioButton
@@ -81,8 +82,9 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:background="@color/common_google_signin_btn_text_dark_disabled"
-                android:buttonTint="@android:color/holo_green_light"
+                android:buttonTint="@color/common_google_signin_btn_text_light_default"
                 android:text="@string/lablaws"
+                android:textColor="@color/common_google_signin_btn_text_light_default"
                 android:textSize="18sp" />
 
             <RadioButton
@@ -91,8 +93,9 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:background="@color/common_google_signin_btn_text_dark_disabled"
-                android:buttonTint="@android:color/holo_green_light"
+                android:buttonTint="@color/common_google_signin_btn_text_light_default"
                 android:text="@string/metro"
+                android:textColor="@color/common_google_signin_btn_text_light_default"
                 android:textSize="18sp" />
 
             <RadioButton
@@ -101,8 +104,9 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:background="@color/common_google_signin_btn_text_dark_disabled"
-                android:buttonTint="@android:color/holo_green_light"
+                android:buttonTint="@color/common_google_signin_btn_text_light_default"
                 android:text="@string/canadian_tire"
+                android:textColor="@color/common_google_signin_btn_text_light_default"
                 android:textSize="18sp" />
 
             <RadioButton
@@ -111,8 +115,9 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:background="@color/common_google_signin_btn_text_dark_disabled"
-                android:buttonTint="@android:color/holo_green_light"
+                android:buttonTint="@color/common_google_signin_btn_text_light_default"
                 android:text="@string/bestbuy"
+                android:textColor="@color/common_google_signin_btn_text_light_default"
                 android:textSize="18sp" />
 
             <RadioButton
@@ -121,8 +126,9 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:background="@color/common_google_signin_btn_text_dark_disabled"
-                android:buttonTint="@android:color/holo_green_light"
+                android:buttonTint="@color/common_google_signin_btn_text_light_focused"
                 android:text="@string/t_t"
+                android:textColor="@color/common_google_signin_btn_text_light_default"
                 android:textSize="18sp" />
 
             <RadioButton
@@ -131,8 +137,9 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:background="@color/common_google_signin_btn_text_dark_disabled"
-                android:buttonTint="@android:color/holo_green_light"
+                android:buttonTint="@color/common_google_signin_btn_text_light_default"
                 android:text="@string/shoppers_drug_mart"
+                android:textColor="@color/common_google_signin_btn_text_light_default"
                 android:textSize="18sp" />
 
             <RadioButton
@@ -141,8 +148,9 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:background="@color/common_google_signin_btn_text_dark_disabled"
-                android:buttonTint="@android:color/holo_green_light"
+                android:buttonTint="@color/common_google_signin_btn_text_light_default"
                 android:text="@string/other"
+                android:textColor="@color/common_google_signin_btn_text_light_default"
                 android:textSize="18sp" />
 
         </RadioGroup>
