@@ -1,11 +1,16 @@
 package ca.uottawa.leyaoli.seg2105_final_project;
 
 import android.content.Context;
+import android.media.Image;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.CheckBox;
+import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.google.android.gms.tasks.Tasks;
 
 import java.util.List;
 
@@ -14,23 +19,22 @@ import java.util.List;
  */
 
 public class TaskListAdapter extends BaseAdapter{
-    private List<String> mList;
-    private Context mContext;
-    private InnerItemOnclickListener mListener;
+    private List<Task> tasks;
+    private Context context;
 
-    public TaskListAdapter(List<String> mList, Context mContext) {
-        this.mList = mList;
-        this.mContext = mContext;
+    public TaskListAdapter(List<Task> tasks, Context context) {
+        this.tasks = tasks;
+        this.context = context;
     }
 
     @Override
     public int getCount() {
-        return mList.size();
+        return tasks.size();
     }
 
     @Override
     public Object getItem(int position) {
-        return mList.get(position);
+        return tasks.get(position);
     }
 
     @Override
@@ -43,25 +47,24 @@ public class TaskListAdapter extends BaseAdapter{
         final ViewHolder viewHolder;
         if (convertView == null) {
             viewHolder = new ViewHolder();
-            convertView = LayoutInflater.from(mContext).inflate(R.layout.fragment_tab2,null);
-            viewHolder.tv = (TextView) convertView.findViewById(R.id.nameListView);
+            convertView = LayoutInflater.from(context).inflate(R.layout.chorelayout,null);
+            viewHolder.task_name = (TextView)convertView.findViewById(R.id.task_name);
+            viewHolder.task_states = (TextView)convertView.findViewById(R.id.task_states);
+            viewHolder.worker_ico = (ImageView)convertView.findViewById(R.id.worker_ico);
+            viewHolder.finish = (CheckBox)convertView.findViewById(R.id.finish);
             convertView.setTag(viewHolder);
         } else {
             viewHolder = (ViewHolder) convertView.getTag();
         }
-        viewHolder.tv.setText(mList.get(position));
+        viewHolder.task_name.setText(tasks.get(position).getName());
+        viewHolder.task_states.setText(tasks.get(position).getStates());
         return convertView;
     }
 
     public final static class ViewHolder {
-        TextView tv;
-    }
-
-    interface InnerItemOnclickListener {
-        void itemClick(View v);
-    }
-
-    public void setOnInnerItemOnClickListener(InnerItemOnclickListener listener){
-        this.mListener=listener;
+        TextView task_name;
+        TextView task_states;
+        ImageView worker_ico;
+        CheckBox finish;
     }
 }

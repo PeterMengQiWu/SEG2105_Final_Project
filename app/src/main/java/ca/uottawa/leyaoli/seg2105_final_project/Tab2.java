@@ -22,16 +22,16 @@ import java.util.List;
  */
 
 
-public class Tab2 extends Fragment{
+public class Tab2 extends Fragment implements OnItemClickListener {
     private Switch myTasks = null;
 
-    private ArrayAdapter<String> arrayAdapter;
+    private TaskListAdapter myAdapter;
     private ListView listView;
-    private List<String> nameList;
     private List<Task> taskList;
     private Button new_task;
     private Button refresh;
     private TextView new_task_text_view;
+    private TasksDBHandler db;
 
     @Override
     public View onCreateView(final LayoutInflater inflater, ViewGroup container,
@@ -54,7 +54,6 @@ public class Tab2 extends Fragment{
             }
         });
 
-        nameList = new ArrayList<String>();
         taskList = new ArrayList<Task>();
 
         refresh = (Button)view.findViewById(R.id.refresh);
@@ -65,56 +64,33 @@ public class Tab2 extends Fragment{
             }
         });
 
-        nameList = new ArrayList<String>();
         taskList = new ArrayList<Task>();
-        TasksDBHandler dbHandler = new TasksDBHandler(getContext());
-        taskList = dbHandler.getTaskList();
-        if (taskList != null) {
-            for (int i = 0; i < taskList.size(); i++) {
-                nameList.add(taskList.get(i).getName());
-            }
-        } else {
-            Toast.makeText(getContext(), "No Match Find", Toast.LENGTH_LONG).show();
-        }
-        arrayAdapter = new ArrayAdapter<String>(getContext(), android.R.layout.simple_expandable_list_item_1, nameList);
-        listView.setAdapter(arrayAdapter);
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent = new Intent(getContext(), ChoreDetail.class);
-                intent.putExtra("task name", nameList.get(position).toString());
-                startActivity(intent);
-            }
-        });
+        db = new TasksDBHandler(getContext());
+        taskList = db.getTaskList();
+
+        myAdapter = new TaskListAdapter(taskList, getContext());
+        listView.setAdapter(myAdapter);
+        listView.setOnItemClickListener(this);
         return view;
     }
 
     public void search(){
-        nameList = new ArrayList<String>();
         taskList = new ArrayList<Task>();
-        TasksDBHandler dbHandler = new TasksDBHandler(getContext());
-        taskList = dbHandler.getTaskList();
-        if (taskList != null) {
-            for (int i = 0; i < taskList.size(); i++) {
-                nameList.add(taskList.get(i).getName());
-            }
-        } else {
-            Toast.makeText(getContext(), "No Match Find", Toast.LENGTH_LONG).show();
-        }
-        arrayAdapter = new ArrayAdapter<String>(getContext(), android.R.layout.simple_expandable_list_item_1, nameList);
-        listView.setAdapter(arrayAdapter);
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent = new Intent(getContext(), ChoreDetail.class);
-                intent.putExtra("task name", nameList.get(position).toString());
-                startActivity(intent);
-            }
-        });
+        taskList = db.getTaskList();
+        myAdapter = new TaskListAdapter(taskList, getContext());
+        listView.setAdapter(myAdapter);
+        listView.setOnItemClickListener(this);
     }
 
     public void newTask(){
         Intent newTasks = new Intent(getContext(), AddChore.class);
         startActivity(newTasks);
+    }
+
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent = new Intent(getContext(), ChoreDetail.class);
+                intent.putExtra("task name", taskList.get(position).getName());
+                startActivity(intent);
     }
 }
