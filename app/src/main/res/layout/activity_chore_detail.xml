@@ -18,6 +18,7 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:text="@string/name_of_task"
+            android:textColor="@android:color/black"
             android:textSize="18sp" />
 
         <LinearLayout
@@ -35,34 +36,49 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/points"
-                    android:text="@string/points" />
+                    android:textColorHint="@android:color/black"
+                    android:text="@string/points"
+                    android:textColor="@android:color/black"
+                    />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/due_date"
-                    android:text="@string/due_date" />
+                    android:textColorHint="@android:color/black"
+                    android:text="@string/due_date"
+                    android:textColor="@android:color/black"
+                    />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/due_time"
-                    android:text="@string/due_time" />
+                    android:textColorHint="@android:color/black"
+                    android:text="@string/due_time"
+                    android:textColor="@android:color/black"
+                    />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/states" />
+                    android:text="@string/states"
+                    android:textColor="@android:color/black"
+                    />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/creator" />
+                    android:text="@string/creator"
+                    android:textColor="@android:color/black"
+                    />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/worker" />
+                    android:text="@string/worker"
+                    android:textColor="@android:color/black"
+                    />
 
             </LinearLayout>
 
@@ -76,38 +92,44 @@
                     android:id="@+id/points"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/points" />
+                    android:hint="@string/points"
+                    android:textColorHint="@android:color/black" />
 
                 <TextView
                     android:id="@+id/dueDate"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/due_date" />
+                    android:hint="@string/due_date"
+                    android:textColorHint="@android:color/black" />
 
                 <TextView
                     android:id="@+id/dueTime"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/due_time" />
+                    android:hint="@string/due_time"
+                    android:textColorHint="@android:color/black" />
 
                 <TextView
                     android:id="@+id/states"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/states" />
+                    android:hint="@string/states"
+                    android:textColorHint="@android:color/black" />
 
                 <TextView
                     android:id="@+id/creator"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:hint="@string/creator" />
+                    android:hint="@string/creator"
+                    android:textColorHint="@android:color/black" />
 
                 <TextView
                     android:id="@+id/worker"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/worker" />
+                    android:hint="@string/worker"
+                    android:textColorHint="@android:color/black" />
 
             </LinearLayout>
         </LinearLayout>
