@@ -35,4 +35,6 @@
     <string name="email">邮箱</string>
     <string name="hint">提示</string>
     <string name="showTask">显示我的任务</string>
+    <string name="log_out">登出</string>
+    <string name="all_user">所有用户</string>
 </resources>
