@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -27,6 +29,10 @@ public class PersonalFile extends AppCompatActivity {
     private FirebaseAuth firebaseAuth;
     private Toolbar toolbar;
     private Button bt ;
+    private ImageView avatar ;
+    private TextView email;
+//    private  DatabaseReference userdatabase1;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,17 +42,26 @@ public class PersonalFile extends AppCompatActivity {
         toolbar = (Toolbar) findViewById(R.id.personalProfileToolbar);
         bt = (Button) findViewById(R.id.btnSendMessage);
         setSupportActionBar(toolbar);
+        avatar = (ImageView) findViewById(R.id.personalProfileAvatar);
+        email = (TextView) findViewById(R.id.personalProfileText);
+        chatUser = getIntent().getStringExtra("user_id");
+        //userdatabase1 = FirebaseDatabase.getInstance().getReference().child("Users").child(chatUser);
+
+
 
         // ===================================================================
 
 
-        chatUser = getIntent().getStringExtra("user_id");
+
 
         userdatabase.child("Users").child(chatUser).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 String user_name = dataSnapshot.child("name").getValue().toString();
+                String emailAddress = dataSnapshot.child("email").getValue().toString();
                 getSupportActionBar().setTitle(user_name);
+                email.setText(emailAddress);
+
         }
 
             @Override

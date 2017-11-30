@@ -24,7 +24,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity android:name=".AddChore" />
         <activity android:name=".ChoreDetail" />
         <activity android:name=".PersonalFile" />
@@ -32,8 +31,9 @@
         <activity android:name=".StartPage" />
         <activity android:name=".RegisterActivity" />
         <activity android:name=".LogInActivity" />
-        <activity android:name=".UserActivity"></activity>
-        <activity android:name=".ChatActivity"></activity>
+        <activity android:name=".UserActivity" />
+        <activity android:name=".ChatActivity" />
+        <activity android:name=".AccountSetting"></activity>
     </application>
 
 </manifest>
