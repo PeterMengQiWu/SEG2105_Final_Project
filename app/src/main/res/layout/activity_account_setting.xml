@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/main_wallpaper"
     tools:context="ca.uottawa.leyaoli.seg2105_final_project.UserActivity">
 
     <de.hdodenhof.circleimageview.CircleImageView
@@ -20,8 +21,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_above="@+id/changeImage"
-        android:layout_alignEnd="@+id/changeName"
-        android:layout_marginBottom="29dp"
+        android:layout_alignEnd="@+id/somethingElse"
+        android:layout_marginBottom="25dp"
         android:text="DisplayName" />
 
     <TextView
@@ -38,7 +39,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_above="@+id/changeName"
-        android:layout_alignStart="@+id/settingAvatar"
+        android:layout_alignEnd="@+id/changeName"
         android:text="Change Image" />
 
     <Button
