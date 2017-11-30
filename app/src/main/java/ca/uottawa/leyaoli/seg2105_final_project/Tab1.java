@@ -107,8 +107,6 @@ public class  Tab1 extends Fragment {
         lv.setAdapter(adapter);
         lv2.setAdapter(adapter2);
     }
-
-
 }
 
 

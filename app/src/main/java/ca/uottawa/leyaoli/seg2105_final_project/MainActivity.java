@@ -22,6 +22,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -37,7 +38,7 @@ import java.util.Locale;
 
 
 public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+        implements NavigationView.OnNavigationItemSelectedListener{
     private SectionPageAdapter a ;
     private ViewPager b;
 
@@ -47,19 +48,11 @@ public class MainActivity extends AppCompatActivity
     private static final String FILE_NAME = "file_lang"; // preference file name
     private static final String KEY_LANG = "key_lang"; // preference key
 
-    private ListView listView;
-    private ArrayAdapter<String> arrayAdapter;
-    private List<String> nameList;
-    private List<Task> taskList;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_main);
-
-
-
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -70,12 +63,11 @@ public class MainActivity extends AppCompatActivity
         drawer.setDrawerListener(toggle);
         toggle.syncState();
 
-
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
         a= new SectionPageAdapter(getSupportFragmentManager());
-        b = (ViewPager) findViewById(R.id.container);
+        b = (ViewPager)findViewById(R.id.container);
         setupWithViewPager(b);
         TabLayout tablayout = (TabLayout) findViewById(R.id.tablay);
         tablayout.setupWithViewPager(b);
@@ -172,34 +164,11 @@ public class MainActivity extends AppCompatActivity
     }
 
     private void setupWithViewPager (ViewPager viewPager){
-
         SectionPageAdapter adapter = new SectionPageAdapter(getSupportFragmentManager());
         adapter.addFragment(new Tab1(),"Shopping");
         adapter.addFragment(new Tab2(),"Tasks");
         adapter.addFragment(new Tab3(),"People");
         viewPager.setAdapter(adapter);
-    }
-
-    public void createNewTasks (View view){
-        Intent newTasks = new Intent(MainActivity.this, AddChore.class);
-        startActivityForResult(newTasks, 0);
-    }
-
-    public void  search (View view){
-        listView = (ListView)findViewById(R.id.nameListView);
-        nameList = new ArrayList<String>();
-        taskList = new ArrayList<Task>();
-        TasksDBHandler dbHandler = new TasksDBHandler(this);
-        taskList = dbHandler.getTaskList();
-        if (taskList != null) {
-            for (int i = 0; i < taskList.size(); i++) {
-                nameList.add(taskList.get(i).getName());
-            }
-        } else {
-            Toast.makeText(MainActivity.this, "No Match Find", Toast.LENGTH_LONG).show();
-        }
-        arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_expandable_list_item_1, nameList);
-        listView.setAdapter(arrayAdapter);
     }
 }
 

@@ -66,6 +66,28 @@ public class TasksDBHandler extends SQLiteOpenHelper{
         db.close();
     }
 
+    public Task findTaskByName(String name){
+        SQLiteDatabase db = this.getReadableDatabase();
+        String query = "Select * FROM " + TABLE_TASKS + " WHERE " +
+                COLUMN_NAME + " = \""+ name + "\"";
+        Cursor cursor = db.rawQuery(query,null);
+        Task task = new Task();
+        if (cursor.moveToFirst()){
+            task.setName(cursor.getString(1));
+            task.setPoints(Double.parseDouble(cursor.getString(2)));
+            task.setDueDate(cursor.getString(3));
+            task.setDueTime(cursor.getString(4));
+            task.setCreator(cursor.getString(5));
+            if (cursor.getString(6)!=null)
+                task.setWorker(cursor.getString(6));
+            task.setStates(cursor.getString(7));
+        } else {
+            task = null;
+        }
+        db.close();
+        return task;
+    }
+
     public Task findTaskByCreator(String creator){
        SQLiteDatabase db = this.getReadableDatabase();
        String query = "Select * FROM " + TABLE_TASKS + " WHERE " +
