@@ -157,4 +157,6 @@
     <string name="all_user">All user</string>
     <string name="navigate">NAVIGATE</string>
     <string name="delete">Delete</string>
+    <string name="shopping">Shopping</string>
+    <string name="tasks">Tasks</string>
 </resources>
