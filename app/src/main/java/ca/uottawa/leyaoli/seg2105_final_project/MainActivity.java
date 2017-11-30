@@ -38,8 +38,7 @@ import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
-    private SectionPageAdapter a ;
-    private ViewPager b;
+    private ViewPager viewPager;
 
     private FirebaseAuth mAuth;
 
@@ -66,11 +65,10 @@ public class MainActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        a= new SectionPageAdapter(getSupportFragmentManager());
-        b = (ViewPager) findViewById(R.id.container);
-        setupWithViewPager(b);
+        viewPager = (ViewPager) findViewById(R.id.container);
+        setupWithViewPager(viewPager);
         TabLayout tablayout = (TabLayout) findViewById(R.id.tablay);
-        tablayout.setupWithViewPager(b);
+        tablayout.setupWithViewPager(viewPager);
 
         // =============== Data Base Test
         mAuth = FirebaseAuth.getInstance();
@@ -162,9 +160,9 @@ public class MainActivity extends AppCompatActivity
 
     private void setupWithViewPager (ViewPager viewPager){
         SectionPageAdapter adapter = new SectionPageAdapter(getSupportFragmentManager());
-        adapter.addFragment(new Tab1(),"tab1");
-        adapter.addFragment(new Tab2(),"tab2");
-        adapter.addFragment(new Tab3(),"tab3");
+        adapter.addFragment(new Tab1(),"shopping");
+        adapter.addFragment(new Tab2(),"tasks");
+        adapter.addFragment(new Tab3(),"people");
         viewPager.setAdapter(adapter);
     }
 }
