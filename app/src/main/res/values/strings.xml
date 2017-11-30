@@ -166,4 +166,7 @@
     <string name="location">Location</string>
     <string name="setting">Setting</string>
     <string name="project_name">Newbies\' Final Project</string>
+    <string name="showTask">Show my tasks</string>
+    <string name="log_out">Log out</string>
+    <string name="all_user">All user</string>
 </resources>

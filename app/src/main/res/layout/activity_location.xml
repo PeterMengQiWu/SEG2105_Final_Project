@@ -4,24 +4,75 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/main_wallpaper"
     tools:context="ca.uottawa.leyaoli.seg2105_final_project.LocationActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp">
 
         <RadioGroup
             android:id="@+id/market"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/editText"
+                    android:layout_width="320dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:hint="@string/name_of_market"
+                    android:imeActionLabel="l"
+                    android:inputType="textPersonName"
+                    android:labelFor="@+id/T_n_T"
+                    android:singleLine="true"
+                    android:textSize="18sp" />
+
+                <Button
+                    android:id="@+id/button2"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:background="@drawable/search3"
+                    android:onClick="NavigateButton" />
+
+            </LinearLayout>
+
+            <Space
+                android:layout_width="10dp"
+                android:layout_height="13dp"
+                android:layout_weight="1" />
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Quick Search"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
             <RadioButton
                 android:id="@+id/walmart"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:background="@color/common_google_signin_btn_text_dark_disabled"
+                android:buttonTint="@android:color/holo_green_light"
                 android:text="@string/walmart"
+                android:textAlignment="viewStart"
                 android:textSize="18sp" />
 
             <RadioButton
@@ -29,6 +80,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:background="@color/common_google_signin_btn_text_dark_disabled"
+                android:buttonTint="@android:color/holo_green_light"
                 android:text="@string/lablaws"
                 android:textSize="18sp" />
 
@@ -37,6 +90,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:background="@color/common_google_signin_btn_text_dark_disabled"
+                android:buttonTint="@android:color/holo_green_light"
                 android:text="@string/metro"
                 android:textSize="18sp" />
 
@@ -45,6 +100,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:background="@color/common_google_signin_btn_text_dark_disabled"
+                android:buttonTint="@android:color/holo_green_light"
                 android:text="@string/canadian_tire"
                 android:textSize="18sp" />
 
@@ -53,6 +110,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:background="@color/common_google_signin_btn_text_dark_disabled"
+                android:buttonTint="@android:color/holo_green_light"
                 android:text="@string/bestbuy"
                 android:textSize="18sp" />
 
@@ -61,6 +120,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:background="@color/common_google_signin_btn_text_dark_disabled"
+                android:buttonTint="@android:color/holo_green_light"
                 android:text="@string/t_t"
                 android:textSize="18sp" />
 
@@ -69,6 +130,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:background="@color/common_google_signin_btn_text_dark_disabled"
+                android:buttonTint="@android:color/holo_green_light"
                 android:text="@string/shoppers_drug_mart"
                 android:textSize="18sp" />
 
@@ -77,27 +140,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:background="@color/common_google_signin_btn_text_dark_disabled"
+                android:buttonTint="@android:color/holo_green_light"
                 android:text="@string/other"
                 android:textSize="18sp" />
+
         </RadioGroup>
-
-        <EditText
-            android:id="@+id/editText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="@string/name_of_market"
-            android:imeActionLabel="l"
-            android:inputType="textPersonName"
-            android:labelFor="@+id/T_n_T"
-            android:textSize="18sp" />
-
-        <Button
-            android:id="@+id/button2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:onClick="NavigateButton"
-            android:text="@string/navigate" />
 
     </LinearLayout>
 
