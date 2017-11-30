@@ -58,7 +58,7 @@ public class LocationActivity extends AppCompatActivity {
                     address = "bestbuy";
                 }
                 else if (checkedId == TnT.getId()){
-                    address = "T & T";
+                    address = "T and T";
                 }
                 else if (checkedId == shoppers.getId()){
                     address = "shoppers drug mart";

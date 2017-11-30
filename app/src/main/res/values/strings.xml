@@ -150,7 +150,6 @@
     <string name="cupboard_and_fridge">Cupboard and Fridge</string>
     <string name="broom_clost_tools">Broom Clost (Tools)</string>
     <string name="location">Location</string>
-    <string name="setting">Setting</string>
     <string name="project_name">Newbies\' Final Project</string>
     <string name="showTask">Show my tasks</string>
     <string name="log_out">Log out</string>
@@ -162,4 +161,7 @@
     <string name="states">states</string>
     <string name="task_name">Task Name:</string>
     <string name="point">Points:</string>
+    <string name="item_name">Item name</string>
+    <string name="groceries">Groceries</string>
+    <string name="metarial">Metarial</string>
 </resources>

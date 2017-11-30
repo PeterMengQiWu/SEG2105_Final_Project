@@ -38,8 +38,6 @@ public class  Tab1 extends Fragment  implements android.widget.CompoundButton.On
     Button add;
     // Button type;
     EditText text;
-    EditText type1;
-    EditText type2;
     String typeSelected;
     CheckBox ch1;
     CheckBox ch2;
@@ -59,69 +57,41 @@ public class  Tab1 extends Fragment  implements android.widget.CompoundButton.On
         add = view.findViewById(R.id.add);
         ch1 = view.findViewById(R.id.checkBoxtype1);
         ch2 = view.findViewById(R.id.checkBoxtype2);
-        //type=view.findViewById(R.id.type);
-        type1=view.findViewById(R.id.Type1);
-        type1.setText("Groceries");
 
-        type2=view.findViewById(R.id.Type2);
-        type2.setText("Metarial");
-        ch1.setText(type1.getText().toString());
-        ch2.setText(type2.getText().toString());
         text = view.findViewById(R.id.textadd);
         chores = new ArrayList<Shopping>();
         chores2 = new ArrayList<Shopping>();
         dbHandle = new ToolDBHandle(getActivity());
 
-
-
-
-
-
-
         add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Shopping sh = new Shopping();
                 if(ch1.isChecked()){
-                    typeSelected=ch1.getText().toString();
-                }else if(ch2.isChecked()){
-                    typeSelected = ch2.getText().toString();
-                }
-                if(ch1.isChecked()) {
-                    Shopping sh = new Shopping();
+                    typeSelected="";
                     sh.setName(text.getText().toString());
                     sh.setType(typeSelected);
                     sh.setSelected(false);
                     dbHandle.addTool(sh);
                     chores.add(sh);
-                }
-                else if (ch2.isChecked()){
-                    Shopping sh1 = new Shopping();
-                    sh1.setName(text.getText().toString());
-                    sh1.setType(typeSelected);
-                    sh1.setSelected(false);
-                    dbHandle.addTool(sh1);
-                    chores2.add(sh1);
-
+                }else if(ch2.isChecked()){
+                    typeSelected = "material";
+                    sh.setName(text.getText().toString());
+                    sh.setType(typeSelected);
+                    sh.setSelected(false);
+                    dbHandle.addTool(sh);
+                    chores2.add(sh);
                 }
                 else{
-
-                    Toast toast = Toast.makeText(getContext(),"Wrong",Toast.LENGTH_LONG);
-                    toast.show();
+                    Toast.makeText(getContext(),"Please select the type you want to add to shopping list!",Toast.LENGTH_LONG).show();
                 }
-
             }
         });
-
-
-        displayShoppingList1();
-
+        displayShoppingList();
         return view;
 
     }
-    private void displayShoppingList1(){
-
-
+    private void displayShoppingList(){
         adapter = new ShoppingAdapter(getContext(),chores);
         adapter2 = new ShoppingAdapter(getContext(),chores2);
         lv.setAdapter(adapter);
@@ -136,7 +106,6 @@ public class  Tab1 extends Fragment  implements android.widget.CompoundButton.On
             sh.setSelected(isChecked);
             dbHandle.deleteTask(sh.getName(),"false");
         }
-
     }
 }
 

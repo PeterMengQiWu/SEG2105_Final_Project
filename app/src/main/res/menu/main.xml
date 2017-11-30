@@ -11,5 +11,5 @@
         android:title="@string/all_user" />
     <item
         android:id="@+id/menuSetting"
-        android:title="Setting" />
+        android:title="@string/action_settings" />
 </menu>
