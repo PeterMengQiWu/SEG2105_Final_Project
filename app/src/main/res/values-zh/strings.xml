@@ -48,4 +48,6 @@
     <string name="item_name">物品名称</string>
     <string name="groceries">杂货</string>
     <string name="metarial">材料</string>
+    <string name="creator">创建人</string>
+    <string name="worker">工作人</string>
 </resources>
