@@ -32,7 +32,7 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
-        android:text="This Part is Way More Complecate Than I Think"
+        android:text="NOT FINISH"
         android:textColor="@color/common_google_signin_btn_text_dark_focused"
         android:textStyle="bold" />
 
