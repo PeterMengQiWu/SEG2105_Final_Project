@@ -59,7 +59,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Quick Search"
+                android:text="@string/quick_search"
                 android:textAppearance="@style/TextAppearance.AppCompat.Display1"
                 android:textSize="18sp"
                 android:textStyle="bold" />

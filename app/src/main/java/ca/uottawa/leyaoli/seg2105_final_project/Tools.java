@@ -44,7 +44,7 @@ public class Tools extends AppCompatActivity implements ToolAdapter.InnerItemOnc
     public void itemClick(View view, boolean isChecked) {
         int position = (Integer)view.getTag();
         if (isChecked){
-            material.get(position).setIsUsed("in used");
+            material.get(position).setIsUsed("used");
             db.updateUse(material.get(position).getIsUsed(), material.get(position).getName());
             getList();
         }else{

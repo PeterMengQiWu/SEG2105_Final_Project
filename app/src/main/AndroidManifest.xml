@@ -42,7 +42,8 @@
         <activity android:name=".CupBoard" />
         <activity android:name=".Tools" />
         <activity android:name=".ChangeName" />
-        <activity android:name=".ChooseWorkerActivity"></activity>
+        <activity android:name=".ChooseWorkerActivity" />
+        <activity android:name=".TaskBaclogActivity"></activity>
     </application>
 
 </manifest>

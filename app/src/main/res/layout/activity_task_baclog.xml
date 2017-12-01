@@ -4,11 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/register_signin_wallpaper"
-    tools:context="ca.uottawa.leyaoli.seg2105_final_project.ChooseWorkerActivity">
+    tools:context="ca.uottawa.leyaoli.seg2105_final_project.TaskBaclogActivity">
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/workerList"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
 </android.support.constraint.ConstraintLayout>

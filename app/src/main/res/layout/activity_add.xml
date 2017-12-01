@@ -5,17 +5,20 @@
 
     <CheckBox
         android:id="@+id/Tools_checkBox"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:duplicateParentState="false" />
+        android:duplicateParentState="false"
+        android:text="@string/item_name"
+        android:textSize="18sp" />
 
     <TextView
         android:id="@+id/tool_name"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:text="TextView" />
+        android:text="@string/states"
+        android:textSize="18sp" />
 
 </LinearLayout>
 

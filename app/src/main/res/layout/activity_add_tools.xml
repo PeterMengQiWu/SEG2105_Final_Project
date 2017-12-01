@@ -11,15 +11,18 @@
 
         <CheckBox
             android:id="@+id/Toolcheckbox"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            android:text="@string/item_name"
+            android:textSize="18sp" />
 
         <TextView
             android:id="@+id/toolstatus"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:text="@string/states"
             android:textColor="@android:color/black"
             android:textSize="18sp" />
 

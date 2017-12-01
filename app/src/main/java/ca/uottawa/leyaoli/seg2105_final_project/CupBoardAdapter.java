@@ -62,7 +62,7 @@ public class CupBoardAdapter extends BaseAdapter implements CompoundButton.OnChe
         }
         viewHolder.checkBox.setTag(position);
         viewHolder.checkBox.setText(tools.get(position).getName());
-        if (tools.get(position).getIsUsed().compareTo("in used")==0)
+        if (tools.get(position).getIsUsed().compareTo("used")==0)
             viewHolder.checkBox.setChecked(true);
         viewHolder.textView.setText(tools.get(position).getIsUsed());
         viewHolder.checkBox.setOnCheckedChangeListener(this);
