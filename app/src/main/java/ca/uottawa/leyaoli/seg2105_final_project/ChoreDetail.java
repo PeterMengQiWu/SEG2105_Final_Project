@@ -85,7 +85,12 @@ public class ChoreDetail extends AppCompatActivity {
     }
 
     public void update(View view){
-        db.updateName(taskName.getText().toString());
+        db.updateName(taskName.getText().toString(), task.getName());
         finish();
+    }
+
+    public void signAWorker(View view){
+        Intent intent = new Intent(ChoreDetail.this, ChooseWorkerActivity.class);
+        startActivity(intent);
     }
 }
