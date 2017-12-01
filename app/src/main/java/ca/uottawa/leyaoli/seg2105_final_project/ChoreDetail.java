@@ -84,18 +84,8 @@ public class ChoreDetail extends AppCompatActivity {
         finish();
     }
 
-    public void signAWorker(View view){
-        Intent intent = new Intent(ChoreDetail.this, ChooseWorkerActivity.class);
-        startActivity(intent);
-
-        //startActivityForResult(intent, 0);
-    }
-
-    protected void onAvtivityResult(int requestCode, int resultCode, Intent data){
-        if (resultCode == RESULT_CANCELED) return;
-        Toast.makeText(ChoreDetail.this, data.getStringExtra("list_user_id"), Toast.LENGTH_SHORT).show();
-        //task.setWorker(data.getStringExtra("WORKER_NAME"));
-        //db.deleteTask(task_name,task.getCreator());
-        //db.addTask(task);
+    public void update(View view){
+        db.updateName(taskName.getText().toString());
+        finish();
     }
 }
