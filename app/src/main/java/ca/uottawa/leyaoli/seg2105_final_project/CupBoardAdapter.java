@@ -64,6 +64,20 @@ public class CupBoardAdapter extends BaseAdapter {
         viewHolder.checkBox.setText(tools.get(position).getName());
         viewHolder.textView.setTag(position);
         viewHolder.textView.setText(tools.get(position).getIsUsed());
+        viewHolder.checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if(viewHolder.checkBox.isChecked()){
+                    tools.get(position).setIsUsed("Used");
+
+                    //加载到数据库，然后读取他的状态
+
+
+
+                }
+
+            }
+        });
 
 
         return convertView;
