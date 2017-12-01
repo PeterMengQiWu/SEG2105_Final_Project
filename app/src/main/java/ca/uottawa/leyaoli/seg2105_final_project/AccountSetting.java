@@ -35,6 +35,7 @@ public class AccountSetting extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_account_setting);
 
+
         currentUser = FirebaseAuth.getInstance().getCurrentUser();
         String curren_uid = currentUser.getUid();
         databaseReference = FirebaseDatabase.getInstance().getReference().child("Users").child(curren_uid);
@@ -43,7 +44,7 @@ public class AccountSetting extends AppCompatActivity {
         numChore = (TextView) findViewById(R.id.somethingElse);
         changeImageBt = (Button) findViewById(R.id.changeImage);
         // ===========================================================
-
+/*
 
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
@@ -61,6 +62,7 @@ public class AccountSetting extends AppCompatActivity {
 
             }
         });
+*/
 
         changeImageBt.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -91,15 +93,6 @@ public class AccountSetting extends AppCompatActivity {
                     .setAspectRatio(1,1)
                     .start(this);
             //Toast.makeText(AccountSetting.this,imageUri,Toast.LENGTH_LONG).show();
-        }
-
-        if (requestCode == CropImage.CROP_IMAGE_ACTIVITY_REQUEST_CODE) {
-            CropImage.ActivityResult result = CropImage.getActivityResult(data);
-            if (resultCode == RESULT_OK) {
-                Uri resultUri = result.getUri();
-            } else if (resultCode == CropImage.CROP_IMAGE_ACTIVITY_RESULT_ERROR_CODE) {
-                Exception error = result.getError();
-            }
         }
 
     }

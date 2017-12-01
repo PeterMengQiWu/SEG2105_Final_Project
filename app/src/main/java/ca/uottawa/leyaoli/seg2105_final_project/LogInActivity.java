@@ -55,7 +55,8 @@ public class LogInActivity extends AppCompatActivity {
                 if (task.isSuccessful()){
                     Intent mainintent = new Intent(LogInActivity.this, MainActivity.class);
                     //ADD TO REGISTER PAGE
-                    mainintent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                    //Toast.makeText(LogInActivity.this ,"dasdasdsads",Toast.LENGTH_LONG).show();
+                    //mainintent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                     startActivity(mainintent);
                     finish();
                 }else {
