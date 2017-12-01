@@ -19,7 +19,7 @@ import java.util.List;
 class Shopping{
     private String name;
     private String type;
-    private boolean selected=false;
+    private String selected = "false";
     private String isUsed = "free";
 
 
@@ -33,7 +33,7 @@ class Shopping{
 
     public String getIsUsed() {return isUsed;}
 
-    public boolean isSelected() {
+    public String isSelected() {
         return selected;
     }
 
@@ -45,11 +45,13 @@ class Shopping{
         this.type = type;
     }
 
-    public void setSelected(boolean selected) {
+    public void setSelected(String selected) {
         this.selected = selected;
     }
 
-    public void setIsUsed(String isUsed) {this.isUsed = isUsed;}
+    public void setIsUsed(String isUsed){
+        this.isUsed = isUsed;
+    }
 }
 
 

@@ -66,23 +66,21 @@ public class  Tab1 extends Fragment implements ShoppingAdapter.InnerItemOnclickL
                     typeSelected="groceries";
                     sh.setName(text.getText().toString());
                     sh.setType(typeSelected);
-                    sh.setSelected(false);
+                    sh.setSelected("false");
                     db.addTool(sh);
-                    groceries.add(sh);
                 }else if(ch2.isChecked()){
                     typeSelected = "material";
                     sh.setName(text.getText().toString());
                     sh.setType(typeSelected);
-                    sh.setSelected(false);
+                    sh.setSelected("false");
                     db.addTool(sh);
-                    materials.add(sh);
                 }
                 else{
                     Toast.makeText(getContext(),"Please select the type you want to add to shopping list!",Toast.LENGTH_LONG).show();
                 }
+                getList();
             }
         });
-        setAdapter();
         return view;
     }
     private void setAdapter(){
@@ -99,10 +97,12 @@ public class  Tab1 extends Fragment implements ShoppingAdapter.InnerItemOnclickL
         groceries = new ArrayList<Shopping>();
         materials = new ArrayList<Shopping>();
         for (int i = 0; i < tools.size(); i++) {
-            if (tools.get(i).getType().compareTo("groceries") == 0)
-                groceries.add(tools.get(i));
-            if (tools.get(i).getType().compareTo("material") == 0)
-                materials.add(tools.get(i));
+            if (tools.get(i).isSelected().compareTo("false")==0) {
+                if (tools.get(i).getType().compareTo("groceries") == 0)
+                    groceries.add(tools.get(i));
+                if (tools.get(i).getType().compareTo("material") == 0)
+                    materials.add(tools.get(i));
+            }
         }
         setAdapter();
     }
@@ -111,9 +111,10 @@ public class  Tab1 extends Fragment implements ShoppingAdapter.InnerItemOnclickL
     public void itemClick(View view, boolean isChecked) {
         int position = (Integer)view.getTag();
         if (isChecked){
+            tools.get(position).setSelected("true");
             if (db.deleteTools(tools.get(position).getName())) {
+                db.addTool(tools.get(position));
                 getList();
-                Toast.makeText(getContext(), getString(R.string.successful_delete), Toast.LENGTH_LONG).show();
             }
         }
     }

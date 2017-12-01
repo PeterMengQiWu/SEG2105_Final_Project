@@ -140,9 +140,9 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.Cupboard_Fridge) {
             Intent cupboard = new Intent(MainActivity.this,CupBoard.class);
             startActivity(cupboard);
-
         } else if (id == R.id.nav_tools) {
-
+            Intent tools = new Intent(MainActivity.this,Tools.class);
+            startActivity(tools);
         } else if (id == R.id.nav_maps) {
             Intent location = new Intent(MainActivity.this, LocationActivity.class);
             startActivity(location);
