@@ -9,6 +9,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
+
 import org.w3c.dom.Text;
 
 /**
@@ -60,10 +62,24 @@ public class ChoreDetail extends AppCompatActivity {
     }
 
     public void deleteChore(View view){
-        if(db.deleteTask(task_name,task.getCreator()))
+        FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
+        String userEmail = firebaseAuth.getCurrentUser().getEmail();
+        if(db.deleteTask(task_name, userEmail))
             Toast.makeText(ChoreDetail.this,"Successful delete",Toast.LENGTH_LONG).show();
         else
-            Toast.makeText(ChoreDetail.this,"Fail to delete",Toast.LENGTH_LONG).show();
+            Toast.makeText(ChoreDetail.this,"Cannot delete the chore because you are not the creator",Toast.LENGTH_LONG).show();
         finish();
+    }
+
+    public void signAWorker(View view){
+        Intent intent = new Intent(ChoreDetail.this, UserActivity.class);
+        startActivityForResult(intent, 0);
+    }
+
+    protected void onAvtivityResult(int requestCode, int resultCode, Intent data){
+        if (requestCode == RESULT_CANCELED) return;
+        task.setWorker(data.getStringExtra("WORKER_NAME"));
+        db.deleteTask(task_name,task.getCreator());
+        db.addTask(task);
     }
 }

@@ -28,7 +28,6 @@ public class UserActivity extends AppCompatActivity {
         //getSupportActionBar().setTitle("ALL USER");
         //getSupportActionBar().setHomeButtonEnabled(true);
         usersDatabse = FirebaseDatabase.getInstance().getReference("Users");
-
         userlist = findViewById(R.id.user_list);
         //userlist.setHasFixedSize(true);
         userlist.setLayoutManager(new LinearLayoutManager(this));
@@ -36,51 +35,34 @@ public class UserActivity extends AppCompatActivity {
 
     public void onStart(){
         super.onStart();
-
         FirebaseRecyclerAdapter<User,UsersViewHolder> adapter = new FirebaseRecyclerAdapter<User, UsersViewHolder>(
                 User.class,R.layout.people_layout,UsersViewHolder.class,usersDatabse
-
         ) {
             @Override
             protected void populateViewHolder(UsersViewHolder viewHolder, User model, int position) {
                 viewHolder.setName (model.getName());
                 viewHolder.setOther(model.getEmail());
-
             }
         };
-
            // userlist.setAdapter(adapter);
-
     }
 
-
-
-
     public static class UsersViewHolder extends RecyclerView.ViewHolder{
-
         View mView;
-
-
 
         public UsersViewHolder(View itemView) {
             super(itemView);
-
             mView = itemView;
-
         }
 
         public void setName (String name ){
-
             TextView userNameView = mView.findViewById(R.id.itemName);
             userNameView.setText(name);
         }
 
         public void setOther (String other){
-
             TextView otherView = mView.findViewById(R.id.itemDescription);
             otherView.setText(other);
         }
     }
-
-
 }
