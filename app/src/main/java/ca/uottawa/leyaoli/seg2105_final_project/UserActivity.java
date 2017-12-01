@@ -28,7 +28,7 @@ public class UserActivity extends AppCompatActivity {
         //getSupportActionBar().setTitle("ALL USER");
         //getSupportActionBar().setHomeButtonEnabled(true);
         usersDatabse = FirebaseDatabase.getInstance().getReference("Users");
-        userlist = findViewById(R.id.user_list);
+        userlist = (RecyclerView)findViewById(R.id.user_list);
         //userlist.setHasFixedSize(true);
         userlist.setLayoutManager(new LinearLayoutManager(this));
     }
