@@ -115,8 +115,8 @@ public class MainActivity extends AppCompatActivity
             Intent intent = new Intent(MainActivity.this, UserActivity.class);
             startActivity(intent);
         }else if (id == R.id.menuSetting){
-            Intent intent1 = new Intent(  MainActivity.this, AccountSetting.class );
-            startActivity(intent1);
+            Intent intent = new Intent(  MainActivity.this, AccountSetting.class );
+            startActivity(intent);
         }
         return true;
     }
@@ -145,7 +145,8 @@ public class MainActivity extends AppCompatActivity
             Intent location = new Intent(MainActivity.this, LocationActivity.class);
             startActivity(location);
         } else if (id == R.id.nav_setting) {
-
+            Intent intent = new Intent(getBaseContext(), AccountSetting.class);
+            startActivity(intent);
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
