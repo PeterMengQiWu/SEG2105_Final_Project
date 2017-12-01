@@ -21,9 +21,6 @@ public class Tools extends AppCompatActivity implements ToolAdapter.InnerItemOnc
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tools);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-
         material = new ArrayList<Shopping>();
         lv = (ListView)findViewById(R.id.speratetoollist);
         db =new ToolDBHandle(Tools.this);

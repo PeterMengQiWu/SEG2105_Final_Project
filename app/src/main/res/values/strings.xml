@@ -174,4 +174,5 @@
     <string name="successful_complete">Successful complete</string>
     <string name="fail_complete">You are not the worker of this chore so you cannot complete it.</string>
     <string name="already_complete">This chore has already been submit.</string>
+    <string name="signUser">Sign a worker</string>
 </resources>

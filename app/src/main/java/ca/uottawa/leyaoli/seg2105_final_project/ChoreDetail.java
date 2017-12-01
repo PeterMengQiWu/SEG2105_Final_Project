@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -29,6 +30,7 @@ public class ChoreDetail extends AppCompatActivity {
     private TextView states;
     private TextView creator;
     private TextView worker;
+    private Button signUser;
     private TasksDBHandler db = new TasksDBHandler(this);
 
     @Override
@@ -46,6 +48,7 @@ public class ChoreDetail extends AppCompatActivity {
         states = (TextView)findViewById(R.id.states);
         creator = (TextView)findViewById(R.id.creator);
         worker = (TextView)findViewById(R.id.worker);
+        signUser = (Button)findViewById(R.id.signUser);
 
         task_name = getIntent().getStringExtra("task name");
         task = db.findTaskByName(task_name);
@@ -56,8 +59,18 @@ public class ChoreDetail extends AppCompatActivity {
             dueTime.setText(task.getDueTime());
             states.setText(task.getStates());
             creator.setText(task.getCreator());
-            if (task.getWorker()!=null)
+            if (task.getWorker()!=null) {
                 worker.setText(task.getWorker());
+                signUser.setVisibility(View.GONE);
+            }else{
+                signUser.setVisibility(View.VISIBLE);
+                signUser.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        signAWorker(v);
+                    }
+                });
+            }
         }
     }
 
@@ -72,14 +85,17 @@ public class ChoreDetail extends AppCompatActivity {
     }
 
     public void signAWorker(View view){
-        Intent intent = new Intent(ChoreDetail.this, UserActivity.class);
-        startActivityForResult(intent, 0);
+        Intent intent = new Intent(ChoreDetail.this, ChooseWorkerActivity.class);
+        startActivity(intent);
+
+        //startActivityForResult(intent, 0);
     }
 
     protected void onAvtivityResult(int requestCode, int resultCode, Intent data){
-        if (requestCode == RESULT_CANCELED) return;
-        task.setWorker(data.getStringExtra("WORKER_NAME"));
-        db.deleteTask(task_name,task.getCreator());
-        db.addTask(task);
+        if (resultCode == RESULT_CANCELED) return;
+        Toast.makeText(ChoreDetail.this, data.getStringExtra("list_user_id"), Toast.LENGTH_SHORT).show();
+        //task.setWorker(data.getStringExtra("WORKER_NAME"));
+        //db.deleteTask(task_name,task.getCreator());
+        //db.addTask(task);
     }
 }

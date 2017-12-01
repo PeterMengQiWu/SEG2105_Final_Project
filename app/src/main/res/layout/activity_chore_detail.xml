@@ -119,7 +119,6 @@
                     android:id="@+id/creator"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
                     android:hint="@string/creator"
                     android:textColorHint="@android:color/black" />
 
@@ -154,6 +153,12 @@
                 android:text="@string/delete" />
 
         </LinearLayout>
+
+        <Button
+            android:id="@+id/signUser"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/signUser" />
 
     </LinearLayout>
 
