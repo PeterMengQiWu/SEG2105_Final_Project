@@ -98,7 +98,7 @@ public class AccountSetting extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(AccountSetting.this,ChangeName.class);
-                startActivity(intent);
+                startActivityForResult(intent,0);
             }
         });
 
@@ -118,9 +118,27 @@ public class AccountSetting extends AppCompatActivity {
                     .setAspectRatio(1,1)
                     .start(this);
             //Toast.makeText(AccountSetting.this,imageUri,Toast.LENGTH_LONG).show();
+        }else if (requestCode == 0 && resultCode == 0){
+            final String name =  data.getStringExtra("res");
+            disname.setText(name);
+            databaseReference.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    String image = dataSnapshot.child("image").getValue().toString();
+                    User upInfo = new User(name,currentUser.getEmail(),image);
+                    //databaseReference.setValue(upInfo);
+                }
+
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
+
+                }
+            });
+
+
         }
 
-
+//================================================================================================crop imgage libary
 
         if (requestCode == CropImage.CROP_IMAGE_ACTIVITY_REQUEST_CODE) {
             CropImage.ActivityResult result = CropImage.getActivityResult(data);

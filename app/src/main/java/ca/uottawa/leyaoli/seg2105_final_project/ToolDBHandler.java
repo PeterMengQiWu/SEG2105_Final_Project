@@ -13,7 +13,7 @@ import java.util.List;
  * Created by tyson on 2017-11-30.
  */
 
-public class ToolDBHandle extends SQLiteOpenHelper {
+public class ToolDBHandler extends SQLiteOpenHelper {
     private static final int DATABASE_VERSION = 1;
     private static final String DATABASE_NAME = "tool.db";
     private static final String TABLE_TOOL = "tools";
@@ -22,7 +22,7 @@ public class ToolDBHandle extends SQLiteOpenHelper {
     public static final String COLUMN_ToolName = "tool_name";
     public static final String COLUMN_ToolUse = "tool_use";
     public static final String COLUMN_States = "states";
-    public ToolDBHandle(Context context){
+    public ToolDBHandler(Context context){
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
 
