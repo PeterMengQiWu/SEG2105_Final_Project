@@ -65,9 +65,9 @@ public class ChoreDetail extends AppCompatActivity {
         FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
         String userEmail = firebaseAuth.getCurrentUser().getEmail();
         if(db.deleteTask(task_name, userEmail))
-            Toast.makeText(ChoreDetail.this,"Successful delete",Toast.LENGTH_LONG).show();
+            Toast.makeText(ChoreDetail.this,getString(R.string.successful_delete),Toast.LENGTH_LONG).show();
         else
-            Toast.makeText(ChoreDetail.this,"Cannot delete the chore because you are not the creator",Toast.LENGTH_LONG).show();
+            Toast.makeText(ChoreDetail.this,getString(R.string.fail_delete), Toast.LENGTH_LONG).show();
         finish();
     }
 

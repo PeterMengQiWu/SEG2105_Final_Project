@@ -39,16 +39,13 @@
             android:layout_weight="1"
             android:background="@drawable/refresh" />
 
-        <Switch
-
+        <CheckBox
             android:id="@+id/showTask"
             android:layout_width="wrap_content"
-            android:layout_height="12dp"
-            android:layout_gravity="center"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
             android:layout_weight="1"
-            android:gravity="center|end"
-            android:text="@string/showTask"
-            android:textColor="@color/common_google_signin_btn_text_light_default" />
+            android:text="@string/showTask" />
     </LinearLayout>
 
     <ListView

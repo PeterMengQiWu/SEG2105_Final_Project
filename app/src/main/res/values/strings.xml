@@ -167,4 +167,7 @@
     <string name="user_name">UserName</string>
     <string name="about_us">About us</string>
     <string name="all_user">All user</string>
+    <string name="successful_delete">Successful delete</string>
+    <string name="fail_delete">Cannot delete the chore because you are not the creator</string>
+    <string name="deleted_chore">This chore has already been deleted.</string>
 </resources>

@@ -2,6 +2,7 @@ package ca.uottawa.leyaoli.seg2105_final_project;
 
 import ca.uottawa.leyaoli.seg2105_final_project.TaskListAdapter.InnerItemOnclickListener;
 import android.content.Intent;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -9,11 +10,16 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.ListView;
 import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.AdapterView.OnItemClickListener;
+
+import com.google.firebase.auth.FirebaseAuth;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -32,12 +38,18 @@ public class Tab2 extends Fragment implements InnerItemOnclickListener, OnItemCl
     private Button refresh;
     private TextView new_task_text_view;
     private TasksDBHandler db;
+    private CheckBox showTask;
+    private FirebaseAuth firebaseAuth;
+    private String userEmail;
 
     @Override
     public View onCreateView(final LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_tab2,container,false);
         listView = (ListView)view.findViewById(R.id.nameListView);
+
+        firebaseAuth = FirebaseAuth.getInstance();
+        userEmail = firebaseAuth.getCurrentUser().getEmail();
 
         new_task = (Button)view.findViewById(R.id.new_task);
         new_task.setOnClickListener(new View.OnClickListener() {
@@ -54,8 +66,6 @@ public class Tab2 extends Fragment implements InnerItemOnclickListener, OnItemCl
             }
         });
 
-        taskList = new ArrayList<Task>();
-
         refresh = (Button)view.findViewById(R.id.refresh);
         refresh.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -67,10 +77,25 @@ public class Tab2 extends Fragment implements InnerItemOnclickListener, OnItemCl
         taskList = new ArrayList<Task>();
         db = new TasksDBHandler(getContext());
         taskList = db.getTaskList();
-
         myAdapter = new TaskListAdapter(taskList, getContext());
         listView.setAdapter(myAdapter);
         listView.setOnItemClickListener(this);
+
+        showTask = (CheckBox) view.findViewById(R.id.showTask);
+        showTask.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if(isChecked){
+                    taskList = new ArrayList<Task>();
+                    taskList.addAll(db.findTaskByCreator(userEmail));
+                    taskList.addAll(db.findTaskByWorker(userEmail));
+                }else{
+                    taskList = db.getTaskList();
+                }
+                myAdapter = new TaskListAdapter(taskList, getContext());
+                listView.setAdapter(myAdapter);
+            }
+        });
         return view;
     }
 
@@ -94,7 +119,7 @@ public class Tab2 extends Fragment implements InnerItemOnclickListener, OnItemCl
             intent.putExtra("task name", taskList.get(position).getName());
             startActivity(intent);
         }else{
-            Toast.makeText(getContext(),"This chore has already been deleted.",Toast.LENGTH_LONG).show();
+            Toast.makeText(getContext(),getString(R.string.deleted_chore), Toast.LENGTH_LONG).show();
             search();
         }
     }

@@ -88,48 +88,54 @@ public class TasksDBHandler extends SQLiteOpenHelper{
         return task;
     }
 
-    public Task findTaskByCreator(String creator){
+    public List<Task> findTaskByCreator(String creator){
        SQLiteDatabase db = this.getReadableDatabase();
        String query = "Select * FROM " + TABLE_TASKS + " WHERE " +
                COLUMN_Creator + " = \""+ creator + "\"";
        Cursor cursor = db.rawQuery(query,null);
-       Task task = new Task();
-       if (cursor.moveToFirst()){
-           task.setName(cursor.getString(1));
-           task.setPoints(Double.parseDouble(cursor.getString(2)));
-           task.setDueDate(cursor.getString(3));
-           task.setDueTime(cursor.getString(4));
-           task.setCreator(cursor.getString(5));
-           if (cursor.getString(6)!=null)
-               task.setWorker(cursor.getString(6));
-               task.setStates(cursor.getString(7));
-       } else {
-           task = null;
-       }
-       db.close();
-       return task;
+        List<Task> taskList = new ArrayList<Task>();
+        Task task;
+        if (cursor.moveToFirst()){
+            do{
+                task = new Task();
+                task.setName(cursor.getString(1));
+                task.setPoints(Double.parseDouble(cursor.getString(2)));
+                task.setDueDate(cursor.getString(3));
+                task.setDueTime(cursor.getString(4));
+                task.setCreator(cursor.getString(5));
+                if (cursor.getString(6)!=null)
+                    task.setWorker(cursor.getString(6));
+                task.setStates(cursor.getString(7));
+                taskList.add(task);
+            }while(cursor.moveToNext());
+        }
+        db.close();
+        return taskList;
     }
 
-    public Task findTaskByWorker(String worker) {
+    public List<Task> findTaskByWorker(String worker) {
         SQLiteDatabase db = this.getReadableDatabase();
         String query = "Select * FROM " + TABLE_TASKS + " WHERE " +
                 COLUMN_Worker + " = \""+ worker + "\"";
         Cursor cursor = db.rawQuery(query,null);
-        Task task = new Task();
+        List<Task> taskList = new ArrayList<Task>();
+        Task task;
         if (cursor.moveToFirst()){
-            task.setName(cursor.getString(1));
-            task.setPoints(Double.parseDouble(cursor.getString(2)));
-            task.setDueDate(cursor.getString(3));
-            task.setDueTime(cursor.getString(4));
-            task.setCreator(cursor.getString(5));
-            if (cursor.getString(6)!=null)
-                task.setWorker(cursor.getString(6));
-            task.setStates(cursor.getString(7));
-        } else {
-            task = null;
+            do{
+                task = new Task();
+                task.setName(cursor.getString(1));
+                task.setPoints(Double.parseDouble(cursor.getString(2)));
+                task.setDueDate(cursor.getString(3));
+                task.setDueTime(cursor.getString(4));
+                task.setCreator(cursor.getString(5));
+                if (cursor.getString(6)!=null)
+                    task.setWorker(cursor.getString(6));
+                task.setStates(cursor.getString(7));
+                taskList.add(task);
+            }while(cursor.moveToNext());
         }
         db.close();
-        return task;
+        return taskList;
     }
 
     public boolean deleteTask (String taskName, String creator){
