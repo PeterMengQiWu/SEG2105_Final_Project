@@ -54,4 +54,8 @@
     <string name="successful_delete">删除成功</string>
     <string name="fail_delete">您不是任务创建者，无法删除</string>
     <string name="deleted_chore">此任务已被删除。</string>
+    <string name="finish">完成</string>
+    <string name="successful_complete">成功完成</string>
+    <string name="fail_complete">您不是任务的工作者，无法提交完成申请。</string>
+    <string name="already_complete">此任务已经成功提交完成申请。</string>
 </resources>

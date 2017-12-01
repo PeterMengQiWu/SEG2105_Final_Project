@@ -138,6 +138,8 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_people) {
             viewPager.setCurrentItem(3);
         } else if (id == R.id.Cupboard_Fridge) {
+            Intent cupboard = new Intent(MainActivity.this,CupBoard.class);
+            startActivity(cupboard);
 
         } else if (id == R.id.nav_tools) {
 

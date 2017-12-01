@@ -58,6 +58,7 @@ public class  Tab1 extends Fragment{
         db = new ToolDBHandle(getContext());
         getList();
 
+
         add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -82,7 +83,17 @@ public class  Tab1 extends Fragment{
                 }
             }
         });
+
+
         displayShoppingList();
+
+
+
+
+
+
+
+
         return view;
     }
     private void displayShoppingList(){
@@ -92,14 +103,29 @@ public class  Tab1 extends Fragment{
         lv2.setAdapter(adapter2);
     }
 
-    public void getList(){
+    public void getList() {
         tools = db.getShopList();
-        for (int i = 0; i < tools.size(); i++){
-            if (tools.get(i).getType().compareTo("groceries")==0){
-                groceries.add(tools.get(i));
-            }else{
-                materials.add(tools.get(i));
+        for (int i = 0; i < tools.size(); i++) {
+            if (tools.get(i).getType().compareTo("groceries") == 0) {
+
+                    groceries.add(tools.get(i));
+                    Toast.makeText(getContext(), Boolean.toString(tools.get(i).isSelected()), Toast.LENGTH_LONG).show();
+                }
+
+            if (tools.get(i).getType().compareTo("material") == 0) {
+
+                    materials.add(tools.get(i));
+
+
             }
         }
     }
+    public void remove(List<Shopping> shopping){
+        for(int i=0;i<shopping.size();i++){
+            if (shopping.get(i).isSelected()==true){
+                shopping.remove(shopping.get(i));
+            }
+        }
+    }
+
 }

@@ -8,7 +8,9 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -16,7 +18,7 @@ import android.widget.TextView;
  * Created by Kevin-Lee on 2017/11/30.
  */
 
-public class TaskListAdapter extends BaseAdapter implements OnClickListener{
+public class TaskListAdapter extends BaseAdapter implements OnClickListener {
     private List<Task> tasks;
     private Context context;
     private InnerItemOnclickListener mListener;
@@ -50,13 +52,15 @@ public class TaskListAdapter extends BaseAdapter implements OnClickListener{
             viewHolder.task_name = (TextView)convertView.findViewById(R.id.task_name);
             viewHolder.task_states = (TextView)convertView.findViewById(R.id.task_states);
             viewHolder.worker_ico = (ImageView)convertView.findViewById(R.id.worker_ico);
-            viewHolder.finish = (CheckBox)convertView.findViewById(R.id.finish);
+            viewHolder.finish = (Button) convertView.findViewById(R.id.finish);
             convertView.setTag(viewHolder);
         } else {
             viewHolder = (ViewHolder) convertView.getTag();
         }
         viewHolder.task_name.setText(tasks.get(position).getName());
         viewHolder.task_states.setText(tasks.get(position).getStates());
+        viewHolder.finish.setOnClickListener(this);
+        viewHolder.finish.setTag(position);
         return convertView;
     }
 
@@ -64,15 +68,15 @@ public class TaskListAdapter extends BaseAdapter implements OnClickListener{
         TextView task_name;
         TextView task_states;
         ImageView worker_ico;
-        CheckBox finish;
+        Button finish;
     }
 
     interface InnerItemOnclickListener {
-        void itemClick(View v);
+        void itemClick(View view);
     }
 
     public void setOnInnerItemOnClickListener(InnerItemOnclickListener listener){
-        this.mListener = listener;
+        this.mListener=listener;
     }
 
     @Override
