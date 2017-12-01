@@ -41,7 +41,8 @@
             android:theme="@style/Base.Theme.AppCompat" />
         <activity android:name=".CupBoard" />
         <activity android:name=".Tools" />
-        <activity android:name=".ChangeName"></activity>
+        <activity android:name=".ChangeName" />
+        <activity android:name=".ChooseWorkerActivity"></activity>
     </application>
 
 </manifest>

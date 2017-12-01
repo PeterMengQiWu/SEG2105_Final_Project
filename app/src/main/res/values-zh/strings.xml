@@ -58,4 +58,5 @@
     <string name="successful_complete">成功完成</string>
     <string name="fail_complete">您不是任务的工作者，无法提交完成申请。</string>
     <string name="already_complete">此任务已经成功提交完成申请。</string>
+    <string name="signUser">分配工作者</string>
 </resources>

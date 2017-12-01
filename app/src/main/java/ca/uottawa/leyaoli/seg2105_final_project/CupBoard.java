@@ -1,6 +1,5 @@
 package ca.uottawa.leyaoli.seg2105_final_project;
 
-import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -15,7 +14,7 @@ public class CupBoard extends AppCompatActivity implements CupBoardAdapter.Inner
     private CupBoardAdapter adapter;
     private List<Shopping> tools;
     private ListView lv;
-    private ToolDBHandle db;
+    private ToolDBHandler db;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,7 +25,7 @@ public class CupBoard extends AppCompatActivity implements CupBoardAdapter.Inner
 
         groceries = new ArrayList<Shopping>();
         lv = (ListView)findViewById(R.id.cupboardlist);
-        db =new ToolDBHandle(CupBoard.this);
+        db =new ToolDBHandler(CupBoard.this);
         getList();
     }
 

@@ -1,10 +1,7 @@
 package ca.uottawa.leyaoli.seg2105_final_project;
 
 
-import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,8 +13,6 @@ import android.widget.ListView;
 import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
-
-import static android.content.Intent.getIntent;
 
 
 /**
@@ -39,7 +34,7 @@ public class  Tab1 extends Fragment implements ShoppingAdapter.InnerItemOnclickL
     private String typeSelected;
     private CheckBox ch1;
     private CheckBox ch2;
-    private ToolDBHandle db;
+    private ToolDBHandler db;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -55,7 +50,7 @@ public class  Tab1 extends Fragment implements ShoppingAdapter.InnerItemOnclickL
         text = view.findViewById(R.id.textadd);
         groceries = new ArrayList<Shopping>();
         materials = new ArrayList<Shopping>();
-        db = new ToolDBHandle(getContext());
+        db = new ToolDBHandler(getContext());
         getList();
 
         add.setOnClickListener(new View.OnClickListener() {

@@ -56,35 +56,24 @@ public class Tab3 extends Fragment {
         //PeopleAdapter adapter = new PeopleAdapter(getActivity(), somelist.getUserlist());
         //listview.setAdapter(adapter);
 
-
         userlist = (RecyclerView)view.findViewById(R.id.recycle1);
         auth = FirebaseAuth.getInstance();
         userid = auth.getCurrentUser().getUid();
         usersDatabse = FirebaseDatabase.getInstance().getReference("Users");
-
         //userlist.setHasFixedSize(true);
         userlist.setLayoutManager(new LinearLayoutManager(getContext()));
-
-
-
-
-
         return view;
     }
 
     public void onStart(){
         super.onStart();
-
         FirebaseRecyclerAdapter<User,UserActivity.UsersViewHolder> adapter = new FirebaseRecyclerAdapter<User, UserActivity.UsersViewHolder>(
                 User.class,R.layout.people_layout,UserActivity.UsersViewHolder.class,usersDatabse
-
         ) {
             @Override
             protected void populateViewHolder(final UserActivity.UsersViewHolder viewHolder, User model, int position) {
                 viewHolder.setName (model.getName());
                 viewHolder.setOther(model.getEmail());
-
-
              //   viewHolder.setImage(model.getImage());
 
 //===================================================================================================On click
@@ -103,7 +92,6 @@ public class Tab3 extends Fragment {
                                     @Override
                                     public void onClick(DialogInterface dialog, int which) {
                                         if (which == 0 ){
-
                                             Intent inten = new Intent(getContext(),PersonalFile.class);
                                             inten.putExtra("user_id",list_user_id);
                                             startActivity(inten);
@@ -111,63 +99,37 @@ public class Tab3 extends Fragment {
                                             Intent chatintent = new Intent(getContext(),ChatActivity.class);
                                             chatintent.putExtra("user_id",list_user_id);
                                             startActivity(chatintent);
-
                                         }
                                     }
                                 });
-
                                 builder.show();
-
-
                             }
                         });
                     }
-
                     @Override
                     public void onCancelled(DatabaseError databaseError) {
-
                     }
                 });
             }
-
-
-
         };
-
-
-
        userlist.setAdapter(adapter);
-
-
-
-
-
     }
-
-
-
 
     public static class UsersViewHolder extends RecyclerView.ViewHolder{
 
         View mView;
 
-
-
         public UsersViewHolder(View itemView) {
             super(itemView);
-
             mView = itemView;
-
         }
 
-        public void setName (String name ){
-
+        public void setName (String name){
             TextView userNameView = mView.findViewById(R.id.itemName);
             userNameView.setText(name);
         }
 
-        public void setOther (String other){
-
+        public void setOther (String other) {
             TextView otherView = mView.findViewById(R.id.itemDescription);
             otherView.setText(other);
         }
