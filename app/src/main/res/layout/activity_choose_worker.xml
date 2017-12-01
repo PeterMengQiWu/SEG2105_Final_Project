@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/register_signin_wallpaper"
+    android:background="@drawable/main_wallpaper"
     tools:context="ca.uottawa.leyaoli.seg2105_final_project.ChooseWorkerActivity">
 
     <android.support.v7.widget.RecyclerView
