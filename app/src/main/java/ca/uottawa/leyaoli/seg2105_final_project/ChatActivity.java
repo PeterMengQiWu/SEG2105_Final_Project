@@ -216,7 +216,7 @@ public class ChatActivity extends AppCompatActivity {
 
 
             chatMessage.setText("");
-//  Update Method
+//  ================================================================================================== Update Method
             userdatabase.updateChildren(messageUserMap, new DatabaseReference.CompletionListener() {
                 @Override
                 public void onComplete(DatabaseError databaseError, DatabaseReference databaseReference) {

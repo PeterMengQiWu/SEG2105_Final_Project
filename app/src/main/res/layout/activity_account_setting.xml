@@ -20,19 +20,21 @@
         android:id="@+id/SettingName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/changeImage"
-        android:layout_alignEnd="@+id/somethingElse"
-        android:layout_marginBottom="25dp"
-        android:text="DisplayName" />
+        android:layout_alignStart="@+id/changeName"
+        android:layout_below="@+id/somethingElse"
+        android:layout_marginTop="27dp"
+        android:text="User Name :   "
+        android:textColor="@color/common_google_signin_btn_text_dark_focused" />
 
     <TextView
         android:id="@+id/somethingElse"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/settingAvatar"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="22dp"
-        android:text="Num of Tasks" />
+        android:layout_centerVertical="true"
+        android:text="NOT FINISH"
+        android:textColor="@color/common_google_signin_btn_text_dark_focused"
+        android:textStyle="bold" />
 
     <Button
         android:id="@+id/changeImage"
