@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -47,6 +48,7 @@ public class ChooseWorkerActivity extends AppCompatActivity {
                 viewHolder.setOther(model.getEmail());
             }
         };
+
         workerList.setAdapter(adapter);
     }
 
