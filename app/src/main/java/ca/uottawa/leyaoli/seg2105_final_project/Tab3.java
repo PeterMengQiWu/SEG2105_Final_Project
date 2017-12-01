@@ -28,6 +28,10 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.lang.reflect.Field;
+import java.net.MalformedURLException;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.net.URL;
 import java.util.ArrayList;
 
 /**
@@ -80,12 +84,16 @@ public class Tab3 extends Fragment {
                 viewHolder.setName (model.getName());
                 viewHolder.setOther(model.getEmail());
 
+
+             //   viewHolder.setImage(model.getImage());
+
+//===================================================================================================On click
                 final String list_user_id = getRef(position).getKey();
 
                 usersDatabse.addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
-                        viewHolder.mView.setOnClickListener(new View.OnClickListener() {
+                        viewHolder.view.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
                                 CharSequence options [] = new CharSequence[]{"Open Profile","Chat"};

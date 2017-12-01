@@ -1,3 +1,9 @@
+
+
+/**
+ * Created by tyson on 2017-12-01.
+ */
+
 /**
  * Created by tyson on 2017-12-01.
  */
@@ -17,12 +23,12 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CupBoardAdapter extends BaseAdapter {
+public class ToolAdapter extends BaseAdapter {
     private  Context context;
     private  List<Shopping> tools;
     private ToolDBHandle db;
 
-    public  CupBoardAdapter( Context context, List<Shopping> tools) {
+    public  ToolAdapter( Context context, List<Shopping> tools) {
         this.context = context;
         this.tools = tools;
 
@@ -53,9 +59,9 @@ public class CupBoardAdapter extends BaseAdapter {
         final ViewHolder viewHolder;
         if (convertView == null){
             viewHolder = new ViewHolder();
-            convertView = LayoutInflater.from(context).inflate(R.layout.activity_add_cup_board, null);
-            viewHolder.checkBox = (CheckBox)convertView.findViewById(R.id.CupBoardcheckbox);
-            viewHolder.textView = (TextView)convertView.findViewById(R.id.cupboardstatus);
+            convertView = LayoutInflater.from(context).inflate(R.layout.activity_add_tools, null);
+            viewHolder.checkBox = (CheckBox)convertView.findViewById(R.id.Toolcheckbox);
+            viewHolder.textView = (TextView)convertView.findViewById(R.id.toolstatus);
             convertView.setTag(viewHolder);
         }else{
             viewHolder = (ViewHolder)convertView.getTag();
@@ -85,3 +91,5 @@ public class CupBoardAdapter extends BaseAdapter {
 
 
 }
+
+
