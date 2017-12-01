@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -18,7 +19,9 @@ import java.util.List;
 class Shopping{
     private String name;
     private String type;
-    boolean selected=false;
+    private boolean selected=false;
+    private String isUsed = "free";
+
 
     public String getName() {
         return name;
@@ -27,6 +30,8 @@ class Shopping{
     public String getType() {
         return type;
     }
+
+    public String getIsUsed() {return isUsed;}
 
     public boolean isSelected() {
         return selected;
@@ -43,6 +48,8 @@ class Shopping{
     public void setSelected(boolean selected) {
         this.selected = selected;
     }
+
+    public void setIsUsed(String isUsed) {this.isUsed = isUsed;}
 }
 
 
@@ -50,6 +57,7 @@ class Shopping{
 public class ShoppingAdapter extends BaseAdapter {
     private  Context context;
     private  List<Shopping> tools;
+    private ToolDBHandle db;
     public ShoppingAdapter( Context context, List<Shopping> tools) {
         this.context = context;
         this.tools = tools;
@@ -76,7 +84,7 @@ public class ShoppingAdapter extends BaseAdapter {
     }
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(final int position, View convertView, ViewGroup parent) {
         final ViewHolder viewHolder;
         if (convertView == null){
             viewHolder = new ViewHolder();
@@ -88,8 +96,32 @@ public class ShoppingAdapter extends BaseAdapter {
             viewHolder = (ViewHolder)convertView.getTag();
         }
         viewHolder.checkBox.setTag(position);
+
         viewHolder.textView.setTag(position);
         viewHolder.textView.setText(tools.get(position).getName());
+        db = new ToolDBHandle(context);
+        viewHolder.checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if(viewHolder.checkBox.isChecked()){
+                    String readdname = tools.get(position).getName().toString();
+                    String readdtype = tools.get(position).getType().toString();
+                    Shopping sh = new Shopping();
+                    sh.setName(readdname);
+                    sh.setType(readdtype);
+                    sh.setSelected(true);
+                    tools.remove(tools.get(position));
+                    db.deleteTools(db.FindShoppingByName( tools.get(position).getName().toString()).toString());
+
+                    Toast.makeText(context,tools.get(position).getName().toString(),Toast.LENGTH_LONG).show();
+                    //Toast.makeText(context, db.FindShoppingByName( tools.get(position).getName().toString()).getName().toString(),Toast.LENGTH_LONG).show();
+
+                }
+
+            }
+        });
+
         return convertView;
     }
+
 }
