@@ -127,7 +127,8 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_schedule) {
 
         } else if (id == R.id.task_backlog) {
-
+            Intent intent = new Intent(MainActivity.this, TaskBaclogActivity.class);
+            startActivity(intent);
         } else if (id == R.id.nav_people) {
             viewPager.setCurrentItem(3);
         } else if (id == R.id.Cupboard_Fridge) {
@@ -140,7 +141,7 @@ public class MainActivity extends AppCompatActivity
             Intent location = new Intent(MainActivity.this, LocationActivity.class);
             startActivity(location);
         } else if (id == R.id.nav_setting) {
-            Intent intent = new Intent(getBaseContext(), AccountSetting.class);
+            Intent intent = new Intent(MainActivity.this, AccountSetting.class);
             startActivity(intent);
         }
 
