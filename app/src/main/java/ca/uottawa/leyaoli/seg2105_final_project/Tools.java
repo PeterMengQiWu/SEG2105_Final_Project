@@ -14,7 +14,7 @@ public class Tools extends AppCompatActivity implements ToolAdapter.InnerItemOnc
     private List<Shopping> material;
     private ToolAdapter adapter;
     private ListView lv;
-    private ToolDBHandle db;
+    private ToolDBHandler db;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,7 +25,7 @@ public class Tools extends AppCompatActivity implements ToolAdapter.InnerItemOnc
 
         material = new ArrayList<Shopping>();
         lv = (ListView)findViewById(R.id.speratetoollist);
-        db =new ToolDBHandle(Tools.this);
+        db =new ToolDBHandler(Tools.this);
         getList();
     }
 
