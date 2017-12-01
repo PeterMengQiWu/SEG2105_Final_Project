@@ -37,6 +37,7 @@ public class AccountSetting extends AppCompatActivity {
     private TextView disname;
     private TextView numChore;
     private Button changeImageBt;
+    private Button changeNameBt;
     private static final int AVATAR_NUM = 1;
     private StorageReference imageStorage;
 
@@ -54,6 +55,7 @@ public class AccountSetting extends AppCompatActivity {
         numChore = (TextView) findViewById(R.id.somethingElse);
         changeImageBt = (Button) findViewById(R.id.changeImage);
         imageStorage = FirebaseStorage.getInstance().getReference();
+        changeNameBt = (Button)findViewById(R.id.changeName);
         // ===========================================================
 
 
@@ -90,6 +92,13 @@ public class AccountSetting extends AppCompatActivity {
                 startActivityForResult(Intent.createChooser(intent,"Select Avatra"),AVATAR_NUM);
 
 
+            }
+        });
+        changeNameBt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(AccountSetting.this,ChangeName.class);
+                startActivity(intent);
             }
         });
 

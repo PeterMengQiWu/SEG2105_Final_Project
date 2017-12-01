@@ -40,7 +40,8 @@
             android:name="com.theartofdev.edmodo.cropper.CropImageActivity"
             android:theme="@style/Base.Theme.AppCompat" />
         <activity android:name=".CupBoard" />
-        <activity android:name=".Tools"></activity>
+        <activity android:name=".Tools" />
+        <activity android:name=".ChangeName"></activity>
     </application>
 
 </manifest>

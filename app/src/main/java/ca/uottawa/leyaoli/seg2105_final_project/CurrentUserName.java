@@ -22,15 +22,16 @@ public class CurrentUserName {
 
     public static String getCurrentUserName() {
         firebaseAuth = FirebaseAuth.getInstance();
-        userdatabase = FirebaseDatabase.getInstance().getReference();
-        //String userID = firebaseAuth.getCurrentUser().getUid();
-      //  String name = firebaseAuth.getCurrentUser().getDisplayName();
+        //userdatabase = FirebaseDatabase.getInstance().getReference();
+        String userID = firebaseAuth.getCurrentUser().getUid();
+        userdatabase = FirebaseDatabase.getInstance().getReference().child("User").child(userID).child("name");
+        String name = userdatabase.getKey().toString();
 
         FirebaseUser currentUser = firebaseAuth.getCurrentUser();
 
         returnUserName = currentUser.getEmail();
         String[] a = returnUserName.split("@");
-        return a[0];
+        return name;
     }
 
 }

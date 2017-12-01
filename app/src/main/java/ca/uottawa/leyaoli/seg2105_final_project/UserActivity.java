@@ -28,11 +28,10 @@ public class UserActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user);
-        //getSupportActionBar().setTitle("ALL USER");
-        //getSupportActionBar().setHomeButtonEnabled(true);
+
         usersDatabse = FirebaseDatabase.getInstance().getReference("Users");
         userlist = (RecyclerView)findViewById(R.id.user_list);
-        //userlist.setHasFixedSize(true);
+
         userlist.setLayoutManager(new LinearLayoutManager(this));
     }
 
@@ -49,7 +48,7 @@ public class UserActivity extends AppCompatActivity {
         };
            // userlist.setAdapter(adapter);
     }
-//=================================================================================== inner viwe holder class
+//=================================================================================== inner viewHolder class
 
     public static class UsersViewHolder extends RecyclerView.ViewHolder{
         View view;
