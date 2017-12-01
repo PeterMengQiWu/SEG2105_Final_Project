@@ -1,7 +1,9 @@
 package ca.uottawa.leyaoli.seg2105_final_project;
 
+import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.ListView;
 
@@ -12,15 +14,18 @@ public class Tools extends AppCompatActivity implements ToolAdapter.InnerItemOnc
     private List<Shopping> material;
     private ToolAdapter adapter;
     private ListView lv;
-    private ToolDBHandler db;
+    private ToolDBHandle db;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tools);
 
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
         material = new ArrayList<Shopping>();
         lv = (ListView)findViewById(R.id.speratetoollist);
-        db =new ToolDBHandler(Tools.this);
+        db =new ToolDBHandle(Tools.this);
         getList();
     }
 
