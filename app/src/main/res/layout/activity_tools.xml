@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@drawable/main_wallpaper"
     tools:context="ca.uottawa.leyaoli.seg2105_final_project.CupBoard">
 
     <ListView
