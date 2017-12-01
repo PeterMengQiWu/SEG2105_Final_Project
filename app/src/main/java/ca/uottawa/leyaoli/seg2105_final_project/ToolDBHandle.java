@@ -34,7 +34,7 @@ public class ToolDBHandle extends SQLiteOpenHelper {
                 + COLUMN_ToolType + " TEXT,"
                 + COLUMN_ToolName + " TEXT,"
                 + COLUMN_ToolUse + " TEXT,"
-                + COLUMN_States + " BLOB"+ ")";
+                + COLUMN_States + " TEXT"+ ")";
         db.execSQL(CREATE_PRODUCTS_TABLE);
     }
 
@@ -65,7 +65,7 @@ public class ToolDBHandle extends SQLiteOpenHelper {
             shop.setName(cursor.getString(2));
             shop.setType(cursor.getString(1));
             shop.setIsUsed(cursor.getString(3));
-            shop.setSelected(Boolean.parseBoolean(cursor.getString(4)));
+            shop.setSelected(cursor.getString(4));
         } else {
             shop = null;
         }
@@ -83,13 +83,14 @@ public class ToolDBHandle extends SQLiteOpenHelper {
             shop.setName(cursor.getString(2));
             shop.setType(cursor.getString(1));
             shop.setIsUsed(cursor.getString(3));
-            shop.setSelected(Boolean.parseBoolean(cursor.getString(4)));
+            shop.setSelected(cursor.getString(4));
         } else {
             shop = null;
         }
         db.close();
         return shop;
     }
+
     public boolean deleteTools (String toolName){
         boolean result = false;
         SQLiteDatabase db = this.getWritableDatabase();
@@ -118,7 +119,7 @@ public class ToolDBHandle extends SQLiteOpenHelper {
                 sh.setName(cursor.getString(2));
                 sh.setType(cursor.getString(1));
                 sh.setIsUsed(cursor.getString(3));
-                sh.setSelected(Boolean.parseBoolean(cursor.getString(4)));
+                sh.setSelected(cursor.getString(4));
                 shopList.add(sh);
             }while(cursor.moveToNext());
         }

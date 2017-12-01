@@ -1,9 +1,3 @@
-
-
-/**
- * Created by tyson on 2017-12-01.
- */
-
 /**
  * Created by tyson on 2017-12-01.
  */
@@ -23,10 +17,10 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ToolAdapter extends BaseAdapter {
+public class ToolAdapter extends BaseAdapter implements CompoundButton.OnCheckedChangeListener {
     private  Context context;
     private  List<Shopping> tools;
-    private ToolDBHandle db;
+    private InnerItemOnclickListener mListener;
 
     public  ToolAdapter( Context context, List<Shopping> tools) {
         this.context = context;
@@ -68,28 +62,25 @@ public class ToolAdapter extends BaseAdapter {
         }
         viewHolder.checkBox.setTag(position);
         viewHolder.checkBox.setText(tools.get(position).getName());
-        viewHolder.textView.setTag(position);
+        if (tools.get(position).getIsUsed().compareTo("in used")==0)
+            viewHolder.checkBox.setChecked(true);
         viewHolder.textView.setText(tools.get(position).getIsUsed());
-        viewHolder.checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if(viewHolder.checkBox.isChecked()){
-                    tools.get(position).setIsUsed("Used");
-
-                    //加载到数据库，然后读取他的状态
-
-
-
-                }
-
-            }
-        });
-
-
+        viewHolder.checkBox.setOnCheckedChangeListener(this);
         return convertView;
     }
 
+    interface InnerItemOnclickListener {
+        void itemClick(View view, boolean isChecked);
+    }
 
+    public void setOnInnerItemOnClickListener(InnerItemOnclickListener listener){
+        this.mListener=listener;
+    }
+
+    @Override
+    public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+        mListener.itemClick(buttonView, isChecked);
+    }
 }
 
 
