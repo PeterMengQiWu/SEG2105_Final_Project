@@ -34,7 +34,7 @@ public class ToolDBHandle extends SQLiteOpenHelper {
                 + COLUMN_ToolType + " TEXT,"
                 + COLUMN_ToolName + " TEXT,"
                 + COLUMN_ToolUse + " TEXT,"
-                + COLUMN_States + " TAXT"+ ")";
+                + COLUMN_States + " BLOB"+ ")";
         db.execSQL(CREATE_PRODUCTS_TABLE);
     }
 
@@ -72,6 +72,7 @@ public class ToolDBHandle extends SQLiteOpenHelper {
         db.close();
         return shop;
     }
+
     public Shopping FindShoppingByState(String state){
         SQLiteDatabase db = this.getWritableDatabase();
         String query = "Select * FROM " + TABLE_TOOL + " WHERE " +
@@ -96,16 +97,15 @@ public class ToolDBHandle extends SQLiteOpenHelper {
                 COLUMN_ToolName + " = \"" + toolName + "\"";
         Cursor cursor = db.rawQuery(query, null);
         if (cursor.moveToFirst()){
-
-                String name = cursor.getString(1);
-                db.delete(TABLE_TOOL, COLUMN_ToolName + " = " + name, null);
+                String id = cursor.getString(0);
+                db.delete(TABLE_TOOL, COLUMN_ID + " = " + id, null);
                 cursor.close();
                 result = true;
-
         }
         db.close();
         return result;
     }
+
     public List<Shopping> getShopList(){
         SQLiteDatabase db = this.getReadableDatabase();
         String query = "Select * FROM " + TABLE_TOOL;

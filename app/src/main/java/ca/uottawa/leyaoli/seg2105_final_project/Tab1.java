@@ -25,7 +25,7 @@ import static android.content.Intent.getIntent;
  */
 
 
-public class  Tab1 extends Fragment{
+public class  Tab1 extends Fragment implements ShoppingAdapter.InnerItemOnclickListener {
     private ListView lv;
     private ListView lv2;
     private List<Shopping>groceries;
@@ -58,7 +58,6 @@ public class  Tab1 extends Fragment{
         db = new ToolDBHandle(getContext());
         getList();
 
-
         add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -83,49 +82,39 @@ public class  Tab1 extends Fragment{
                 }
             }
         });
-
-
-        displayShoppingList();
-
-
-
-
-
-
-
-
+        setAdapter();
         return view;
     }
-    private void displayShoppingList(){
+    private void setAdapter(){
         adapter = new ShoppingAdapter(getContext(),groceries);
+        adapter.setOnInnerItemOnClickListener(this);
         adapter2 = new ShoppingAdapter(getContext(),materials);
+        adapter2.setOnInnerItemOnClickListener(this);
         lv.setAdapter(adapter);
         lv2.setAdapter(adapter2);
     }
 
     public void getList() {
         tools = db.getShopList();
+        groceries = new ArrayList<Shopping>();
+        materials = new ArrayList<Shopping>();
         for (int i = 0; i < tools.size(); i++) {
-            if (tools.get(i).getType().compareTo("groceries") == 0) {
+            if (tools.get(i).getType().compareTo("groceries") == 0)
+                groceries.add(tools.get(i));
+            if (tools.get(i).getType().compareTo("material") == 0)
+                materials.add(tools.get(i));
+        }
+        setAdapter();
+    }
 
-                    groceries.add(tools.get(i));
-                    Toast.makeText(getContext(), Boolean.toString(tools.get(i).isSelected()), Toast.LENGTH_LONG).show();
-                }
-
-            if (tools.get(i).getType().compareTo("material") == 0) {
-
-                    materials.add(tools.get(i));
-
-
+    @Override
+    public void itemClick(View view, boolean isChecked) {
+        int position = (Integer)view.getTag();
+        if (isChecked){
+            if (db.deleteTools(tools.get(position).getName())) {
+                getList();
+                Toast.makeText(getContext(), getString(R.string.successful_delete), Toast.LENGTH_LONG).show();
             }
         }
     }
-    public void remove(List<Shopping> shopping){
-        for(int i=0;i<shopping.size();i++){
-            if (shopping.get(i).isSelected()==true){
-                shopping.remove(shopping.get(i));
-            }
-        }
-    }
-
 }

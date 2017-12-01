@@ -54,10 +54,11 @@ class Shopping{
 
 
 
-public class ShoppingAdapter extends BaseAdapter {
+public class ShoppingAdapter extends BaseAdapter implements CompoundButton.OnCheckedChangeListener {
     private  Context context;
     private  List<Shopping> tools;
-    private ToolDBHandle db;
+    private  InnerItemOnclickListener mListener;
+
     public ShoppingAdapter( Context context, List<Shopping> tools) {
         this.context = context;
         this.tools = tools;
@@ -95,33 +96,22 @@ public class ShoppingAdapter extends BaseAdapter {
         }else{
             viewHolder = (ViewHolder)convertView.getTag();
         }
-        viewHolder.checkBox.setTag(position);
-
-        viewHolder.textView.setTag(position);
         viewHolder.textView.setText(tools.get(position).getName());
-        db = new ToolDBHandle(context);
-        viewHolder.checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if(viewHolder.checkBox.isChecked()){
-                    String readdname = tools.get(position).getName().toString();
-                    String readdtype = tools.get(position).getType().toString();
-                    Shopping sh = new Shopping();
-                    sh.setName(readdname);
-                    sh.setType(readdtype);
-                    sh.setSelected(true);
-                    tools.remove(tools.get(position));
-                    db.deleteTools(db.FindShoppingByName( tools.get(position).getName().toString()).toString());
-
-                    Toast.makeText(context,tools.get(position).getName().toString(),Toast.LENGTH_LONG).show();
-                    //Toast.makeText(context, db.FindShoppingByName( tools.get(position).getName().toString()).getName().toString(),Toast.LENGTH_LONG).show();
-
-                }
-
-            }
-        });
-
+        viewHolder.checkBox.setTag(position);
+        viewHolder.checkBox.setOnCheckedChangeListener(this);
         return convertView;
     }
 
+    interface InnerItemOnclickListener {
+        void itemClick(View view, boolean isChecked);
+    }
+
+    public void setOnInnerItemOnClickListener(InnerItemOnclickListener listener){
+        this.mListener=listener;
+    }
+
+    @Override
+    public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+        mListener.itemClick(buttonView, isChecked);
+    }
 }
