@@ -12,7 +12,6 @@ import java.util.List;
 public class CupBoard extends AppCompatActivity implements CupBoardAdapter.InnerItemOnclickListener {
     private List<Shopping> groceries;
     private CupBoardAdapter adapter;
-    private List<Shopping> tools;
     private ListView lv;
     private ToolDBHandler db;
     @Override
@@ -36,13 +35,7 @@ public class CupBoard extends AppCompatActivity implements CupBoardAdapter.Inner
     }
 
     public void getList() {
-        tools = db.getShopList();
-        groceries = new ArrayList<Shopping>();
-        for (int i = 0; i < tools.size(); i++) {
-            if (tools.get(i).isSelected().compareTo("true")==0)
-                if (tools.get(i).getType().compareTo("groceries") == 0)
-                    groceries.add(tools.get(i));
-        }
+        groceries = db.FindShoppingList("groceries", "true");
         setAdapter();
     }
 
@@ -50,17 +43,13 @@ public class CupBoard extends AppCompatActivity implements CupBoardAdapter.Inner
     public void itemClick(View view, boolean isChecked) {
         int position = (Integer)view.getTag();
         if (isChecked){
-            tools.get(position).setIsUsed("in used");
-            if (db.deleteTools(tools.get(position).getName())) {
-                db.addTool(tools.get(position));
-                getList();
-            }
+            groceries.get(position).setIsUsed("used");
+            db.updateUse(groceries.get(position).getIsUsed(), groceries.get(position).getName());
+            getList();
         }else{
-            tools.get(position).setIsUsed("free");
-            if (db.deleteTools(tools.get(position).getName())) {
-                db.addTool(tools.get(position));
-                getList();
-            }
+            groceries.get(position).setIsUsed("free");
+            db.updateUse(groceries.get(position).getIsUsed(), groceries.get(position).getName());
+            getList();
         }
     }
 }

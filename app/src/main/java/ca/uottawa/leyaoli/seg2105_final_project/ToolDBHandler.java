@@ -55,40 +55,38 @@ public class ToolDBHandler extends SQLiteOpenHelper {
         db.close();
     }
 
-    public Shopping FindShoppingByName(String name){
+    public void updateUse (String use, String name){
         SQLiteDatabase db = this.getWritableDatabase();
-        String query = "Select * FROM " + TABLE_TOOL + " WHERE " +
-                COLUMN_ToolName + " = \""+ name + "\"";
-        Cursor cursor = db.rawQuery(query,null);
-        Shopping shop = new Shopping();
-        if (cursor.moveToFirst()){
-            shop.setName(cursor.getString(2));
-            shop.setType(cursor.getString(1));
-            shop.setIsUsed(cursor.getString(3));
-            shop.setSelected(cursor.getString(4));
-        } else {
-            shop = null;
-        }
-        db.close();
-        return shop;
+        String query = "UPDATE " + TABLE_TOOL + " SET " + COLUMN_ToolUse + " = \"" + use + "\" WHERE " + COLUMN_ToolName + " = \"" + name + "\"";
+        db.execSQL(query);
     }
 
-    public Shopping FindShoppingByState(String state){
+    public void updateStates (String states, String name){
         SQLiteDatabase db = this.getWritableDatabase();
+        String query = "UPDATE " + TABLE_TOOL + " SET " + COLUMN_States + " = \"" + states + "\" WHERE " + COLUMN_ToolName + " = \"" + name + "\"";
+        db.execSQL(query);
+    }
+
+    public List<Shopping> FindShoppingList (String type, String states){
+        SQLiteDatabase db = this.getReadableDatabase();
         String query = "Select * FROM " + TABLE_TOOL + " WHERE " +
-                COLUMN_ToolName + " = \""+ state + "\"";
+                COLUMN_ToolType + " = \""+ type + "\" AND " +
+                COLUMN_States + " = \""+ states + "\"";
         Cursor cursor = db.rawQuery(query,null);
-        Shopping shop = new Shopping();
-        if (cursor.moveToFirst()){
-            shop.setName(cursor.getString(2));
-            shop.setType(cursor.getString(1));
-            shop.setIsUsed(cursor.getString(3));
-            shop.setSelected(cursor.getString(4));
-        } else {
-            shop = null;
+        List<Shopping> tools = new ArrayList<Shopping>();
+        Shopping tool;
+        if (cursor.moveToFirst()) {
+            do {
+                tool = new Shopping();
+                tool.setName(cursor.getString(2));
+                tool.setType(cursor.getString(1));
+                tool.setIsUsed(cursor.getString(3));
+                tool.setSelected(cursor.getString(4));
+                tools.add(tool);
+            } while (cursor.moveToNext());
         }
         db.close();
-        return shop;
+        return tools;
     }
 
     public boolean deleteTools (String toolName){
@@ -105,25 +103,5 @@ public class ToolDBHandler extends SQLiteOpenHelper {
         }
         db.close();
         return result;
-    }
-
-    public List<Shopping> getShopList(){
-        SQLiteDatabase db = this.getReadableDatabase();
-        String query = "Select * FROM " + TABLE_TOOL;
-        Cursor cursor = db.rawQuery(query, null);
-        List<Shopping> shopList = new ArrayList<Shopping>();
-        Shopping sh;
-        if (cursor.moveToFirst()){
-            do{
-                sh= new Shopping();
-                sh.setName(cursor.getString(2));
-                sh.setType(cursor.getString(1));
-                sh.setIsUsed(cursor.getString(3));
-                sh.setSelected(cursor.getString(4));
-                shopList.add(sh);
-            }while(cursor.moveToNext());
-        }
-        db.close();
-        return shopList;
     }
 }

@@ -1,6 +1,7 @@
 package ca.uottawa.leyaoli.seg2105_final_project;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -20,12 +21,11 @@ import java.util.List;
  */
 
 
-public class  Tab1 extends Fragment implements ShoppingAdapter.InnerItemOnclickListener {
+public class  Tab1 extends Fragment{
     private ListView lv;
     private ListView lv2;
     private List<Shopping>groceries;
     private List<Shopping>materials;
-    private List<Shopping> tools;
     private ShoppingAdapter adapter;
     private ShoppingAdapter adapter2;
     private Button add;
@@ -41,18 +41,9 @@ public class  Tab1 extends Fragment implements ShoppingAdapter.InnerItemOnclickL
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_tab1,container,false);
 
-        lv = view.findViewById(R.id.list1);//ini listview 1
-        lv2= view.findViewById(R.id.list2);//ini listview 2
-        add = view.findViewById(R.id.add);
-        ch1 = view.findViewById(R.id.checkBoxtype1);
-        ch2 = view.findViewById(R.id.checkBoxtype2);
-
-        text = view.findViewById(R.id.textadd);
-        groceries = new ArrayList<Shopping>();
-        materials = new ArrayList<Shopping>();
-        db = new ToolDBHandler(getContext());
-        getList();
-
+        lv = (ListView)view.findViewById(R.id.list1);//ini listview 1
+        lv2= (ListView)view.findViewById(R.id.list2);//ini listview 2
+        add = (Button)view.findViewById(R.id.add);
         add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -76,41 +67,50 @@ public class  Tab1 extends Fragment implements ShoppingAdapter.InnerItemOnclickL
                 getList();
             }
         });
+        ch1 = (CheckBox)view.findViewById(R.id.checkBoxtype1);
+        ch2 = (CheckBox)view.findViewById(R.id.checkBoxtype2);
+        text = (EditText)view.findViewById(R.id.textadd);
+        groceries = new ArrayList<Shopping>();
+        materials = new ArrayList<Shopping>();
+        db = new ToolDBHandler(getContext());
+        groceries = db.FindShoppingList("groceries", "false");
+        materials = db.FindShoppingList("material", "false");
+        setAdapter();
         return view;
-    }
-    private void setAdapter(){
-        adapter = new ShoppingAdapter(getContext(),groceries);
-        adapter.setOnInnerItemOnClickListener(this);
-        adapter2 = new ShoppingAdapter(getContext(),materials);
-        adapter2.setOnInnerItemOnClickListener(this);
-        lv.setAdapter(adapter);
-        lv2.setAdapter(adapter2);
     }
 
     public void getList() {
-        tools = db.getShopList();
-        groceries = new ArrayList<Shopping>();
-        materials = new ArrayList<Shopping>();
-        for (int i = 0; i < tools.size(); i++) {
-            if (tools.get(i).isSelected().compareTo("false")==0) {
-                if (tools.get(i).getType().compareTo("groceries") == 0)
-                    groceries.add(tools.get(i));
-                if (tools.get(i).getType().compareTo("material") == 0)
-                    materials.add(tools.get(i));
-            }
-        }
+        groceries = db.FindShoppingList("groceries", "false");
+        materials = db.FindShoppingList("material", "false");
         setAdapter();
     }
 
-    @Override
-    public void itemClick(View view, boolean isChecked) {
-        int position = (Integer)view.getTag();
-        if (isChecked){
-            tools.get(position).setSelected("true");
-            if (db.deleteTools(tools.get(position).getName())) {
-                db.addTool(tools.get(position));
-                getList();
+    private void setAdapter(){
+        adapter = new ShoppingAdapter(getContext(),groceries);
+        adapter.setOnInnerItemOnClickListener(new ShoppingAdapter.InnerItemOnclickListener() {
+            @Override
+            public void itemClick(View view, boolean isChecked) {
+                int position = (Integer)view.getTag();
+                if (isChecked){
+                    groceries.get(position).setSelected("true");
+                    db.updateStates(groceries.get(position).isSelected(), groceries.get(position).getName());
+                    getList();
+                }
             }
-        }
+        });
+        adapter2 = new ShoppingAdapter(getContext(),materials);
+        adapter2.setOnInnerItemOnClickListener(new ShoppingAdapter.InnerItemOnclickListener() {
+            @Override
+            public void itemClick(View view, boolean isChecked) {
+                int position = (Integer)view.getTag();
+                if (isChecked){
+                    materials.get(position).setSelected("true");
+                    db.updateStates(materials.get(position).isSelected(), materials.get(position).getName());
+                    getList();
+                }
+            }
+        });
+        lv.setAdapter(adapter);
+        lv2.setAdapter(adapter2);
     }
 }

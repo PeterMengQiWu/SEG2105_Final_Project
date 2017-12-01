@@ -65,7 +65,6 @@ public class Tab2 extends Fragment implements InnerItemOnclickListener, OnItemCl
                 newTask();
             }
         });
-
         refresh = (Button)view.findViewById(R.id.refresh);
         refresh.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -73,12 +72,9 @@ public class Tab2 extends Fragment implements InnerItemOnclickListener, OnItemCl
                 search();
             }
         });
-
         taskList = new ArrayList<Task>();
         db = new TasksDBHandler(getContext());
         taskList = db.getTaskList();
-        setAdapter();
-
         showTask = (CheckBox) view.findViewById(R.id.showTask);
         showTask.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -93,6 +89,7 @@ public class Tab2 extends Fragment implements InnerItemOnclickListener, OnItemCl
                 setAdapter();
             }
         });
+        setAdapter();
         return view;
     }
 

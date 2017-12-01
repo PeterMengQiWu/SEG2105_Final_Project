@@ -11,7 +11,6 @@ import java.util.List;
 public class Tools extends AppCompatActivity implements ToolAdapter.InnerItemOnclickListener {
     private List<Shopping> material;
     private ToolAdapter adapter;
-    private List<Shopping> tools;
     private ListView lv;
     private ToolDBHandler db;
     @Override
@@ -32,13 +31,7 @@ public class Tools extends AppCompatActivity implements ToolAdapter.InnerItemOnc
     }
 
     public void getList() {
-        tools = db.getShopList();
-        material = new ArrayList<Shopping>();
-        for (int i = 0; i < tools.size(); i++) {
-            if (tools.get(i).isSelected().compareTo("true")==0)
-                if (tools.get(i).getType().compareTo("material") == 0)
-                    material.add(tools.get(i));
-        }
+        material = db.FindShoppingList("material", "true");
         setAdapter();
     }
 
@@ -46,17 +39,13 @@ public class Tools extends AppCompatActivity implements ToolAdapter.InnerItemOnc
     public void itemClick(View view, boolean isChecked) {
         int position = (Integer)view.getTag();
         if (isChecked){
-            tools.get(position).setIsUsed("in used");
-            if (db.deleteTools(tools.get(position).getName())) {
-                db.addTool(tools.get(position));
-                getList();
-            }
+            material.get(position).setIsUsed("in used");
+            db.updateUse(material.get(position).getIsUsed(), material.get(position).getName());
+            getList();
         }else{
-            tools.get(position).setIsUsed("free");
-            if (db.deleteTools(tools.get(position).getName())) {
-                db.addTool(tools.get(position));
-                getList();
-            }
+            material.get(position).setIsUsed("free");
+            db.updateUse(material.get(position).getIsUsed(), material.get(position).getName());
+            getList();
         }
     }
 }
