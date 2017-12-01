@@ -132,13 +132,11 @@ public class Tab2 extends Fragment implements InnerItemOnclickListener, OnItemCl
         if (taskList.get(position).getWorker()!=null && taskList.get(position).getWorker().compareTo(userEmail)==0) {
             if (taskList.get(position).getStates().compareTo("COMPLETE")==0)
                 Toast.makeText(getContext(), getString(R.string.already_complete), Toast.LENGTH_LONG).show();
-            taskList.get(position).setStates("COMPLETE");
-            if (db.deleteTask(taskList.get(position).getName(), taskList.get(position).getCreator())) {
-                db.addTask(taskList.get(position));
+                taskList.get(position).setStates("COMPLETE");
+                db.updateStates(taskList.get(position).getStates(), taskList.get(position).getName());
                 search();
                 Toast.makeText(getContext(), getString(R.string.successful_complete), Toast.LENGTH_LONG).show();
-            }
-        } else
-            Toast.makeText(getContext(), getString(R.string.fail_complete), Toast.LENGTH_LONG).show();
+            }else
+                Toast.makeText(getContext(), getString(R.string.fail_complete), Toast.LENGTH_LONG).show();
     }
 }

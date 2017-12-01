@@ -138,12 +138,15 @@ public class TasksDBHandler extends SQLiteOpenHelper{
         return taskList;
     }
 
-    public void updateName (String name){
+    public void updateName (String name, String oldName){
         SQLiteDatabase db = this.getWritableDatabase();
-        String query = "Select * FROM " + TABLE_TASKS + " WHERE " + COLUMN_NAME + " = \"" + name + "\"";
-        Cursor cursor = db.rawQuery(query, null);
-        int id = Integer.parseInt(cursor.getString(0));
-        query = "UPDATE " + TABLE_TASKS + " SET " + COLUMN_NAME + " = \"" + name + "\" WHERE " + COLUMN_ID + " = " + id;
+        String query = "UPDATE " + TABLE_TASKS + " SET " + COLUMN_NAME + " = \"" + name + "\" WHERE " + COLUMN_NAME + " = \"" + oldName + "\"";
+        db.execSQL(query);
+    }
+
+    public void updateStates (String states, String name){
+        SQLiteDatabase db = this.getWritableDatabase();
+        String query = "UPDATE " + TABLE_TASKS + " SET " + COLUMN_States + " = \"" + states + "\" WHERE " + COLUMN_NAME + " = \"" + name + "\"";
         db.execSQL(query);
     }
 
