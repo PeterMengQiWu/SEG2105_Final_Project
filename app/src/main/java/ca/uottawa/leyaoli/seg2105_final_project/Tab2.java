@@ -77,9 +77,7 @@ public class Tab2 extends Fragment implements InnerItemOnclickListener, OnItemCl
         taskList = new ArrayList<Task>();
         db = new TasksDBHandler(getContext());
         taskList = db.getTaskList();
-        myAdapter = new TaskListAdapter(taskList, getContext());
-        listView.setAdapter(myAdapter);
-        listView.setOnItemClickListener(this);
+        setAdapter();
 
         showTask = (CheckBox) view.findViewById(R.id.showTask);
         showTask.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -92,17 +90,20 @@ public class Tab2 extends Fragment implements InnerItemOnclickListener, OnItemCl
                 }else{
                     taskList = db.getTaskList();
                 }
-                myAdapter = new TaskListAdapter(taskList, getContext());
-                listView.setAdapter(myAdapter);
+                setAdapter();
             }
         });
         return view;
     }
 
     public void search(){
-        taskList = new ArrayList<Task>();
         taskList = db.getTaskList();
+        setAdapter();
+    }
+
+    public void setAdapter(){
         myAdapter = new TaskListAdapter(taskList, getContext());
+        myAdapter.setOnInnerItemOnClickListener(this);
         listView.setAdapter(myAdapter);
         listView.setOnItemClickListener(this);
     }
@@ -125,14 +126,19 @@ public class Tab2 extends Fragment implements InnerItemOnclickListener, OnItemCl
     }
 
     @Override
-    public void itemClick(View v) {
+    public void itemClick(View view) {
         int position;
-        position = (Integer)v.getTag();
-        switch (v.getId()){
-            case R.id.finish:
-                break;
-            default:
-                break;
-        }
+        position = (Integer) view.getTag();
+        if (taskList.get(position).getWorker()!=null && taskList.get(position).getWorker().compareTo(userEmail)==0) {
+            if (taskList.get(position).getStates().compareTo("COMPLETE")==0)
+                Toast.makeText(getContext(), getString(R.string.already_complete), Toast.LENGTH_LONG).show();
+            taskList.get(position).setStates("COMPLETE");
+            if (db.deleteTask(taskList.get(position).getName(), taskList.get(position).getCreator())) {
+                db.addTask(taskList.get(position));
+                search();
+                Toast.makeText(getContext(), getString(R.string.successful_complete), Toast.LENGTH_LONG).show();
+            }
+        } else
+            Toast.makeText(getContext(), getString(R.string.fail_complete), Toast.LENGTH_LONG).show();
     }
 }
