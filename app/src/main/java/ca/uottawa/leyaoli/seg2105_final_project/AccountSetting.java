@@ -44,14 +44,14 @@ public class AccountSetting extends AppCompatActivity {
         numChore = (TextView) findViewById(R.id.somethingElse);
         changeImageBt = (Button) findViewById(R.id.changeImage);
         // ===========================================================
-/*
+
 
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 String name = dataSnapshot.child("name").getValue().toString();
-                String image = dataSnapshot.child("image").getValue().toString();
-                String thumb_image = dataSnapshot.child("thumb_image").getValue().toString();
+                //String image = dataSnapshot.child("image").getValue().toString();
+                //String thumb_image = dataSnapshot.child("thumb_image").getValue().toString();
                disname.setText("User Name :" +name);
 
 
@@ -62,7 +62,7 @@ public class AccountSetting extends AppCompatActivity {
 
             }
         });
-*/
+
 
         changeImageBt.setOnClickListener(new View.OnClickListener() {
             @Override
