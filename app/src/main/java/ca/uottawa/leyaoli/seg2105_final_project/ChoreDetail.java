@@ -71,15 +71,8 @@ public class ChoreDetail extends AppCompatActivity {
         finish();
     }
 
-    public void signAWorker(View view){
-        Intent intent = new Intent(ChoreDetail.this, UserActivity.class);
-        startActivityForResult(intent, 0);
-    }
-
-    protected void onAvtivityResult(int requestCode, int resultCode, Intent data){
-        if (requestCode == RESULT_CANCELED) return;
-        task.setWorker(data.getStringExtra("WORKER_NAME"));
-        db.deleteTask(task_name,task.getCreator());
-        db.addTask(task);
+    public void update(View view){
+        db.updateName(taskName.getText().toString());
+        finish();
     }
 }
