@@ -21,9 +21,9 @@ public class UserList {
 
         for (int i = 0;     i< userName.length ; i++){
 
-            User newUser = new User(userName[i], "Yo");
+            //User newUser = new User(userName[i], "Yo");
 
-            userlist.add(newUser);
+            //userlist.add(newUser);
         }
 
 
