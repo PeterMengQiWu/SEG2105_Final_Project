@@ -14,6 +14,8 @@ import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.google.firebase.auth.FirebaseAuth;
+
 /**
  * Created by Kevin-Lee on 2017/11/30.
  */
@@ -22,10 +24,14 @@ public class TaskListAdapter extends BaseAdapter implements OnClickListener {
     private List<Task> tasks;
     private Context context;
     private InnerItemOnclickListener mListener;
+    private FirebaseAuth firebaseAuth;
+    private String userEmail;
 
     public TaskListAdapter(List<Task> tasks, Context context) {
         this.tasks = tasks;
         this.context = context;
+        firebaseAuth = FirebaseAuth.getInstance();
+        userEmail = firebaseAuth.getCurrentUser().getEmail();
     }
 
     @Override
