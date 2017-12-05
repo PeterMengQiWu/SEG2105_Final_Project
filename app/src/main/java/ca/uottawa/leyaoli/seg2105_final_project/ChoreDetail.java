@@ -91,6 +91,8 @@ public class ChoreDetail extends AppCompatActivity {
 
     public void signAWorker(View view){
         Intent intent = new Intent(ChoreDetail.this, ChooseWorkerActivity.class);
+        intent.putExtra("name", task.getName());
         startActivity(intent);
+        finish();
     }
 }

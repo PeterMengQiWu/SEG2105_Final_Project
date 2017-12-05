@@ -14,6 +14,7 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.auth.FirebaseAuth;
@@ -27,12 +28,14 @@ public class ChooseWorkerActivity extends AppCompatActivity {
 
     private RecyclerView workerList;
     private DatabaseReference usersDatabse;
+    private TasksDBHandler db = new TasksDBHandler(this);
+    private String taskName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_choose_worker);
-
+        taskName = getIntent().getStringExtra("name");
         usersDatabse = FirebaseDatabase.getInstance().getReference("Users");
         workerList = (RecyclerView)findViewById(R.id.workerList);
         workerList.setLayoutManager(new LinearLayoutManager(this));
@@ -43,9 +46,40 @@ public class ChooseWorkerActivity extends AppCompatActivity {
                 User.class,R.layout.people_layout,UsersViewHolder.class,usersDatabse
         ) {
             @Override
-            protected void populateViewHolder(UsersViewHolder viewHolder, User model, int position) {
+            protected void populateViewHolder(final UsersViewHolder viewHolder, User model, int position) {
                 viewHolder.setName (model.getName());
                 viewHolder.setOther(model.getEmail());
+
+                final String list_user_id = getRef(position).getKey();
+                usersDatabse.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                        viewHolder.view.setOnClickListener(new View.OnClickListener(){
+                            @Override
+                            public void onClick(View v) {
+                                        FirebaseDatabase.getInstance().getReference().child("Users").child(list_user_id).addValueEventListener(new ValueEventListener() {
+                                            @Override
+                                            public void onDataChange(DataSnapshot dataSnapshot) {
+                                                final String emailAddress;
+                                                emailAddress= dataSnapshot.child("email").getValue().toString();
+                                                db.updateWorker(emailAddress, taskName);
+                                                finish();
+                                            }
+
+                                            @Override
+                                            public void onCancelled(DatabaseError databaseError) {
+
+                                            }
+                                        });
+                            }
+                        });
+                    }
+
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
+
+                    }
+                });
             }
         };
 

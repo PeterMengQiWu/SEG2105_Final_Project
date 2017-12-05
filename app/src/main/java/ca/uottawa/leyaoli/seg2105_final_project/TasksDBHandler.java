@@ -144,6 +144,12 @@ public class TasksDBHandler extends SQLiteOpenHelper{
         db.execSQL(query);
     }
 
+    public void updateWorker (String worker, String name){
+        SQLiteDatabase db = this.getWritableDatabase();
+        String query = "UPDATE " + TABLE_TASKS + " SET " + COLUMN_Worker + " = \"" + worker + "\" WHERE " + COLUMN_NAME + " = \"" + name + "\"";
+        db.execSQL(query);
+    }
+
     public void updateStates (String states, String name){
         SQLiteDatabase db = this.getWritableDatabase();
         String query = "UPDATE " + TABLE_TASKS + " SET " + COLUMN_States + " = \"" + states + "\" WHERE " + COLUMN_NAME + " = \"" + name + "\"";
