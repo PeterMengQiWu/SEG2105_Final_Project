@@ -64,8 +64,9 @@ public class AccountSetting extends AppCompatActivity {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 String name = dataSnapshot.child("name").getValue().toString();
                 //String image = dataSnapshot.child("image").getValue().toString();
-
+                String points = dataSnapshot.child("points").getValue().toString();
                disname.setText("User Name :" +name);
+               numChore.setText("Current Points"+ points);
 
 
                   // Picasso.with(AccountSetting.this).load(image).placeholder(R.drawable.avatar).into(imageAv);
@@ -125,8 +126,9 @@ public class AccountSetting extends AppCompatActivity {
                 @Override
                 public void onDataChange(DataSnapshot dataSnapshot) {
                     String image = dataSnapshot.child("image").getValue().toString();
-                    User upInfo = new User(name,currentUser.getEmail(),image);
-                    //databaseReference.setValue(upInfo);
+                    String  points = (String) dataSnapshot.child("points").getValue();
+                    User upInfo = new User(name,currentUser.getEmail(),image,points);
+                    databaseReference.setValue(upInfo);
                 }
 
                 @Override

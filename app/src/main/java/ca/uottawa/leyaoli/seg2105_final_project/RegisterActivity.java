@@ -77,6 +77,7 @@ public class RegisterActivity extends AppCompatActivity {
                             userMap.put("name",disName);
                             userMap.put("email",disEmail);
                             userMap.put("image","avatar");
+                            userMap.put("points","0");
 
                             database.setValue(userMap).addOnCompleteListener(new OnCompleteListener<Void>() {
                                 @Override

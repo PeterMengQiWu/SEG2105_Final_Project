@@ -10,6 +10,13 @@ public class User {
     private String email;
     private  String image ;
 
+    public User(String name, String email, String image, String points) {
+        this.name = name;
+        this.email = email;
+        this.image = image;
+        this.points = points;
+    }
+
     public String getName() {
         return name;
     }
@@ -26,12 +33,6 @@ public class User {
         this.email = email;
     }
 
-    public User(String name, String email, String image) {
-        this.name = name;
-        this.email = email;
-        this.image = image;
-    }
-
     public String getImage() {
         return image;
     }
@@ -39,6 +40,19 @@ public class User {
     public void setImage(String image) {
         this.image = image;
     }
+
+    public String getPoints() {
+        return points;
+    }
+
+    public void setPoints(String points) {
+        this.points = points;
+    }
+
+    private String points ;
+
+
+
     public User(){
 
     }
