@@ -43,7 +43,8 @@
         <activity android:name=".Tools" />
         <activity android:name=".ChangeName" />
         <activity android:name=".ChooseWorkerActivity" />
-        <activity android:name=".TaskBaclogActivity"></activity>
+        <activity android:name=".TaskBaclogActivity" />
+        <activity android:name=".ScheduleActivity"></activity>
     </application>
 
 </manifest>

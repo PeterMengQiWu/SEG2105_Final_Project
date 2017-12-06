@@ -57,6 +57,7 @@ public class TaskListAdapter extends BaseAdapter implements OnClickListener {
             convertView = LayoutInflater.from(context).inflate(R.layout.chorelayout,null);
             viewHolder.task_name = (TextView)convertView.findViewById(R.id.task_name);
             viewHolder.task_states = (TextView)convertView.findViewById(R.id.task_states);
+            viewHolder.task_due = (TextView)convertView.findViewById(R.id.task_due);
             viewHolder.worker_ico = (ImageView)convertView.findViewById(R.id.worker_ico);
             viewHolder.finish = (Button) convertView.findViewById(R.id.finish);
             convertView.setTag(viewHolder);
@@ -65,6 +66,7 @@ public class TaskListAdapter extends BaseAdapter implements OnClickListener {
         }
         viewHolder.task_name.setText(tasks.get(position).getName());
         viewHolder.task_states.setText(tasks.get(position).getStates());
+        viewHolder.task_due.setText(tasks.get(position).getDueDate()+" "+tasks.get(position).getDueTime());
         viewHolder.finish.setOnClickListener(this);
         viewHolder.finish.setTag(position);
         return convertView;
@@ -73,6 +75,7 @@ public class TaskListAdapter extends BaseAdapter implements OnClickListener {
     public final static class ViewHolder {
         TextView task_name;
         TextView task_states;
+        TextView task_due;
         ImageView worker_ico;
         Button finish;
     }

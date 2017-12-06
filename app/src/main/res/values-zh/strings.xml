@@ -16,8 +16,8 @@
     <string name="add_new_task">新增任务</string>
     <string name="refresh">刷新</string>
     <string name="confirm">确认</string>
-    <string name="due_date">截止日期：17-12-30</string>
-    <string name="due_time">截止时间：22:55</string>
+    <string name="due_date">截止日期：18-01-03</string>
+    <string name="due_time">截止时间：23:05</string>
     <string name="name_of_task">任务名称</string>
     <string name="points">分数（例：5）</string>
     <string name="open_tasks">打开任务界面</string>
@@ -67,4 +67,5 @@
     <string name="register">注册</string>
     <string name="sign_in">登陆</string>
     <string name="my_information">个人信息</string>
+    <string name="duetime">截止日期</string>
 </resources>

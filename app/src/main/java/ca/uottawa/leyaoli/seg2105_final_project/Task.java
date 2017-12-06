@@ -1,10 +1,12 @@
 package ca.uottawa.leyaoli.seg2105_final_project;
 
+import android.support.annotation.NonNull;
+
 /**
  * Created by Kevin-Lee on 2017/11/27.
  */
 
-class Task {
+class Task implements Comparable<Task>{
     private String name;
     private double points;
     private String dueDate;
@@ -50,4 +52,8 @@ class Task {
     public void setWorker(String worker){this.worker = worker;}
     public void setStates(String states){this.states = states;}
 
+    @Override
+    public int compareTo(@NonNull Task o) {
+        return (this.getDueDate()+" "+this.getDueTime()).compareTo(o.getDueDate()+" "+o.getDueTime());
+    }
 }

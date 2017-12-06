@@ -125,7 +125,8 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_list) {
             viewPager.setCurrentItem(0);
         } else if (id == R.id.nav_schedule) {
-
+            Intent intent = new Intent(MainActivity.this, ScheduleActivity.class);
+            startActivity(intent);
         } else if (id == R.id.task_backlog) {
             Intent intent = new Intent(MainActivity.this, TaskBaclogActivity.class);
             startActivity(intent);
