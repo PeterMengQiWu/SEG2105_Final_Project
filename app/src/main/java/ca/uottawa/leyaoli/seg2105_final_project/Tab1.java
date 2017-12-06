@@ -48,7 +48,9 @@ public class  Tab1 extends Fragment{
             @Override
             public void onClick(View v) {
                 Shopping sh = new Shopping();
-                if(ch1.isChecked()){
+                if (ch1.isChecked() && ch2.isChecked()){
+                    Toast.makeText(getContext(),"Please select ONE type you want to add to shopping list ONLY!",Toast.LENGTH_SHORT).show();
+                }else if(ch1.isChecked()){
                     typeSelected="groceries";
                     sh.setName(text.getText().toString());
                     sh.setType(typeSelected);
@@ -62,7 +64,7 @@ public class  Tab1 extends Fragment{
                     db.addTool(sh);
                 }
                 else{
-                    Toast.makeText(getContext(),"Please select the type you want to add to shopping list!",Toast.LENGTH_LONG).show();
+                    Toast.makeText(getContext(),"Please select the type you want to add to shopping list!",Toast.LENGTH_SHORT).show();
                 }
                 getList();
             }
