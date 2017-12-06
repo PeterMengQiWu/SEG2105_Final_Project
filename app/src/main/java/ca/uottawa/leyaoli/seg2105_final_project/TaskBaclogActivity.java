@@ -38,10 +38,6 @@ public class TaskBaclogActivity extends AppCompatActivity implements TaskListAda
     private String userID;
     private DatabaseReference databaseReference;
     private FirebaseUser currentUser;
-    String name;
-    String email;
-    String image;
-    String points;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -65,21 +61,6 @@ public class TaskBaclogActivity extends AppCompatActivity implements TaskListAda
         user_email.setText(userEmail);
 
         setAdapter();
-
-        databaseReference.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                name = dataSnapshot.child("name").getValue().toString();
-                 email = dataSnapshot.child("email").getValue().toString();
-                 image =dataSnapshot.child("image").getValue().toString();
-                 points = dataSnapshot.child("points").getValue().toString();
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        });
     }
 
     public void setAdapter(){
@@ -94,21 +75,13 @@ public class TaskBaclogActivity extends AppCompatActivity implements TaskListAda
             final int position;
             position = (Integer) view.getTag();
             if (tasks.get(position).getWorker()!=null && tasks.get(position).getWorker().compareTo(userEmail)==0) {
-                double point = db.findTaskByName(tasks.get(position).getName()).getPoints();
-
-                double totalPoints = point + Double.parseDouble(points);
-                String toalPoints =Double.toString(totalPoints);
-
-                User upinfo = new User(name,email,image,toalPoints);
-                databaseReference.setValue(upinfo);
                 if (tasks.get(position).getStates().compareTo("COMPLETE")==0)
                     Toast.makeText(TaskBaclogActivity.this, getString(R.string.already_complete), Toast.LENGTH_LONG).show();
                 tasks.get(position).setStates("COMPLETE");
                 db.updateStates(tasks.get(position).getStates(), tasks.get(position).getName() );
                 search();
                 Toast.makeText(TaskBaclogActivity.this, getString(R.string.successful_complete), Toast.LENGTH_LONG).show();
-
-
+                double points = db.findTaskByName(tasks.get(position).getName()).getPoints();
 
             }else
                 Toast.makeText(TaskBaclogActivity.this, getString(R.string.fail_complete), Toast.LENGTH_LONG).show();

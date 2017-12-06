@@ -19,6 +19,10 @@ import android.widget.Toast;
 import android.widget.AdapterView.OnItemClickListener;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -41,6 +45,7 @@ public class Tab2 extends Fragment implements InnerItemOnclickListener, OnItemCl
     private CheckBox showTask;
     private FirebaseAuth firebaseAuth;
     private String userEmail;
+    private DatabaseReference databaseReference;
 
     @Override
     public View onCreateView(final LayoutInflater inflater, ViewGroup container,
@@ -90,13 +95,17 @@ public class Tab2 extends Fragment implements InnerItemOnclickListener, OnItemCl
             }
         });
         setAdapter();
+
+
         return view;
     }
 
     public void search(){
         taskList = db.getTaskList();
         setAdapter();
+
     }
+
 
     public void setAdapter(){
         myAdapter = new TaskListAdapter(taskList, getContext());
